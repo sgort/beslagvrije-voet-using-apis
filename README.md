@@ -1,4 +1,4 @@
-# mongodb-atlas-restful-api-node-js
+# demo illustrating beslagvrije voet using API's
 Prototype code base for business use case(s) illustrating usage of a RESTful API with Node.js and Express Framework
 
 - morgan is used for logging requests to the console
