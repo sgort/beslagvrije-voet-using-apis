@@ -1,22 +1,31 @@
 import React, { Component } from "react";
- 
+
 class Status extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { apiResponse: "" };
+  }
+  callAPI() {
+    fetch("http://localhost:9000/invorderingen")
+      .then(res => res.text())
+      .then(res => this.setState({ apiResponse: res }));
+  }
+  componentWillMount() {
+    this.callAPI();
+  }
+
   render() {
     return (
       <div>
-        <h2>STUFF</h2>
-        <p>Mauris sem velit, vehicula eget sodales vitae,
-        rhoncus eget sapien:</p>
-        <ol>
-          <li>Nulla pulvinar diam</li>
-          <li>Facilisis bibendum</li>
-          <li>Vestibulum vulputate</li>
-          <li>Eget erat</li>
-          <li>Id porttitor</li>
-        </ol>
+        <h2>STATUS</h2>
+        <p>List of all invorderingen registered:</p>
+        <div className="App">
+          <p className="App-intro">{this.state.apiResponse}</p>
+        </div>
       </div>
     );
   }
 }
- 
+
 export default Status;
