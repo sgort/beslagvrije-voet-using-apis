@@ -4,11 +4,11 @@ const mongoose = require("mongoose");
 const Morgan = require("morgan");
 const cors = require("cors")
 
-const gemeenteRoutes = require("./api/routes/gemeenten");
-const waterschappenRoutes = require("./api/routes/waterschappen");
-const userRoutes = require("./api/routes/users");
-const invorderingRoutes = require('./api/routes/invorderingen');
-const inschrijvingBRP = require('./api/routes/inschrijvingbrp');
+const gemeenteRoutes = require("./routes/gemeenten");
+const waterschappenRoutes = require("./routes/waterschappen");
+const userRoutes = require("./routes/users");
+const invorderingRoutes = require('./routes/invorderingen');
+const inschrijvingBRP = require('./routes/inschrijvingbrp');
 
 const CONNECTION_URL = "mongodb+srv://dbUser:" +
     process.env.MONGO_ATLAS_PW +
