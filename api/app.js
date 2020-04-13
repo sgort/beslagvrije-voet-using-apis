@@ -45,7 +45,7 @@ app.listen(9000, () => {
 });
 
 /**
- * Routes which should handle API requests
+ * Routes which should handle API requests 
  */
 app.use("/gemeenten", gemeenteRoutes);
 app.use("/waterschappen", waterschappenRoutes);

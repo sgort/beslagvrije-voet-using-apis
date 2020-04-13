@@ -1,5 +1,3 @@
-// src/components/users-form.js
-
 import React, { Component } from 'react';
 
 class UsersForm extends Component {

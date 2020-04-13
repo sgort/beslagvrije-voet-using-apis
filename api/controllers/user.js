@@ -13,6 +13,8 @@ exports.user_list = (req, res, next) => {
                 users: docs.map(doc => {
                     return {
                         _id: doc._id,
+                        name: doc.name,
+                        phone: doc.phone,
                         email: doc.email,
                         password: doc.password,
                         request: {
@@ -50,6 +52,8 @@ exports.user_signup = (req, res, next) => {
                     } else {
                         const user = new User({
                             _id: new mongoose.Types.ObjectId(),
+                            name: req.body.name,
+                            phone: req.body.phone,
                             email: req.body.email,
                             password: hash
                         });
