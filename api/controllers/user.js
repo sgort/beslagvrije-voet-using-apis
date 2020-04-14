@@ -9,8 +9,8 @@ exports.user_list = (req, res, next) => {
         .exec()
         .then(docs => {
             const response = {
-                count: docs.length,
-                users: docs.map(doc => {
+                //count: docs.length,
+                data: docs.map(doc => {
                     return {
                         _id: doc._id,
                         name: doc.name,

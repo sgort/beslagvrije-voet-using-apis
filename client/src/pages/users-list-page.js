@@ -12,7 +12,7 @@ export default function UsersListPage() {
       const response = await axios.get('http://localhost:9000/users/');
       dispatch({
         type: 'FETCH_USERS',
-        payload: response.data.data || response.data, // in case pagination is disabled
+        payload: response.data.data || response.data // in case pagination is disabled
       });
     };
     fetchData();
@@ -25,3 +25,5 @@ export default function UsersListPage() {
     </div>
   );
 }
+
+
