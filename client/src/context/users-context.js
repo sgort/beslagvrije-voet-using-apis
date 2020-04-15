@@ -17,6 +17,56 @@ function reducer(state, action) {
         user: {},
       };
     }
+    case 'CREATE_USER': {
+      return {
+        ...state,
+        users: [...state.users, action.payload],
+        message: {
+          type: 'success',
+          title: 'Success',
+          content: 'New User created!',
+        },
+      };
+    }
+    case 'FETCH_USER': {
+      return {
+        ...state,
+        user: action.payload,
+        message: {},
+      };
+    }
+    case 'UPDATE_USER': {
+      const user = action.payload;
+      return {
+        ...state,
+        users: state.users.map(item =>
+          item._id === user._id ? user : item,
+        ),
+        message: {
+          type: 'success',
+          title: 'Update Successful',
+          content: `User "${user.email}" has been updated!`,
+        },
+      };
+    }
+    case 'DELETE_USER': {
+      const { _id, email } = action.payload;
+      return {
+        ...state,
+        users: state.users.filter(item => item._id !== _id),
+        message: {
+          type: 'success',
+          title: 'Delete Successful',
+          content: `User "${email}" has been deleted!`,
+        },
+      };
+    }
+    case 'FLASH_MESSAGE': {
+      return {
+        ...state,
+        message: action.payload,
+      };
+    }
     default:
       throw new Error();
   }

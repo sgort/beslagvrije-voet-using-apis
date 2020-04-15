@@ -9,6 +9,11 @@ const UserController = require('../controllers/user');
 router.get("/", UserController.user_list);
 
 /**
+ * GET (ie READ) a specific user in the collection
+ */
+router.get("/:userId", UserController.user_find_one);
+
+/**
  * POST (ie CREATE) a new user in the collection
  */
 router.post("/signup", UserController.user_signup);
@@ -20,9 +25,8 @@ router.post("/login", UserController.user_login);
 
 /**
  * DELETE a specific user from the collection
- * Requires authentication
  */
-router.delete("/:userId", checkAuth, UserController.user_delete );
+router.delete("/:userId", UserController.user_delete );
 
 
 module.exports = router;

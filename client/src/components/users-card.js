@@ -1,7 +1,26 @@
 import React from 'react';
 import { Card, Button, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { UsersContext } from '../context/users-context';
+import { flashErrorMessage } from './flash-message';
+
+const { useContext } = React;
 
 export default function UsersCard({ user }) {
+  const [state, dispatch] = useContext(UsersContext);
+
+  const deleteUser = async id => {
+    try {
+      const response = await axios.delete(`http://localhost:9000/users/${id}`);
+      dispatch({
+        type: 'DELETE_USER',
+        payload: response.data,
+      });
+    } catch (error) {
+      flashErrorMessage(dispatch, error);
+    }
+  };
   return (
     <Card>
       <Card.Content>
@@ -19,10 +38,17 @@ export default function UsersCard({ user }) {
       </Card.Content>
       <Card.Content extra>
         <div className="ui two buttons">
-          <Button basic color="green">
+          <Button
+            basic color="green"
+            as={Link}
+            to={`/users/edit/${user._id}`}
+          >
             Edit
           </Button>
-          <Button basic color="red">
+          <Button
+            basic color="red"
+            onClick={() => deleteUser(user._id)}
+          >
             Delete
           </Button>
         </div>

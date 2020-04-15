@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
 import UsersList from '../components/users-list';
 import { UsersContext } from '../context/users-context';
+import FlashMessage, { flashErrorMessage } from '../components/flash-message';
 
 
 export default function UsersListPage() {
@@ -9,11 +10,15 @@ export default function UsersListPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get('http://localhost:9000/users/');
-      dispatch({
-        type: 'FETCH_USERS',
-        payload: response.data.data || response.data // in case pagination is disabled
-      });
+      try {
+        const response = await axios.get('http://localhost:9000/users/');
+        dispatch({
+          type: 'FETCH_USERS',
+          payload: response.data.data || response.data // in case pagination is disabled
+        });
+      } catch (error) {
+        flashErrorMessage(dispatch, error);
+      }
     };
     fetchData();
   }, [dispatch]);

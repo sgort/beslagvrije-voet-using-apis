@@ -9,7 +9,6 @@ exports.user_list = (req, res, next) => {
         .exec()
         .then(docs => {
             const response = {
-                //count: docs.length,
                 data: docs.map(doc => {
                     return {
                         _id: doc._id,
@@ -18,8 +17,8 @@ exports.user_list = (req, res, next) => {
                         email: doc.email,
                         password: doc.password,
                         request: {
-                            type: "GET_SPECIFIC_USER (this is not implemented yet)",
-                            url: "http://localhost:3000/users/" + doc._id
+                            type: "GET_SPECIFIC_USER",
+                            url: "http://localhost:9000/users/" + doc._id
                         }
                     };
                 })
@@ -34,6 +33,44 @@ exports.user_list = (req, res, next) => {
             });
         });
 };
+
+exports.user_find_one = (req, res, next) => {
+    const id = req.params.userId;
+    User.find({ _id: { $eq: id } })
+        .exec()
+        .then(docs => {
+            if (docs.length >= 1) {
+                const response = {
+                    data: docs.map(doc => {
+                        return {
+                            _id: doc._id,
+                            name: doc.name,
+                            phone: doc.phone,
+                            email: doc.email,
+                            password: doc.password,
+                                request: {
+                                type: "GET_ALL_USERS",
+                                url: "http://localhost:3000/users/"
+                            }
+                        };
+                    })
+                };
+                console.log(docs);
+                res.status(200).json(response);
+            } else {
+                res.status(404).json({
+                    message: "No valid User found for provided _id"
+                });
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+};
+
 
 exports.user_signup = (req, res, next) => {
     User.find({ email: req.body.email })
