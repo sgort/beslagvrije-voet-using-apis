@@ -50,7 +50,7 @@ function reducer(state, action) {
       };
     }
     case 'DELETE_USER': {
-      const { _id, email } = action.payload;
+      const _id = action.payload;
       return {
         ...state,
         users: state.users.filter(item => item._id !== _id),

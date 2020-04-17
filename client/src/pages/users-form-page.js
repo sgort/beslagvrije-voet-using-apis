@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import fetch from 'node-fetch';
 import UsersForm from '../components/users-form';
 import { flashErrorMessage } from '../components/flash-message';
 import { UsersContext } from '../context/users-context';
