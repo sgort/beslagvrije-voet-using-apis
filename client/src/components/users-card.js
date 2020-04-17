@@ -32,6 +32,9 @@ export default function UsersCard({ user }) {
             <Icon name="phone" /> {user.phone}
           </p>
           <p>
+            <Icon name="building outline" /> {user.organisation}
+          </p>
+          <p>
             <Icon name="mail outline" /> {user.email}
           </p>
         </Card.Description>

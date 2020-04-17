@@ -53,17 +53,17 @@ export default function UsersForm({ user }) {
     }
 
     return (
-        <Grid centered columns={2}>
-            <Grid.Column>
+        <Grid centered columns={1}>
+            <Grid.Column width={8}>
                 <h1 style={{ marginTop: "1em" }}>
                     {user._id ? "Edit User" : "Add New User"}
                 </h1>
                 <Form onSubmit={handleSubmit(onSubmit)} loading={state.loading}>
-                    <Form.Group widths="equal">
-                        <Form.Field className={classnames({ error: errors.name })}>
+                    <Form.Group>
+                        <Form.Field className={classnames({ error: errors.name })} width={10}>
                             <label htmlFor="name">
                                 Name
-                <input
+                                <input
                                     id="name"
                                     name="name"
                                     type="text"
@@ -82,10 +82,10 @@ export default function UsersForm({ user }) {
                                     'Must be 2 or more characters'}
                             </span>
                         </Form.Field>
-                        <Form.Field className={classnames({ error: errors.phone })}>
+                        <Form.Field className={classnames({ error: errors.phone })} width={6}>
                             <label htmlFor="phone">
                                 Phone
-              <input
+                                <input
                                     id="phone"
                                     name="phone"
                                     type="text"
@@ -108,14 +108,28 @@ export default function UsersForm({ user }) {
                             </span>
                         </Form.Field>
                     </Form.Group>
-                    <Form.Field className={classnames({ error: errors.email })}>
+                    <Form.Field className={classnames({ error: errors.organistion })} width={16}>
+                            <label htmlFor="organisation">
+                                Organisation
+                                <input
+                                    id="organisation"
+                                    name="organisation"
+                                    type="text"
+                                    placeholder="Organisation"
+                                    ref={register({ required: false })}
+                                />
+                            </label>
+                        </Form.Field>
+                    <Form.Group>
+                    <Form.Field className={classnames({ error: errors.email })} width={8}>
                         <label htmlFor="email">
                             Email
-              <input
+                            <input
                                 id="email"
                                 name="email"
                                 type="text"
                                 placeholder="Email"
+                                width={2}
                                 ref={register({
                                     required: true,
                                     pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
@@ -133,10 +147,10 @@ export default function UsersForm({ user }) {
                                 'Invalid email address'}
                         </span>
                     </Form.Field>
-                    <Form.Field className={classnames({ error: errors.password })}>
+                    <Form.Field className={classnames({ error: errors.password })} width={8}>
                         <label htmlFor="password">
                             Password
-                <input
+                            <input
                                 id="password"
                                 name="password"
                                 type="text"
@@ -155,8 +169,9 @@ export default function UsersForm({ user }) {
                                 'Must be 4 or more characters'}
                         </span>
                     </Form.Field>
+                    </Form.Group>
                     <Button primary type="submit">
-                        Signup
+                        Save
           </Button>
                 </Form>
             </Grid.Column>

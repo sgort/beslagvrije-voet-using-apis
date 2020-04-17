@@ -23,8 +23,8 @@ function reducer(state, action) {
         users: [...state.users, action.payload],
         message: {
           type: 'success',
-          title: 'Success',
-          content: 'New User created!',
+          title: 'Create Successful',
+          content: action.payload.message, // Message is defined in the API controller
         },
       };
     }
@@ -45,7 +45,7 @@ function reducer(state, action) {
         message: {
           type: 'success',
           title: 'Update Successful',
-          content: `User "${user.email}" has been updated!`,
+          content: user.message, // Message is defined in the API controller
         },
       };
     }
@@ -57,7 +57,7 @@ function reducer(state, action) {
         message: {
           type: 'success',
           title: 'Delete Successful',
-          content: `User "${email}" has been deleted!`,
+          content: action.payload.message, // Message is defined in the API controller
         },
       };
     }

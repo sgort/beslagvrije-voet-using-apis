@@ -24,6 +24,11 @@ router.post("/signup", UserController.user_signup);
 router.post("/login", UserController.user_login);
 
 /**
+ * PATCH (ie UPDATE) a specific user in the collection
+ */
+router.patch("/:userId", UserController.user_update_one);
+
+/**
  * DELETE a specific user from the collection
  */
 router.delete("/:userId", UserController.user_delete );

@@ -14,6 +14,7 @@ exports.user_list = (req, res, next) => {
                         _id: doc._id,
                         name: doc.name,
                         phone: doc.phone,
+                        organisation: doc.organisation,
                         email: doc.email,
                         password: doc.password,
                         request: {
@@ -46,11 +47,12 @@ exports.user_find_one = (req, res, next) => {
                             _id: doc._id,
                             name: doc.name,
                             phone: doc.phone,
+                            organisation: doc.organisation,
                             email: doc.email,
                             password: doc.password,
                                 request: {
                                 type: "GET_ALL_USERS",
-                                url: "http://localhost:3000/users/"
+                                url: "http://localhost:9000/users/"
                             }
                         };
                     })
@@ -91,6 +93,7 @@ exports.user_signup = (req, res, next) => {
                             _id: new mongoose.Types.ObjectId(),
                             name: req.body.name,
                             phone: req.body.phone,
+                            organisation: req.body.organisation,
                             email: req.body.email,
                             password: hash
                         });
@@ -99,7 +102,7 @@ exports.user_signup = (req, res, next) => {
                             .then(result => {
                                 console.log(result);
                                 res.status(201).json({
-                                    message: "User created"
+                                    message: `User ${result.name} from ${result.organisation}  created`
                                 });
                             })
                             .catch(err => {
@@ -158,12 +161,36 @@ exports.user_login = (req, res, next) => {
         });
 };
 
+
+exports.user_update_one =  (req, res, next) => {
+    const id = req.params.userId;
+    User.updateMany({ _id: { $eq: id } }, { $set: req.body }, { upsert: true })
+        .exec()
+        .then(result => {
+            console.log(result)
+            res.status(200).json({
+                message: `User ${id} succesfully updated`,
+                request: {
+                    type: "GET_UPDATED_USER",
+                    url: "http://localhost:9000/users/" + id
+                }
+            })
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+};
+
 exports.user_delete = (req, res, next) => {
-    User.remove({ _id: req.params.userId })
+    const id = req.params.userId;
+    User.remove({ _id: id })
         .exec()
         .then(result => {
             res.status(200).json({
-                message: "User deleted"
+                message: `User ${id} deleted`
             });
         })
         .catch(err => {

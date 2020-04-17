@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import fetch from 'node-fetch';
 import UsersForm from '../components/users-form';
 import { flashErrorMessage } from '../components/flash-message';
 import { UsersContext } from '../context/users-context';
 
-export default function UsersFormPage({ match }) {
+function UsersFormPage({ match }) {
     const [state, dispatch] = useContext(UsersContext);
     const [loading, setLoading] = useState(true);
 
@@ -16,7 +17,7 @@ export default function UsersFormPage({ match }) {
                     const response = await axios.get(`http://localhost:9000/users/${_id}`);
                     dispatch({
                         type: 'FETCH_USER',
-                        payload: response.data,
+                        payload: response.data.data[0],
                     });
                     setLoading(false);
                 } catch (error) {
@@ -39,3 +40,5 @@ export default function UsersFormPage({ match }) {
         </div>
     );
 }
+
+export default UsersFormPage;

@@ -26,6 +26,7 @@ export default function UsersListPage() {
   return (
     <div>
       <h1>List of Users</h1>
+      {state.message.content && <FlashMessage message={state.message} />}
       <UsersList users={state.users} />
     </div>
   );
