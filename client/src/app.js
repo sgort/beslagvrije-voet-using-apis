@@ -5,7 +5,7 @@ import './app.css';
 
 import Home from "./home";
 import Status from "./status";
-import UserAdmin from "./useradmin"
+import UserAdmin from "./useradmin";
 
 const App = () => (
   <div className='app'>

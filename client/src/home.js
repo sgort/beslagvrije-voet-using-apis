@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 class Home extends Component {
-
   constructor(props) {
     super(props);
     this.state = { apiResponse: "" };
@@ -11,14 +10,15 @@ class Home extends Component {
       .then(res => res.text())
       .then(res => this.setState({ apiResponse: res }));
   }
-  componentWillMount() {
+  componentDidMount() {
     this.callAPI();
   }
+
   render() {
     return (
       <div>
         <h2>HOME</h2>
-        <p>Natuurlijk Persoon (bron: BRP) concering:</p>
+        <p>Natuurlijk Persoon (bron: BRP) concerning:</p>
         <div className="App">
           <p className="App-intro">{this.state.apiResponse}</p>
         </div>
