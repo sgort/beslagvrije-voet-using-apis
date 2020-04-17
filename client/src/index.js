@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import './index.css';
+import MenuContainer from "./menus/menucontainer";
 
 /**
  * Test version for user administration / UI
- */
+ *
 import { BrowserRouter } from 'react-router-dom';
 import App from './app';
 import 'fomantic-ui-css/semantic.min.css';
-import './index.css';
 import { UsersContextProvider } from './context/users-context';
 
 ReactDOM.render(
@@ -18,16 +19,23 @@ ReactDOM.render(
   </UsersContextProvider>,
   document.getElementById('root')
 );
-
+*/
 
 /**
- * Original version
+ * Test version for Single Page App (SPA)
  *
 import Main from "./main";
-import "./index.css";
  
 ReactDOM.render(
   <Main/>, 
   document.getElementById("root")
 );
 */
+
+/**
+ * Test version for slidingmenu
+ */
+ReactDOM.render(
+  <MenuContainer/>,
+  document.querySelector("#container")
+);
