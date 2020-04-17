@@ -1,6 +1,6 @@
 import React, { Component } from "react";
- 
-class Task extends Component {
+
+class Users extends Component {
 
   constructor(props) {
     super(props);
@@ -18,7 +18,7 @@ class Task extends Component {
   render() {
     return (
       <div>
-        <h2>TASK</h2>
+        <h2>USERS</h2>
         <p>Signed up users so far:</p>
         <div className="App">
           <p className="App-intro">{this.state.apiResponse}</p>
@@ -28,4 +28,4 @@ class Task extends Component {
   }
 }
  
-export default Task;
+export default Users;

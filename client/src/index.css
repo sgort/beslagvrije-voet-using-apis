@@ -36,3 +36,6 @@ body {
   .active {
     background-color: #0099FF;
   }
+  .error {
+    color: #9f3a38;
+  }
