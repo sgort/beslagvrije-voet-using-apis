@@ -5,7 +5,6 @@ import './app.css';
 
 import Home from "./home";
 import Status from "./status";
-import Users from "./users";
 import UserAdmin from "./useradmin"
 
 const App = () => (
@@ -21,7 +20,6 @@ const Navigation = () => (
     <ul className="header">
       <li><NavLink exact to="/">Home</NavLink></li>
       <li><NavLink to="/status">Status</NavLink></li>
-      <li><NavLink to="/users">Users</NavLink></li>
       <li><NavLink to="/useradmin">Admin</NavLink></li>
     </ul>
   </nav>
@@ -32,7 +30,6 @@ const Main = () => (
     <div className="content">
       <Route exact path="/" component={Home} />
       <Route path="/status" component={Status} />
-      <Route path="/users" component={Users} />
       <Route path="/useradmin" component={UserAdmin} />
     </div>
   </Switch>
