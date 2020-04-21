@@ -10,7 +10,7 @@ class Status extends Component {
       attributes: []
     }
   }
- 
+
   componentDidMount() {
     this.setState({ ...this.state, isFetching: true });
     fetch('http://localhost:9000/invorderingen')
@@ -46,6 +46,7 @@ class Status extends Component {
                 return <li key={i}>{item.beslaglegger} - {item.beslagvrije_voet}</li>
               })}
             </span>
+
           )
         }</p>
       </div>
