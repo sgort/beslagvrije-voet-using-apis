@@ -6,7 +6,9 @@ const invorderingSchema = mongoose.Schema({
     beslag_object: { type: String, required: false },
     samenloop: { type: Boolean, default: false, required: true },
     beslaglegger: { type: String, required: true },
-    beslagvrije_voet: { type: Number, required: true }
+    openstaande_vordering: {type: Number, required: true},
+    beslagvrije_voet: { type: Number, required: true },
+    invordering: {type: Number, required: true}
 }, { collection: 'invorderingen' });
 
 module.exports = mongoose.model('Invordering', invorderingSchema);

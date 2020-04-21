@@ -37,16 +37,16 @@ class Status extends Component {
   render() {
     return (
       <div className="Status">
-        <p className="Status invorderingen">Status invordering(en)</p>
+        <p className="Status invorderingen">Status invordering(en): </p>
+        <li> beslaglegger | beslag oject | beslagvrije voet | openstaande vordering | invordering </li>
         <p>{this.state.isFetching ? (
           <span>Fetching records</span>
         ) : (
             <span>
               {this.state.attributes.map((item, i) => {
-                return <li key={i}>{item.beslaglegger} - {item.beslagvrije_voet}</li>
+                return <li key={i}>{item.beslaglegger} | {item.beslag_object} | {item.beslagvrije_voet} | {item.openstaande_vordering} | {item.invordering}</li>
               })}
             </span>
-
           )
         }</p>
       </div>

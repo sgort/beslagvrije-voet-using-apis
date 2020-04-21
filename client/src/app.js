@@ -4,6 +4,7 @@ import 'fomantic-ui-css/semantic.min.css';
 import './app.css';
 
 import Home from "./home";
+import List from "./list";
 import Status from "./status";
 import UserAdmin from "./useradmin";
 
@@ -19,6 +20,7 @@ const Navigation = () => (
   <nav>
     <ul className="header">
       <li><NavLink exact to="/">Home</NavLink></li>
+      <li><NavLink to="/list">List</NavLink></li>
       <li><NavLink to="/status">Status</NavLink></li>
       <li><NavLink to="/useradmin">Admin</NavLink></li>
     </ul>
@@ -29,6 +31,7 @@ const Main = () => (
   <Switch>
     <div className="content">
       <Route exact path="/" component={Home} />
+      <Route path="/list" component={List} />
       <Route path="/status" component={Status} />
       <Route path="/useradmin" component={UserAdmin} />
     </div>
