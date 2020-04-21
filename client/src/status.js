@@ -6,70 +6,48 @@ class Status extends Component {
     super(props);
     this.state = {
       error: null,
-      isLoaded: false,
+      isFetching: false,
       attributes: []
     }
   }
-      /*
-      {
-        "count": 2,
-        "invorderingen":[    {      
-        "BSN": 999994669,      
-        "samenloop": false,      
-        "beslaglegger": 
-        "De ambtenaar van de gemeente Valkenswaard",      
-        "beslagvrije_voet": 975.1,      
-        "request": {        
-          "type": "GET_SPECIFIC_INVORDERING",        
-          "url": "http://localhost:3000/invorderingen/5e9ad01c675afc4ca4576b7b"      
-        }    
-      },    
-      {      
-        "BSN": 999994669,      
-        "samenloop": false,      
-        "beslaglegger": "De ambtenaar van het Waterschap Groot Salland",      
-        "beslagvrije_voet": 960,      
-        "request": {        
-          "type": "GET_SPECIFIC_INVORDERING",        
-          "url": "http://localhost:3000/invorderingen/5e9ad05a675afc4ca4576b7c"      
-        }    
-      }  
-    ]
-  }
-}
-}
-*/
-
+ 
   componentDidMount() {
+    this.setState({ ...this.state, isFetching: true });
     fetch('http://localhost:9000/invorderingen')
       .then(res => res.json())
       .then(
         (result) => {
           this.setState({
-            isLoaded: true,
-            attributes: result
+            ...this.state,
+            isFetching: false,
+            attributes: result.invorderingen
           });
         },
         // error handler
         (error) => {
           this.setState({
-            isLoaded: true,
+            ...this.state,
+            isFetching: false,
             error
           });
         }
       )
   }
 
-
   render() {
     return (
       <div className="Status">
         <p className="Status invorderingen">Status invordering(en)</p>
-        <div>Number of records: {this.state.attributes.count}
-        {this.state.attributes.invorderingen.map((admin, index) => (
-          <p key={index}>Record {index}: {admin.beslaglegger}</p>
-        ))}
-        </div>
+        <p>{this.state.isFetching ? (
+          <span>Fetching records</span>
+        ) : (
+            <span>
+              {this.state.attributes.map((item, i) => {
+                return <li key={i}>{item.beslaglegger} - {item.beslagvrije_voet}</li>
+              })}
+            </span>
+          )
+        }</p>
       </div>
     )
   }
