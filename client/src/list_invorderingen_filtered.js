@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { createSorter } from './components/sort';
+import { createFilter } from './components/filter';
 
 class List extends Component {
     state = {
+        filters: this.props.filters,
         sorters: this.props.sorters
     };
 
     static defaultProps = {
+        filters: [{
+            property: 'BSN',
+            value: '999994669'
+        }],
         sorters: [{
             property: 'beslaglegger'
         }, {
@@ -45,6 +51,11 @@ class List extends Component {
 
     renderData(data) {
         if (data && data.length > 0) {
+            const { filters } = this.state;
+
+            if (Array.isArray(filters) && filters.length) {
+                data = data.filter(createFilter(...filters));
+            }
             return (
                 <div className="Status">
                     <p className="Status invorderingen">Status invordering(en): </p>

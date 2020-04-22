@@ -44,7 +44,7 @@ exports.invordering_find_one = (req, res, next) => {
             if (docs.length >= 1) {
                 const response = {
                     count: docs.length,
-                    gemeenten: docs.map(doc => {
+                    invorderingen: docs.map(doc => {
                         return {
                             BSN: doc.BSN,
                             beslag_object: doc.beslag_object,

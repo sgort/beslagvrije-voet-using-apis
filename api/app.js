@@ -8,6 +8,7 @@ const gemeenteRoutes = require("./routes/gemeenten");
 const waterschappenRoutes = require("./routes/waterschappen");
 const userRoutes = require("./routes/users");
 const invorderingRoutes = require('./routes/invorderingen');
+const credentialRoutes = require('./routes/credential');
 const inschrijvingBRP = require('./routes/inschrijvingbrp');
 
 const CONNECTION_URL = "mongodb+srv://dbUser:" +
@@ -51,6 +52,7 @@ app.use("/gemeenten", gemeenteRoutes);
 app.use("/waterschappen", waterschappenRoutes);
 app.use("/users", userRoutes);
 app.use("/invorderingen", invorderingRoutes);
+app.use("/credentials", credentialRoutes);
 app.use("/inschrijvingbrp", inschrijvingBRP);
 
 

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-class List extends Component {
+class Credentials extends Component {
   state = {};
 
   componentDidMount() {
-    fetch('http://localhost:9000/invorderingen')
+    fetch('http://localhost:9000/credentials')
       .then(res => res.json())
       .then(this.onLoad);
   }
@@ -15,7 +15,7 @@ class List extends Component {
 
   onLoad = data => {
     this.setState({
-      data: this.parseData(data.invorderingen)
+      data: this.parseData(data.credentials)
     });
   };
 
@@ -29,11 +29,11 @@ class List extends Component {
     if (data && data.length > 0) {
       return (
         <div className="Status">
-          <p className="Status invorderingen">Status invordering(en): </p>
-          <p>BSN | beslaglegger | beslag oject | beslagvrije voet | openstaande vordering | invordering</p>
+          <p className="Status credentials">Obtained credential(s): </p>
+          <p>BSN | type | value | issuer</p>
           {data.map(item => (
             <div key={item.id}>
-              <p>{item.BSN} | {item.beslaglegger} | {item.beslag_object} | € {item.beslagvrije_voet} | € {item.openstaande_vordering} | € {item.invordering}</p>
+              <p>{item.BSN} | {item.type} | {item.value} | {item.issuer}</p>
             </div>
           ))}
         </div>
@@ -48,4 +48,4 @@ class List extends Component {
   }
 }
 
-export default List;
+export default Credentials;
