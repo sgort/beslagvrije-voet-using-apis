@@ -5,7 +5,8 @@ const credentialSchema = mongoose.Schema({
     BSN: { type: Number, required: true },
     type: { type: String, required: true },
     value: { type: String, required: true },
-    issuer: { type: String, required: true }
+    issuer: { type: String, required: true },
+    issued: {type: Boolean, default: false, required: true}
 }, { collection: 'credentials' });
 
 module.exports = mongoose.model('Credential', credentialSchema);

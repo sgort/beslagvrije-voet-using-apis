@@ -10,10 +10,12 @@ exports.credential_list = (req, res, next) => {
                 count: docs.length,
                 credentials: docs.map(doc => {
                     return {
+                        _id: doc._id,
                         BSN: doc.BSN,
                         type: doc.type,
                         value: doc.value,
-                        issuer: doc.issuer
+                        issuer: doc.issuer,
+                        issued: doc.issued
                     };
                 })
             };
@@ -39,10 +41,12 @@ exports.credential_find_one = (req, res, next) => {
                     count: docs.length,
                     credentials: docs.map(doc => {
                         return {
+                            _id: doc._id,
                             BSN: doc.BSN,
                             type: doc.type,
                             value: doc.value,
-                            issuer: doc.issuer
+                            issuer: doc.issuer,
+                            issued: doc.issued
                         };
                     })
                 };
@@ -74,7 +78,8 @@ exports.credential_create_one = (req, res, next) => {
                         BSN: doc.BSN,
                         type: doc.type,
                         value: doc.value,
-                        issuer: doc.issuer
+                        issuer: doc.issuer,
+                        issued: doc.issued
                     };
                 })
             });
@@ -110,6 +115,22 @@ exports.credential_update_one = (req, res, next) => {
         });
 };
 
+exports.credential_update_issued = (req, res, next) => {
+    Credential.updateMany({ $set: req.body }, { upsert: false })
+        .exec()
+        .then(result => {
+            console.log(result)
+            res.status(200).json({
+                message: "Issued credentials succesfully updated!",
+            })
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+};
 
 exports.credential_delete_one = (req, res, next) => {
     const id = req.params.credentialId;
