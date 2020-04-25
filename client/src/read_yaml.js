@@ -6,7 +6,7 @@ class ReadYaml extends Component {
     render() {
         return (
             <div>
-                <h1>Yaml Config</h1>
+                <h1>Yaml Config BVV</h1>
                 <TextFileReader
                     txt={Yaml}
                 />

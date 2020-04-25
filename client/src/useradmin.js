@@ -31,7 +31,7 @@ class UserAdmin extends Component {
                                 exact
                                 to="/users/rule-engine"
                             >
-                                Rule Engine
+                                Regelset Afleiding BVV
                     </NavLink>
                         </div>
                         <Route exact path="/" component={UsersListPage} />
