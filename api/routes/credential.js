@@ -27,12 +27,7 @@ router.post("/insert", checkAuth, CredentialController.credential_create_one);
  * Login via JSON Web Token authorization is required! << temporarily disabled for demo purposes
  */
 router.patch("/:credentialId", /*checkAuth,*/ CredentialController.credential_update_one);
-
-/**
- * PATCH (ie UPDATE) all credentials in the collection
- */
-router.patch("/", CredentialController.credential_update_issued);
-
+ 
 /**
  * DELETE a specific credential in the collection by credentilId
  * Login via JSON Web Token authorization is required!
