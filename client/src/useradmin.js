@@ -4,7 +4,7 @@ import { Container } from 'semantic-ui-react';
 import UsersListPage from './pages/users-list-page';
 import UsersFormPage from './pages/users-form-page';
 import { UsersContextProvider } from './context/users-context';
-import ReadYaml from './read_yaml';
+import ReadRulesEngine from './read-rules-engine';
 
 
 class UserAdmin extends Component {
@@ -31,13 +31,13 @@ class UserAdmin extends Component {
                                 exact
                                 to="/users/rule-engine"
                             >
-                                Regelset Afleiding BVV
+                                Rules Engine config BVV
                     </NavLink>
                         </div>
                         <Route exact path="/" component={UsersListPage} />
                         <Route path="/users/new" component={UsersFormPage} />
                         <Route path="/users/edit/:_id" component={UsersFormPage} />
-                        <Route path="/users/rule-engine" component={ReadYaml} />
+                        <Route path="/users/rule-engine" component={ReadRulesEngine} />
                     </Container>
                 </BrowserRouter>
             </UsersContextProvider>
