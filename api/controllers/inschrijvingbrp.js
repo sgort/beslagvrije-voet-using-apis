@@ -23,7 +23,8 @@ exports.inschrijvingbrp_find_one = (req, res, next) => {
         .then(json => {
             console.log(json)
             res.status(201).json({
-                message: "Natuulijk Persoon found for BSN: " + BSN,
+                message: "Natuulijk Persoon found for BSN",
+                BSN: json.burgerservicenummer,
                 naam: json.naam.aanschrijfwijze,
                 leeftijd: json.leeftijd,
                 gemeente: json.verblijfplaats.gemeenteVanInschrijving.omschrijving
@@ -31,5 +32,3 @@ exports.inschrijvingbrp_find_one = (req, res, next) => {
         })
         .catch(err => console.error('Error: ', err));
 }
-
-

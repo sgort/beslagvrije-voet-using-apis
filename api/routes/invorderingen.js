@@ -22,14 +22,14 @@ router.get("/:invorderingId", checkAuth, InvorderingController.invordering_find_
 router.post("/insert", checkAuth, InvorderingController.invordering_create_one);
 
 /**
- * PATCH (ie UPDATE) a specific invordering in the collection by `_id`
+ * PATCH (ie UPDATE) a specific invordering in the collection by `invorderingId`
  * Can handle incomplete set of properties
  * Login via JSON Web Token authorization is required!
  */
 router.patch("/:invorderingId", checkAuth, InvorderingController.invordering_update_one);
 
 /**
- * DELETE a specific gemeente in the collection by `GemeentecodeGM`
+ * DELETE a specific invordering in the collection by invorderingId
  * Login via JSON Web Token authorization is required!
  */
 router.delete("/:invorderingId", checkAuth, InvorderingController.invordering_delete_one);

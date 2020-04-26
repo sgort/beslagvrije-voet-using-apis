@@ -14,7 +14,9 @@ exports.invordering_list = (req, res, next) => {
                         beslag_object: doc.beslag_object,
                         samenloop: doc.samenloop,
                         beslaglegger: doc.beslaglegger,
+                        openstaande_vordering: doc.openstaande_vordering,
                         beslagvrije_voet: doc.beslagvrije_voet,
+                        invordering: doc.invordering,
                         request: {
                             type: "GET_SPECIFIC_INVORDERING",
                             url: "http://localhost:3000/invorderingen/" + doc._id
@@ -32,7 +34,7 @@ exports.invordering_list = (req, res, next) => {
             });
         });
 };
-
+ 
 
 exports.invordering_find_one = (req, res, next) => {
     const id = req.params.invorderingId;
@@ -42,14 +44,16 @@ exports.invordering_find_one = (req, res, next) => {
             if (docs.length >= 1) {
                 const response = {
                     count: docs.length,
-                    gemeenten: docs.map(doc => {
+                    invorderingen: docs.map(doc => {
                         return {
                             BSN: doc.BSN,
                             beslag_object: doc.beslag_object,
                             samenloop: doc.samenloop,
                             beslaglegger: doc.beslaglegger,
+                            openstaande_vordering: doc.openstaande_vordering,
                             beslagvrije_voet: doc.beslagvrije_voet,
-                            request: {
+                            invordering: doc.invordering,
+                                request: {
                                 type: "GET_ALL_INVORDERINGEN",
                                 url: "http://localhost:3000/invorderingen/"
                             }
@@ -85,7 +89,9 @@ exports.invordering_create_one = (req, res, next) => {
                         beslag_object: doc.beslag_object,
                         samenloop: doc.samenloop,
                         beslaglegger: doc.beslaglegger,
-                        beslagvrije_voet: doc.beslagvrije_voet
+                        openstaande_vordering: doc.openstaande_vordering,
+                        beslagvrije_voet: doc.beslagvrije_voet,
+                        invordering: doc.invordering
                     };
                 })
             });
