@@ -115,23 +115,6 @@ exports.credential_update_one = (req, res, next) => {
         });
 };
 
-exports.credential_update_issued = (req, res, next) => {
-    Credential.updateMany({ $set: req.body }, { upsert: false })
-        .exec()
-        .then(result => {
-            console.log(result)
-            res.status(200).json({
-                message: "Issued credentials succesfully updated!",
-            })
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json({
-                error: err
-            });
-        });
-};
-
 exports.credential_delete_one = (req, res, next) => {
     const id = req.params.credentialId;
     Credential.deleteOne({ _id: { $eq: id } })
