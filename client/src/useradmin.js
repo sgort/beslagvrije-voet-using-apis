@@ -4,7 +4,7 @@ import { Container } from 'semantic-ui-react';
 import UsersListPage from './pages/users-list-page';
 import UsersFormPage from './pages/users-form-page';
 import { UsersContextProvider } from './context/users-context';
-import ReadRulesEngine from './read-rules-engine';
+import ReadRulesEngine from './list_rules';
 
 
 class UserAdmin extends Component {

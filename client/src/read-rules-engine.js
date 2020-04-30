@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import TextFileReader from './components/text-file-reader';
-const RulesEngine = require("./test.yaml");
+const RulesEngine = require("./bvv-rules.txt");
 
 class ReadRulesEngine extends Component {
     render() {
