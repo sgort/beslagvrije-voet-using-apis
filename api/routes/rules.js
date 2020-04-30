@@ -4,6 +4,11 @@ const checkAuth = require('../middleware/check-auth');
 const RulesEngineController = require('../controllers/rules');
 
 /**
+ * GET (ie READ) all rules in the collection
+ */
+router.get("/", RulesEngineController.rulesengine_list);
+
+/**
  * GET (ie READ) a specific Rules Engine in the collection by `_id`
  */
 router.get("/:referenceId", RulesEngineController.rulesengine_find_one);
@@ -12,6 +17,6 @@ router.get("/:referenceId", RulesEngineController.rulesengine_find_one);
  * POST (ie CREATE) a single and/or a serie of Rules Engine(s) in the collection
  * Login via JSON Web Token authorization is required!
  */
-router.post("/insert", checkAuth, RulesEngineController.rulesengine_create_one);
+router.post("/insert", /*checkAuth,*/ RulesEngineController.rulesengine_create_one);
 
 module.exports = router;
