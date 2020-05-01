@@ -7,8 +7,7 @@ exports.rulesengine_list = (req, res, next) => {
         .exec()
         .then(docs => {
             const response = {
-                count: docs.length,
-                rules: docs.map(doc => {
+                data: docs.map(doc => {
                     return {
                         domain: doc.domain,
                         reference: doc.reference,
@@ -38,8 +37,7 @@ exports.rulesengine_find_one = (req, res, next) => {
         .then(docs => {
             if (docs.length >= 1) {
                 const response = {
-                    count: docs.length,
-                    rules: docs.map(doc => {
+                    data: docs.map(doc => {
                         return {
                             domain: doc.domain,
                             reference: doc.reference,
