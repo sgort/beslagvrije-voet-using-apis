@@ -3,7 +3,7 @@ const RulesEngine = require('../models/rules');
 
 
 exports.rulesengine_list = (req, res, next) => {
-    RulesEngine.find()
+    RulesEngine.find().sort({date_start: -1}) // Sort desc by date_start to get active rules (ie first in array)
         .exec()
         .then(docs => {
             const response = {
@@ -54,7 +54,7 @@ exports.rulesengine_find_one = (req, res, next) => {
                 res.status(200).json(response);
             } else {
                 res.status(404).json({
-                    message: "No valid Rules Engine found for provided rulesengineId"
+                    message: "No valid Rules Engine found for provided rulesId"
                 });
             }
         })
