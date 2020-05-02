@@ -33,7 +33,7 @@ class ReadRulesEngine extends Component {
 
   onLoad = data => {
     this.setState({
-      data: this.parseData(data.rules)
+      data: this.parseData(data.data)
     });
   };
 

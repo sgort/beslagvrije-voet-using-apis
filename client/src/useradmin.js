@@ -4,7 +4,7 @@ import { Container } from 'semantic-ui-react';
 import UsersListPage from './pages/users-list-page';
 import UsersFormPage from './pages/users-form-page';
 import { UsersContextProvider } from './context/users-context';
-import ReadRulesEngine from './list_rules';
+import RulesListPage from './pages/rules-list-page';
 
 
 class UserAdmin extends Component {
@@ -29,15 +29,15 @@ class UserAdmin extends Component {
                                 className="item"
                                 activeClassName="active"
                                 exact
-                                to="/users/rule-engine"
+                                to="/rules"
                             >
-                                Rules Engine config BVV
+                                Rules Engine
                     </NavLink>
                         </div>
                         <Route exact path="/" component={UsersListPage} />
                         <Route path="/users/new" component={UsersFormPage} />
                         <Route path="/users/edit/:_id" component={UsersFormPage} />
-                        <Route path="/users/rule-engine" component={ReadRulesEngine} />
+                        <Route path="/rules" component={RulesListPage} />
                     </Container>
                 </BrowserRouter>
             </UsersContextProvider>

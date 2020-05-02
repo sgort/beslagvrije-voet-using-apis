@@ -9,6 +9,7 @@ exports.rulesengine_list = (req, res, next) => {
             const response = {
                 data: docs.map(doc => {
                     return {
+                        _id: doc._id,
                         domain: doc.domain,
                         reference: doc.reference,
                         issuer: doc.issuer,
@@ -31,14 +32,15 @@ exports.rulesengine_list = (req, res, next) => {
 
 
 exports.rulesengine_find_one = (req, res, next) => {
-    const id = req.params.referenceId;
-    RulesEngine.find({ reference: { $eq: id } })
+    const id = req.params.rulesId;
+    RulesEngine.find({ _id: { $eq: id } })
         .exec()
         .then(docs => {
             if (docs.length >= 1) {
                 const response = {
                     data: docs.map(doc => {
                         return {
+                            _id: doc._id,
                             domain: doc.domain,
                             reference: doc.reference,
                             issuer: doc.issuer,
@@ -70,9 +72,10 @@ exports.rulesengine_create_one = (req, res, next) => {
         .then(result => {
             console.log(result);
             res.status(201).json({
-                message: "Created rules engine(s) successfully",
+                message: "Created rules successfully",
                 rules: result.map(doc => {
                     return {
+                        _id: doc._id,
                         domain: doc.domain,
                         reference: doc.reference,
                         issuer: doc.issuer,
@@ -91,3 +94,39 @@ exports.rulesengine_create_one = (req, res, next) => {
         });
 };
 
+
+exports.rulesengine_update_one =  (req, res, next) => {
+    const id = req.params.rulesId;
+    RulesEngine.updateMany({ _id: { $eq: id } }, { $set: req.body }, { upsert: true })
+        .exec()
+        .then(result => {
+            console.log(result)
+            res.status(200).json({
+                message: `Rules ${id} succesfully updated`,
+            })
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+}
+
+
+exports.rulesengine_delete_one = (req, res, next) => {
+    const id = req.params.rulesId;
+    RulesEngine.remove({ _id: id })
+        .exec()
+        .then(result => {
+            res.status(200).json({
+                message: `Rules ${id} deleted`
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+};
