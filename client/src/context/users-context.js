@@ -10,6 +10,13 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
+    case 'FETCH_RULES': { // Added to recognize reduce context creep ;-)
+      return {
+        ...state,
+        users: action.payload,
+        user: {},
+      };
+    }
     case 'FETCH_USERS': {
       return {
         ...state,

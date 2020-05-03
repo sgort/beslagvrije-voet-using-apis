@@ -10,6 +10,7 @@ const userRoutes = require("./routes/users");
 const invorderingRoutes = require('./routes/invorderingen');
 const credentialRoutes = require('./routes/credential');
 const inschrijvingBRP = require('./routes/inschrijvingbrp');
+const RulesEngineRoutes = require ('./routes/rules');
 
 const CONNECTION_URL = "mongodb+srv://dbUser:" +
     process.env.MONGO_ATLAS_PW +
@@ -54,6 +55,7 @@ app.use("/users", userRoutes);
 app.use("/invorderingen", invorderingRoutes);
 app.use("/credentials", credentialRoutes);
 app.use("/inschrijvingbrp", inschrijvingBRP);
+app.use("/rulesengine", RulesEngineRoutes);
 
 
 app.use((req, res, next) => {

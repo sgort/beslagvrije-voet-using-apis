@@ -36,6 +36,7 @@ function clearOutput() {
   e.setAttribute('hidden', 'true');
   e.classList.remove('succes', 'warning', 'error');
 }
+
 function showError(err) {
   const e = document.getElementById('result');
   e.removeAttribute('hidden');
@@ -49,6 +50,7 @@ function showError(err) {
   }
   throw err;
 }
+
 function showSuccess(text) {
   const e = document.getElementById('result');
   e.innerHTML = text;
@@ -57,8 +59,10 @@ function showSuccess(text) {
 }
 
 
-class Credentials extends Component {
-  state = {};
+class ObtainedCredentials extends Component {
+  state = {
+    Issued: false
+  };
 
   componentDidMount() {
     fetch('http://localhost:9000/credentials')
@@ -90,14 +94,13 @@ class Credentials extends Component {
           <p>BSN | type | value | issuer | issued</p>
           {data.map(item => (
             <div key={item.id}>
-              <p>{item.BSN} | {item.type} | {item.value} | {item.issuer} | {item.issued ? 'Yes' : 'No'}</p>
+              <p>{item.BSN} | {item.type} | {item.value} | {item.issuer} | {this.state.Issued ? 'Yes' : 'No'}</p>
             </div>
           ))}
           <p></p>
           <div id="result" class="status" hidden></div>
           <p></p>
-          <p className="Issue credentials"><button onClick={doIssuanceSession}>Issue this!</button></p>
-          {/* Patch issued credentials - TO DO */}
+          <p className="Issue credentials"><button onClick={() => {doIssuanceSession(); this.setState({Issued: true})}}>Issue this!</button></p>
         </div>
       )
     } else {
@@ -110,4 +113,8 @@ class Credentials extends Component {
   }
 }
 
-export default Credentials;
+export default ObtainedCredentials;
+
+/*
+<p className="Issue credentials"><button onClick={() => this.setState({Issued: true})}>Issue this!</button></p>
+*/

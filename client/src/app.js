@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import 'fomantic-ui-css/semantic.min.css';
 import './app.css';
 
 import Home from "./home";
-import Credentials from "./credentials";
+import ListCredentials from "./list_credentials";
 import ListFiltered from './list_invorderingen_filtered';
 import List from "./list_invorderingen";
 import UserAdmin from "./useradmin";
+
 
 const App = () => (
   <div className='app'>
     <h1>Demo beslagvrije voet using API's</h1>
     <Navigation />
-    <Main />
+    <AllRoutes />
   </div>
 );
 
@@ -29,16 +30,20 @@ const Navigation = () => (
   </nav>
 );
 
-const Main = () => (
-  <Switch>
-    <div className="content">
-      <Route exact path="/" component={Home} />
-      <Route path="/credentials" component={Credentials} />
-      <Route path="/list-filtered" component={ListFiltered} />
-      <Route path="/list-all" component={List} />
-      <Route path="/useradmin" component={UserAdmin} />
-    </div>
-  </Switch>
-);
+class AllRoutes extends Component {
+  render() {
+    return (
+      <Switch>
+        <div className="content">
+          <Route exact path="/" component={Home} />
+          <Route path="/credentials" component={ListCredentials} />
+          <Route path="/list-filtered" component={ListFiltered} />
+          <Route path="/list-all" component={List} />
+          <Route path="/useradmin" component={UserAdmin} />
+        </div>
+      </Switch>
+    );
+  }
+}
 
 export default App;
