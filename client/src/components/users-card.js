@@ -27,6 +27,7 @@ export default function UsersCard({ user }) {
       <Card.Content>
         <Card.Header>
           <Icon name="user outline" /> {user.name}
+          <img class="right floated mini ui image" src={require(`./../images/icon${Math.floor((Math.random()*4)+1)}.png`)} alt=""></img>
         </Card.Header>
         <Card.Description>
           <p>

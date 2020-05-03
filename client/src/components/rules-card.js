@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, Icon } from 'semantic-ui-react';
+import { Card, Icon } from 'semantic-ui-react';
 import { UsersContext } from '../context/users-context';
 
 const { useContext } = React;
