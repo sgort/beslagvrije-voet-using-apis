@@ -17,9 +17,9 @@ router.get("/:invorderingId", checkAuth, InvorderingController.invordering_find_
 
 /**
  * POST (ie CREATE) a single and/or a serie of gemeenten in the collection
- * Login via JSON Web Token authorization is required!
+ * Login via JSON Web Token authorization is required! <-- disabled for demonstration purposes
  */
-router.post("/insert", checkAuth, InvorderingController.invordering_create_one);
+router.post("/insert", /*checkAuth,*/ InvorderingController.invordering_create_one);
 
 /**
  * PATCH (ie UPDATE) a specific invordering in the collection by `invorderingId`

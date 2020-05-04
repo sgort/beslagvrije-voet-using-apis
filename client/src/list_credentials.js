@@ -100,7 +100,7 @@ class ObtainedCredentials extends Component {
           <p></p>
           <div id="result" class="status" hidden></div>
           <p></p>
-          <p className="Issue credentials"><button onClick={() => {doIssuanceSession(); this.setState({Issued: true})}}>Issue this!</button></p>
+          <p className="Issue credentials"><button class="ui primary button" onClick={() => {doIssuanceSession(); this.setState({Issued: true})}}>Issue this!</button></p>
         </div>
       )
     } else {
@@ -114,7 +114,3 @@ class ObtainedCredentials extends Component {
 }
 
 export default ObtainedCredentials;
-
-/*
-<p className="Issue credentials"><button onClick={() => this.setState({Issued: true})}>Issue this!</button></p>
-*/
