@@ -1,30 +1,26 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import ProgressBar from './../components/progressbar';
 
 /**
  * External json files holding the records for simulation
  */
 const defaultSimulation = require('./../simulations/simulation-default.json');
 
-
-function runSimulation(json) {
+function runSimulation(raw) {
     // POST simulated invorderingen set in the collection
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    for (var i = 0; i < json.length; i++) {
-        var raw = JSON.stringify(json[i]);
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
 
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        fetch("http://localhost:9000/invorderingen/insert", requestOptions)
-            .then(response => response.text())
-            .catch(error => alert('error', error));
-    }
+    fetch("http://localhost:9000/invorderingen/insert", requestOptions)
+        .then(response => response.text())
+        .catch(error => alert('error', error));
 }
 
 function resetSimulation() {
@@ -44,7 +40,8 @@ class Simulation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: "default"
+            value: "default",
+            percentage: 0
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -56,26 +53,38 @@ class Simulation extends Component {
     }
 
     handleSubmit(event) {
-        runSimulation(defaultSimulation);
+        //runSimulation(defaultSimulation);
+
+        for (var i = 0; i < defaultSimulation.length; i++) {
+            var json = JSON.stringify(defaultSimulation[i]);
+            this.setState({ percentage: (i+1)*(100/defaultSimulation.length)})
+            runSimulation(json);
+        }
+
         event.preventDefault();
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Select your simulation:
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        Select your simulation:
                     <select class="ui selection dropdown" value={this.state.value} onChange={this.handleChange}>
-                        <option value="default">Default - no changes</option>
-                        <option value="income">Income changes</option>
-                        <option value="rules">New Rules Engine</option>
-                    </select>
-                </label>
-                <p></p>
-                <input class="ui primary button" type="submit" value="Run it!" />
-                <input class="ui button" value="Reset" onClick={() => { resetSimulation() }} />
-                <p></p>
-            </form>
+                            <option value="default">Default - no changes</option>
+                            <option value="income">Income changes</option>
+                            <option value="rules">New Rules Engine</option>
+                        </select>
+                    </label>
+                    <p></p>
+                    <input class="ui primary button" type="submit" value="Run it!" />
+                    <input class="ui button" type="text" value="Reset" onClick={() => { resetSimulation(); this.setState({ percentage: 0}) }} />
+                    <p></p>
+                </form>
+                <Fragment>
+                    <ProgressBar percentage={this.state.percentage} />
+                </Fragment>
+            </div>
         );
     }
 }
