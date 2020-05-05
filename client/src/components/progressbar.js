@@ -1,12 +1,22 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 
+/**
+ * Import the class in your app
+ * Use it like this:
+ * 
+ * <div>
+ *   <ProgressBar percentage={this.state.percentage} />
+ * </div>
+ *  
+ */
+
 const Tracker = styled.div`
     width: 50%;
     height: 20px;
     margin: 15px auto;
     background: rbg(34,34,34);
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: inset 0 0 5px #000;
 `;
 

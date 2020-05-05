@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import ProgressBar from './../components/progressbar';
 
 /**
@@ -53,38 +53,30 @@ class Simulation extends Component {
     }
 
     handleSubmit(event) {
-        //runSimulation(defaultSimulation);
-
         for (var i = 0; i < defaultSimulation.length; i++) {
             var json = JSON.stringify(defaultSimulation[i]);
-            this.setState({ percentage: (i+1)*(100/defaultSimulation.length)})
+            this.setState({ percentage: (i + 1) * (100 / defaultSimulation.length) })
             runSimulation(json);
         }
-
         event.preventDefault();
     }
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Select your simulation:
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    Select your simulation:
                     <select class="ui selection dropdown" value={this.state.value} onChange={this.handleChange}>
-                            <option value="default">Default - no changes</option>
-                            <option value="income">Income changes</option>
-                            <option value="rules">New Rules Engine</option>
-                        </select>
-                    </label>
-                    <p></p>
-                    <input class="ui primary button" type="submit" value="Run it!" />
-                    <input class="ui button" type="text" value="Reset" onClick={() => { resetSimulation(); this.setState({ percentage: 0}) }} />
-                    <p></p>
-                </form>
-                <Fragment>
-                    <ProgressBar percentage={this.state.percentage} />
-                </Fragment>
-            </div>
+                        <option value="default">Default - no changes</option>
+                        <option value="income">Income changes</option>
+                        <option value="rules">New Rules Engine</option>
+                    </select>
+                </label>
+                <p></p>
+                <input class="ui primary button" type="submit" value="Run it!" />
+                <input class="ui button" type="text" value="Reset" onClick={() => { resetSimulation(); this.setState({ percentage: 0 }) }} />
+                <p></p>
+            </form>
         );
     }
 }

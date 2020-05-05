@@ -16,7 +16,8 @@ class List extends Component {
         sorters: [{
             property: 'beslaglegger'
         }, {
-            property: 'beslag_object'
+            property: 'openstaande_vordering',
+            direction: 'DESC'
         }]
     };
 
