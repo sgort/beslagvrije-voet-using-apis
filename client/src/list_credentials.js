@@ -98,9 +98,19 @@ class ObtainedCredentials extends Component {
             </div>
           ))}
           <p></p>
+          <label>
+            Select your preferred SSI:
+            <select name="ssi-app" class="ui selection dropdown">
+              <option value="default">IRMA</option>
+              <option value="rabobank">Rabobank</option>
+              <option value="schluss">Schluss</option>
+              <option value="trustchain">TrustChain</option>
+            </select>
+          </label>
+          <p></p>
           <div id="result" class="status" hidden></div>
           <p></p>
-          <p className="Issue credentials"><button class="ui primary button" onClick={() => {doIssuanceSession(); this.setState({Issued: true})}}>Issue this!</button></p>
+          <p className="Issue credentials"><button class="ui primary button" onClick={() => { doIssuanceSession(); this.setState({ Issued: true }) }}>Issue this!</button></p>
         </div>
       )
     } else {

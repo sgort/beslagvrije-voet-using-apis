@@ -34,7 +34,7 @@ exports.invordering_list = (req, res, next) => {
             });
         });
 };
- 
+
 
 exports.invordering_find_one = (req, res, next) => {
     const id = req.params.invorderingId;
@@ -53,7 +53,7 @@ exports.invordering_find_one = (req, res, next) => {
                             openstaande_vordering: doc.openstaande_vordering,
                             beslagvrije_voet: doc.beslagvrije_voet,
                             invordering: doc.invordering,
-                                request: {
+                            request: {
                                 type: "GET_ALL_INVORDERINGEN",
                                 url: "http://localhost:3000/invorderingen/"
                             }
@@ -85,6 +85,7 @@ exports.invordering_create_one = (req, res, next) => {
                 message: "Created invordering(en) successfully",
                 invorderingen: result.map(doc => {
                     return {
+                        _id: doc._id,
                         BSN: doc.BSN,
                         beslag_object: doc.beslag_object,
                         samenloop: doc.samenloop,
@@ -141,6 +142,29 @@ exports.invordering_delete_one = (req, res, next) => {
             } else {
                 res.status(404).json({
                     message: "No valid Invordering found for provided invorderingId"
+                })
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+};
+
+exports.invordering_delete_non_base_records = (req, res, next) => {
+    Invordering.remove({ "_base_record": "false" })
+        .exec()
+        .then(result => {
+            if (result.deletedCount !== 0) {
+                console.log(result)
+                res.status(200).json({
+                    message: "Non base records succesfully deleted"
+                })
+            } else {
+                res.status(404).json({
+                    message: "No non base records found"
                 })
             }
         })
