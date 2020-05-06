@@ -6,7 +6,7 @@ import styled from 'styled-components';
  * Use it like this:
  * 
  * <div>
- *   <ProgressBar percentage={this.state.percentage} />
+ *   <ProgressBar percentage={this.state.percent} />
  * </div>
  *  
  */
@@ -21,7 +21,7 @@ const Tracker = styled.div`
 `;
 
 const ProgressInTracker = styled.div`
-    width: ${props => props.percentage}%;
+    width: ${props => props.percent}%;
     height: 100%;
     background-color: #6bccf9;
     border-radius: 8px;
@@ -36,7 +36,7 @@ class ProgressBar extends Component {
         render () {
         return (
             <Tracker>
-                <ProgressInTracker percentage={this.percentageLimits(0, this.props.percentage, 100)} />
+                <ProgressInTracker percent={this.percentageLimits(0, this.props.percent, 100)} />
             </Tracker>
         )
     }

@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import ProgressBar from './../components/progressbar';
+import ClockLoader from 'react-spinners/ClockLoader';
 
 /**
  * External json files holding the records for simulation
  */
 const defaultSimulation = require('./../simulations/simulation-default.json');
+const rulesSimulation = require('./../simulations/simulation-rules-engine.json');
 
-function runSimulation(raw) {
+function insertRecords(raw) {
     // POST simulated invorderingen set in the collection
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -23,7 +24,7 @@ function runSimulation(raw) {
         .catch(error => alert('error', error));
 }
 
-function resetSimulation() {
+function deleteRecords() {
     // DELETE simulated invorderingen set in the collection
     var requestOptions = {
         method: 'DELETE',
@@ -36,16 +37,59 @@ function resetSimulation() {
         .catch(error => console.log('error', error));
 }
 
+function wait(ms) {
+    var d = new Date();
+    var d2 = null;
+    do { d2 = new Date(); }
+    while (d2 - d < ms);
+}
+
+function Spinner(props) {
+    if (!props.show) {
+        return null;
+    }
+
+    return (
+        <div className="sweet-loading">
+            <ClockLoader
+                size={150}
+                color={"#81e6f3"}
+                loading='true'
+            />
+        </div>
+    );
+}
+
+
 class Simulation extends Component {
     constructor(props) {
         super(props);
         this.state = {
             value: "default",
-            percentage: 0
+            showSpinner: false
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    runSimulation(type) {
+        switch (type) {
+            case type = "rules":
+                for (var j = 0; j < rulesSimulation.length; j++) {
+                    wait(100);
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(rulesSimulation[j]);
+                    insertRecords(json);
+                }
+                break;
+            default:
+                for (var i = 0; i < defaultSimulation.length; i++) {
+                    wait(100);
+                    var json = JSON.stringify(defaultSimulation[i]);
+                    insertRecords(json);
+                }
+        }
     }
 
     handleChange(event) {
@@ -53,11 +97,10 @@ class Simulation extends Component {
     }
 
     handleSubmit(event) {
-        for (var i = 0; i < defaultSimulation.length; i++) {
-            var json = JSON.stringify(defaultSimulation[i]);
-            this.setState({ percentage: (i + 1) * (100 / defaultSimulation.length) })
-            runSimulation(json);
-        }
+        this.setState({ showSpinner: !this.state.showSpinner }, function () {
+            //alert(this.state.value)
+            this.runSimulation(this.state.value);
+        });
         event.preventDefault();
     }
 
@@ -74,8 +117,11 @@ class Simulation extends Component {
                 </label>
                 <p></p>
                 <input class="ui primary button" type="submit" value="Run it!" />
-                <input class="ui button" type="text" value="Reset" onClick={() => { resetSimulation(); this.setState({ percentage: 0 }) }} />
+                <input class="ui button" type="text" value="Reset" onClick={deleteRecords} />
                 <p></p>
+                <div>
+                    <Spinner show={this.state.showSpinner} />
+                </div>
             </form>
         );
     }
