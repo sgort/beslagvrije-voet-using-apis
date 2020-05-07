@@ -19,7 +19,7 @@ router.get("/:credentialId", checkAuth, CredentialController.credential_find_one
  * POST (ie CREATE) a single and/or a serie of credentials in the collection
  * Login via JSON Web Token authorization is required!
  */
-router.post("/insert", checkAuth, CredentialController.credential_create_one);
+router.post("/insert", /*checkAuth,*/ CredentialController.credential_create_one);
 
 /**
  * PATCH (ie UPDATE) a specific credential in the collection by `credentialId`

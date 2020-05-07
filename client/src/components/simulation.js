@@ -6,9 +6,22 @@ import ClockLoader from 'react-spinners/ClockLoader';
  */
 const defaultSimulation = require('./../simulations/simulation-default.json');
 const rulesSimulation = require('./../simulations/simulation-rules-engine.json');
+const credentialsSimulation = [
+    {
+        "BSN": "999994669",
+        "type": "Beslagvrije voet",
+        "value": "850",
+        "issuer": "Gerechtsdeurwaarder",
+        "issued": "false"
+    },
+];
 
-function insertRecords(raw) {
-    // POST simulated invorderingen set in the collection
+const defaultURL = 'http://localhost:9000/invorderingen';
+const credentialsURL = 'http://localhost:9000/credentials';
+
+
+function insertRecords(raw, url) {
+    // POST simulated records set in the collection
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -19,21 +32,20 @@ function insertRecords(raw) {
         redirect: 'follow'
     };
 
-    fetch("http://localhost:9000/invorderingen/insert", requestOptions)
+    fetch(`${url}/insert`, requestOptions)
         .then(response => response.text())
         .catch(error => alert('error', error));
 }
 
-function deleteRecords() {
-    // DELETE simulated invorderingen set in the collection
+function deleteRecords(url) {
+    // DELETE simulated records set in the collection
     var requestOptions = {
         method: 'DELETE',
         redirect: 'follow'
     };
 
-    fetch("http://localhost:9000/invorderingen", requestOptions)
+    fetch(url, requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
         .catch(error => console.log('error', error));
 }
 
@@ -78,16 +90,23 @@ class Simulation extends Component {
             case type = "rules":
                 for (var j = 0; j < rulesSimulation.length; j++) {
                     wait(100);
-                    // eslint-disable-next-line
                     var json = JSON.stringify(rulesSimulation[j]);
-                    insertRecords(json);
+                    insertRecords(json, defaultURL);
+                }
+                // eslint-disable-next-line
+                for (var j = 0; j < credentialsSimulation.length; j++) {
+                    wait(100);
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(credentialsSimulation[j]);
+                    insertRecords(json, credentialsURL);
                 }
                 break;
             default:
                 for (var i = 0; i < defaultSimulation.length; i++) {
                     wait(100);
+                    // eslint-disable-next-line
                     var json = JSON.stringify(defaultSimulation[i]);
-                    insertRecords(json);
+                    insertRecords(json, defaultURL);
                 }
         }
     }
@@ -117,7 +136,7 @@ class Simulation extends Component {
                 </label>
                 <p></p>
                 <input class="ui primary button" type="submit" value="Run it!" />
-                <input class="ui button" type="text" value="Reset" onClick={deleteRecords} />
+                <input class="ui button" type="text" value="Reset" onClick={() => { deleteRecords(defaultURL)} } />
                 <p></p>
                 <div>
                     <Spinner show={this.state.showSpinner} />
