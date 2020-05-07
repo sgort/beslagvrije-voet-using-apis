@@ -15,7 +15,8 @@ exports.rulesengine_list = (req, res, next) => {
                         issuer: doc.issuer,
                         rules: doc.rules,
                         date_start: doc.date_start,
-                        date_end: doc.date_end
+                        date_end: doc.date_end,
+                        ruleoflaw: doc.ruleoflaw
                     };
                 })
             };
@@ -46,7 +47,8 @@ exports.rulesengine_find_one = (req, res, next) => {
                             issuer: doc.issuer,
                             rules: doc.rules,
                             date_start: doc.date_start,
-                            date_end: doc.date_end
+                            date_end: doc.date_end,
+                            ruleoflaw: doc.ruleoflaw
                         };
                     })
                 };
@@ -81,7 +83,8 @@ exports.rulesengine_create_one = (req, res, next) => {
                         issuer: doc.issuer,
                         rules: doc.rules,
                         date_start: doc.date_start,
-                        date_end: doc.date_end
+                        date_end: doc.date_end,
+                        ruleoflaw: doc.ruleoflaw
                 };
                 })
             });

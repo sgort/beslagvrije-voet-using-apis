@@ -7,7 +7,8 @@ const RulesSchema = mongoose.Schema({
     issuer: { type: String, required: true },
     rules: {type: String, default: false, required: true},
     date_start: {type: Date, default: Date.now, required: true},
-    date_end: {type: Date, default: null, required: false}
+    date_end: {type: Date, default: null, required: false},
+    ruleoflaw: {type: String, default: null, required: false}
 }, { collection: 'rules' });
 
 module.exports = mongoose.model('Rules', RulesSchema);
