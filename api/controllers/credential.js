@@ -7,13 +7,13 @@ exports.credential_list = (req, res, next) => {
         .exec()
         .then(docs => {
             const response = {
-                count: docs.length,
-                credentials: docs.map(doc => {
+                data: docs.map(doc => {
                     return {
                         _id: doc._id,
                         BSN: doc.BSN,
                         type: doc.type,
                         value: doc.value,
+                        timestamp: doc._id.getTimestamp(),
                         issuer: doc.issuer,
                         issued: doc.issued
                     };
@@ -45,6 +45,7 @@ exports.credential_find_one = (req, res, next) => {
                             BSN: doc.BSN,
                             type: doc.type,
                             value: doc.value,
+                            timestamp: doc._id.getTimestamp(),
                             issuer: doc.issuer,
                             issued: doc.issued
                         };

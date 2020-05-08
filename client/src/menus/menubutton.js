@@ -6,8 +6,11 @@ class MenuButton extends PureComponent {
     console.log("Rendering: MenuButton");
 
     return (
-      <button id="roundButton"
-        onMouseDown={this.props.handleMouseDown}></button>
+      <div>
+        <button id="roundButton"
+          onMouseDown={this.props.handleMouseDown}>
+        </button>
+      </div>
     );
   }
 }
