@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ResidentsList from './components/residentslist';
 
 class Resident extends Component {
 
@@ -13,7 +14,7 @@ class Resident extends Component {
 
   componentDidMount() {
     this.setState({ ...this.state, isFetching: true });
-    fetch('http://localhost:9000/inschrijvingbrp/999994669')
+    fetch('http://localhost:9000/inschrijvingbrp/999999035')
       .then(res => res.json())
       .then(
         (result) => {
@@ -47,13 +48,15 @@ class Resident extends Component {
                   <p key={i}>
                     <span>{key} : </span>
                     <span>{this.state.attributes[key]}</span>
+
                   </p>
                 ))
               }
             </span>
           )
         }</p>
-      </div>
+        <ResidentsList residents={this.state.attributes}/>
+      </div >
     )
   }
 }

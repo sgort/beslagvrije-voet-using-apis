@@ -17,13 +17,6 @@ function reducer(state, action) {
         user: {},
       };
     }
-    case 'FETCH_CREDENTIALS': { // Added to recognize reduce context creep. Sorry for that...
-      return {
-        ...state,
-        users: action.payload,
-        user: {},
-      };
-    }
     case 'FETCH_USERS': {
       return {
         ...state,

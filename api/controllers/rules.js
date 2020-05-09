@@ -3,7 +3,8 @@ const RulesEngine = require('../models/rules');
 
 
 exports.rulesengine_list = (req, res, next) => {
-    RulesEngine.find().sort({date_start: -1}) // Sort desc by date_start to get active rules (ie first in array)
+    const domainRef = "BVV"
+    RulesEngine.find({ domain: { $eq: domainRef } }).sort({ date_start: -1 }) // Sort desc by date_start to get active rules (ie first in array)
         .exec()
         .then(docs => {
             const response = {
@@ -85,7 +86,7 @@ exports.rulesengine_create_one = (req, res, next) => {
                         date_start: doc.date_start,
                         date_end: doc.date_end,
                         ruleoflaw: doc.ruleoflaw
-                };
+                    };
                 })
             });
         })
@@ -98,7 +99,7 @@ exports.rulesengine_create_one = (req, res, next) => {
 };
 
 
-exports.rulesengine_update_one =  (req, res, next) => {
+exports.rulesengine_update_one = (req, res, next) => {
     const id = req.params.rulesId;
     RulesEngine.updateMany({ _id: { $eq: id } }, { $set: req.body }, { upsert: true })
         .exec()

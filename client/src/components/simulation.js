@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ClockLoader from 'react-spinners/ClockLoader';
-import { Progress } from 'semantic-ui-react';
 
 /**
  * External json files holding the records for simulation

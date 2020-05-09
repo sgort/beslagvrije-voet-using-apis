@@ -4,11 +4,12 @@ import 'fomantic-ui-css/semantic.min.css';
 import './app.css';
 
 import Home from './home';
+import Resident from "./resident";
 import ListCredentials from "./list_credentials";
 import ListFiltered from './list_invorderingen_filtered';
 import List from "./list_invorderingen";
 import Simulation from "./components/simulation";
-import UseCase from "./use-case";
+import UserAdmin from "./useradmin";
 
 
 const App = () => (
@@ -23,11 +24,12 @@ const Navigation = () => (
   <nav>
     <ul className="header">
       <li><NavLink exact to="/">Home</NavLink></li>
-      <li><NavLink to="/usecase">Use Case</NavLink></li>
-      <li><NavLink to="/baseline">Baseline</NavLink></li>
-      <li><NavLink to="/simulation">Simulation</NavLink></li>
+      <li><NavLink to="/resident">Resident</NavLink></li>
       <li><NavLink to="/credentials">Credentials</NavLink></li>
-      <li><NavLink to="/outcome">Outcome</NavLink></li>
+      <li><NavLink to="/list-filtered">List Filtered</NavLink></li>
+      <li><NavLink to="/list-all">List All</NavLink></li>
+      <li><NavLink to="/simulation">Simulation</NavLink></li>
+      <li><NavLink to="/useradmin">Admin</NavLink></li>
     </ul>
   </nav>
 );
@@ -38,11 +40,12 @@ class AllRoutes extends Component {
       <Switch>
         <div className="content">
           <Route exact path="/" component={Home} />
-          <Route path="/usecase" component={UseCase} />
-          <Route path="/baseline" component={List} />
-          <Route path="/simulation" component={Simulation} />
+          <Route path="/resident" component={Resident} />
           <Route path="/credentials" component={ListCredentials} />
-          <Route path="/outcome" component={ListFiltered} />
+          <Route path="/list-filtered" component={ListFiltered} />
+          <Route path="/list-all" component={List} />
+          <Route path="/simulation" component={Simulation} />
+          <Route path="/useradmin" component={UserAdmin} />
         </div>
       </Switch>
     );
