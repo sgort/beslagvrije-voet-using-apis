@@ -24,7 +24,7 @@ function ResidentsCard({ resident }) {
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
-                <a>
+                <a href={resident.href}>
                     <Icon name='tag' />
                     {resident.BSN}
                 </a>

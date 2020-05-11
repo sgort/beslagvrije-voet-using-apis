@@ -54,7 +54,8 @@ exports.inschrijvingbrp_find_one = (req, res, next) => {
                 voornamen: json.naam.voornamen,
                 postcode: json.verblijfplaats.postcode,
                 huisnummer: json.verblijfplaats.huisnummer,
-                gemeente: json.verblijfplaats.gemeenteVanInschrijving.omschrijving
+                gemeente: json.verblijfplaats.gemeenteVanInschrijving.omschrijving,
+                href: json._links.self.href
             })
         })
         .catch(err => {

@@ -38,7 +38,7 @@ class Resident extends Component {
   render() {
     return (
       <div className="Home">
-        <h1>Registration BRP</h1>
+        <h1>BRP</h1>
         <p>{this.state.isFetching ? (
           <span>Fetching records</span>
         ) : (
