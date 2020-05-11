@@ -1,26 +1,33 @@
 import React from "react";
-import { Card, Icon } from 'semantic-ui-react';
+import { Card, Icon, Image } from 'semantic-ui-react';
 
 
 
 function ResidentsCard({ resident }) {
     return (
         <Card>
+            <Image src={require('./../images/profile1.jpg')} wrapped ui={false} />
             <Card.Content>
                 <Card.Header>
-                    <Icon name="address card outline" /> {resident.geslachtsnaam}
+                    {resident.geslachtsnaam}
                 </Card.Header>
+                <Card.Meta>
+                    <span classname='names' >{resident.voornamen}</span>
+                </Card.Meta>
                 <Card.Description>
                     <p>
-                        <Icon name="clock outline" /> {resident.voornamen}
+                        {resident.postcode} - {resident.huisnummer}
                     </p>
                     <p>
-                        <Icon name="stop circle outline" /> {resident.postcode} {resident.huisnummer}
-                    </p>
-                    <p>
-                        <Icon name="code" /> {resident.gemeente}
+                        {resident.gemeente}
                     </p>
                 </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+                <a>
+                    <Icon name='tag' />
+                    {resident.BSN}
+                </a>
             </Card.Content>
         </Card>
     );

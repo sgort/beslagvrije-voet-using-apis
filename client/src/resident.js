@@ -38,24 +38,15 @@ class Resident extends Component {
   render() {
     return (
       <div className="Home">
-        <p className="Home attributes">(bron: BRP)</p>
+        <h1>Registration BRP</h1>
         <p>{this.state.isFetching ? (
           <span>Fetching records</span>
         ) : (
             <span>
-              {
-                Object.keys(this.state.attributes).map((key, i) => (
-                  <p key={i}>
-                    <span>{key} : </span>
-                    <span>{this.state.attributes[key]}</span>
-
-                  </p>
-                ))
-              }
+              <ResidentsList residents={this.state.attributes} />
             </span>
           )
         }</p>
-        <ResidentsList residents={this.state.attributes}/>
       </div >
     )
   }
