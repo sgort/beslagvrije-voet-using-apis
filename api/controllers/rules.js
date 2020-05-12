@@ -2,6 +2,36 @@ const mongoose = require('mongoose');
 const RulesEngine = require('../models/rules');
 
 
+exports.rulesengine_list_all = (req, res, next) => {
+    RulesEngine.find()
+        .exec()
+        .then(docs => {
+            const response = {
+                data: docs.map(doc => {
+                    return {
+                        _id: doc._id,
+                        domain: doc.domain,
+                        reference: doc.reference,
+                        issuer: doc.issuer,
+                        rules: doc.rules,
+                        date_start: doc.date_start,
+                        date_end: doc.date_end,
+                        ruleoflaw: doc.ruleoflaw
+                    };
+                })
+            };
+            console.log(docs);
+            res.status(200).json(response);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+};
+
+
 exports.rulesengine_list = (req, res, next) => {
     const domainRef = req.params.domainRef
     RulesEngine.find({ domain: { $eq: domainRef } }).sort({ date_start: -1 }) // Sort desc by date_start to get active rules (ie first in array)

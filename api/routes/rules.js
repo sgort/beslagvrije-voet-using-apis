@@ -3,8 +3,14 @@ const router = express.Router();
 const checkAuth = require('../middleware/check-auth');
 const RulesEngineController = require('../controllers/rules');
 
+
 /**
- * GET (ie READ) all rules of domain 'BVV' in the collection
+ * GET (ie READ) all Rules Engine in the collection
+ */
+router.get("/", RulesEngineController.rulesengine_list_all);
+
+/**
+ * GET (ie READ) latest specific Rules Engine in the collection by 'reference'
  */
 router.get("/:domainRef", RulesEngineController.rulesengine_list);
 
