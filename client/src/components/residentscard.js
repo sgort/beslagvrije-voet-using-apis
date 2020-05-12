@@ -5,7 +5,7 @@ import { Card, Icon, Image } from 'semantic-ui-react';
 
 function ResidentsCard({ resident }) {
     return (
-        <Card>
+        <Card color='blue'>
             <Image src={require('./../images/profile1.jpg')} wrapped ui={false} />
             <Card.Content>
                 <Card.Header>

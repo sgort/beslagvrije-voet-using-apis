@@ -14,7 +14,7 @@ class ReadRulesEngine extends Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:9000/rulesengine/')
+    fetch('http://localhost:9000/rulesengine/BVV')
       .then(res => res.json())
       .then(this.onLoad);
   }

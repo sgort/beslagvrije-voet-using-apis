@@ -9,7 +9,7 @@ export default function RulesCard({ user }) {
     const [state, dispatch] = useContext(UsersContext);
 
     return (
-        <Card>
+        <Card color='blue'>
             <Card.Content>
                 <Card.Header>
                     <Icon name="address card outline" /> {user.reference} - {user.issuer}

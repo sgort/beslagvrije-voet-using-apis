@@ -11,7 +11,7 @@ export default function RulesListPage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:9000/rulesengine/');
+                const response = await axios.get('http://localhost:9000/rulesengine/BVV');
                 dispatch({
                     type: 'FETCH_RULES', // added to reducer!
                     payload: response.data.data || response.data // in case pagination is disabled

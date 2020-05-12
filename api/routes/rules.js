@@ -4,9 +4,9 @@ const checkAuth = require('../middleware/check-auth');
 const RulesEngineController = require('../controllers/rules');
 
 /**
- * GET (ie READ) all rules in the collection
+ * GET (ie READ) all rules of domain 'BVV' in the collection
  */
-router.get("/", RulesEngineController.rulesengine_list);
+router.get("/:domainRef", RulesEngineController.rulesengine_list);
 
 /**
  * GET (ie READ) a specific Rules Engine in the collection by `reference`

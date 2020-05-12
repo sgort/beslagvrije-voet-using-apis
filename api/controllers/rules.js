@@ -3,7 +3,7 @@ const RulesEngine = require('../models/rules');
 
 
 exports.rulesengine_list = (req, res, next) => {
-    const domainRef = "BVV"
+    const domainRef = req.params.domainRef
     RulesEngine.find({ domain: { $eq: domainRef } }).sort({ date_start: -1 }) // Sort desc by date_start to get active rules (ie first in array)
         .exec()
         .then(docs => {
