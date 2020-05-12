@@ -7,12 +7,12 @@ const RulesEngineController = require('../controllers/rules');
 /**
  * GET (ie READ) all Rules Engine in the collection
  */
-router.get("/", RulesEngineController.rulesengine_list_all);
+router.get("/all", RulesEngineController.rulesengine_list_all);
 
 /**
  * GET (ie READ) latest specific Rules Engine in the collection by 'reference'
  */
-router.get("/:domainRef", RulesEngineController.rulesengine_list);
+router.get("/domain/:domainRef", RulesEngineController.rulesengine_list);
 
 /**
  * GET (ie READ) a specific Rules Engine in the collection by `reference`

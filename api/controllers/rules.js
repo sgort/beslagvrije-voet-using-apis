@@ -3,7 +3,7 @@ const RulesEngine = require('../models/rules');
 
 
 exports.rulesengine_list_all = (req, res, next) => {
-    RulesEngine.find()
+    RulesEngine.find().sort({ date_start: -1 })
         .exec()
         .then(docs => {
             const response = {
