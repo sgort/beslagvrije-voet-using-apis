@@ -1,25 +1,18 @@
 import React, { Component } from "react";
-import ClockLoader from 'react-spinners/ClockLoader';
 
 /**
  * External json files holding the records for simulation
  */
-const intialBaselineInvorderingen = require('./../simulations/simulation-baseline-invorderingen.json');
-const intialBaselineCredentials = require('./../simulations/simulation-baseline-credentials.json');
-const nochangeSimulation = require('./../simulations/simulation-default.json');
-const rulesSimulation = require('./../simulations/simulation-rules-engine.json');
-const credentialsSimulation = [
-    {
-        "BSN": "999994669",
-        "type": "Beslagvrije voet",
-        "value": "850",
-        "issuer": "Gerechtsdeurwaarder",
-        "issued": "false"
-    },
-];
+const intialBaselineInvorderingen = require('./../simulations/baseline-invorderingen.json');
+const intialBaselineCredentials = require('./../simulations/baseline-credentials.json');
+const nochangeSimulation = require('./../simulations/no-changes.json');
+const rulesSimulationInvorderingen = require('./../simulations/rules-engine-invorderingen.json');
+const rulesSimulationCredentials = require('./../simulations/rules-engine-credentials.json');
+const rulesSimulationRules = require('./../simulations/rules-engine-rules.json');
 
 const invorderingenURL = 'http://localhost:9000/invorderingen';
 const credentialsURL = 'http://localhost:9000/credentials';
+const rulesengineURL = 'http://localhost:9000/rulesengine/insert'
 
 
 function insertRecords(raw, url) {
@@ -36,7 +29,8 @@ function insertRecords(raw, url) {
 
     fetch(`${url}/insert`, requestOptions)
         .then(response => response.text())
-        .catch(error => alert('error', error));
+        .catch(error => console.log('error', error));
+
 }
 
 function deleteRecords(url) {
@@ -58,29 +52,11 @@ function wait(ms) {
     while (d2 - d < ms);
 }
 
-function Spinner(props) {
-    if (!props.show) {
-        return null;
-    }
-
-    return (
-        <div className="sweet-loading">
-            <ClockLoader
-                size={150}
-                color={"#81e6f3"}
-                loading='true'
-            />
-        </div>
-    );
-}
-
-
 class Simulation extends Component {
     constructor(props) {
         super(props);
         this.state = {
             value: "default",
-            showSpinner: false
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -97,18 +73,25 @@ class Simulation extends Component {
                 }
                 break;
             case type = "rules":
-                for (var j = 0; j < rulesSimulation.length; j++) {
+                for (var j = 0; j < rulesSimulationInvorderingen.length; j++) {
                     wait(100);
                     // eslint-disable-next-line
-                    var json = JSON.stringify(rulesSimulation[j]);
+                    var json = JSON.stringify(rulesSimulationInvorderingen[j]);
                     insertRecords(json, invorderingenURL);
                 }
                 // eslint-disable-next-line
-                for (var j = 0; j < credentialsSimulation.length; j++) {
+                for (var j = 0; j < rulesSimulationCredentials.length; j++) {
                     wait(100);
                     // eslint-disable-next-line
-                    var json = JSON.stringify(credentialsSimulation[j]);
+                    var json = JSON.stringify(rulesSimulationCredentials[j]);
                     insertRecords(json, credentialsURL);
+                }
+                // eslint-disable-next-line
+                for (var j = 0; j < rulesSimulationRules.length; j++) {
+                    wait(100);
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(rulesSimulationRules[j]);
+                    insertRecords(json, rulesengineURL);
                 }
                 break;
             default:
@@ -129,13 +112,7 @@ class Simulation extends Component {
     }
 
     handleSubmit(event) {
-        // Advies Pim:
-        // onSubmit, spinner op true zetten met setState, daarna (niet in callback) de runSimulation call doen.
-        this.setState({ showSpinner: !this.state.showSpinner });
-        // De setState triggert de render van de spinner, als het goed is.
         this.runSimulation(this.state.value);
-        // aan het eind van runSimulation een call naar "retrieveData" die de GET calls doet
-        // en setState aanroept met de te renderen data, samen met spinner op false.
         event.preventDefault();
     }
 
@@ -162,12 +139,12 @@ class Simulation extends Component {
                     </select>
                 </label>
                 <p></p>
-                <input class="ui primary button" type="submit" value="Run it!" />
-                <input class="ui button" type="text" value="Reset" onClick={this.handleDelete} />
-                <p></p>
                 <div>
-                    <Spinner show={this.state.showSpinner} />
+                    <button class="ui primary button">Run it!</button>
+                    <button class="ui secondary button" onClick={this.handleDelete}>Reset</button>
                 </div>
+                <p></p>
+                <p id="simulation"></p>
             </form>
         );
     }

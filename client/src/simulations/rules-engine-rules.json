@@ -1,0 +1,9 @@
+[
+    {
+        "domain": "BVV",
+        "rules": "MAX income",
+        "ruleoflaw": "https://www.kbvg.nl/beslagvrijevoet",
+        "reference": "BVV_v3",
+        "issuer": "SZW"
+    }
+]

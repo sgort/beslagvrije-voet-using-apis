@@ -25,9 +25,9 @@ const Navigation = () => (
       <li><NavLink exact to="/">Home</NavLink></li>
       <li><NavLink to="/usecase">Use Case</NavLink></li>
       <li><NavLink to="/baseline">Baseline</NavLink></li>
-      <li><NavLink to="/simulation">Simulation</NavLink></li>
       <li><NavLink to="/credentials">Credentials</NavLink></li>
       <li><NavLink to="/outcome">Outcome</NavLink></li>
+      <li><NavLink to="/simulation">Simulation</NavLink></li>
     </ul>
   </nav>
 );
@@ -40,9 +40,9 @@ class AllRoutes extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/usecase" component={UseCase} />
           <Route path="/baseline" component={ListBaseline} />
-          <Route path="/simulation" component={Simulation} />
           <Route path="/credentials" component={ListCredentials} />
           <Route path="/outcome" component={ListInvorderingen} />
+          <Route path="/simulation" component={Simulation} />
         </div>
       </Switch>
     );
