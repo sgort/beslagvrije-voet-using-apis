@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
 import { createSorter } from './components/sort';
+import { createFilter } from './components/filter';
 
-class List extends Component {
+class ListBaseline extends Component {
     state = {
-        sorters: this.props.sorters
+        filters: this.props.filters,
+        sorters: this.props.sorters,
     };
 
+    
     static defaultProps = {
+        filters: [{
+            property: 'BSN',
+            value: '999994669'
+        }],
         sorters: [{
             property: 'beslaglegger'
         }, {
-            property: 'beslag_object'
+            property: 'openstaande_vordering',
+            direction: 'DESC'
         }]
     };
 
     componentDidMount() {
-        fetch('http://localhost:9000/invorderingen')
+        fetch('http://localhost:9000/invorderingen/base-records')
             .then(res => res.json())
             .then(this.onLoad);
     }
@@ -45,6 +53,11 @@ class List extends Component {
 
     renderData(data) {
         if (data && data.length > 0) {
+            const { filters } = this.state;
+
+            if (Array.isArray(filters) && filters.length) {
+                data = data.filter(createFilter(...filters));
+            }
             return (
                 <div className="Status">
                     <p className="Status invorderingen">Status invordering(en): </p>
@@ -66,4 +79,4 @@ class List extends Component {
     }
 }
 
-export default List;
+export default ListBaseline;

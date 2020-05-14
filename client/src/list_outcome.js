@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { createSorter } from './components/sort';
 import { createFilter } from './components/filter';
 
-class List extends Component {
+class ListOutcome extends Component {
     state = {
         filters: this.props.filters,
-        sorters: this.props.sorters
+        sorters: this.props.sorters,
     };
 
+    
     static defaultProps = {
         filters: [{
             property: 'BSN',
@@ -78,4 +79,4 @@ class List extends Component {
     }
 }
 
-export default List;
+export default ListOutcome;

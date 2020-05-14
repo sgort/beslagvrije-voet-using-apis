@@ -36,6 +36,40 @@ exports.invordering_list = (req, res, next) => {
 };
 
 
+exports.invordering_list_base_records = (req, res, next) => {
+    Invordering.find({ "_base_record": "true" })
+        .exec()
+        .then(docs => {
+            const response = {
+                count: docs.length,
+                invorderingen: docs.map(doc => {
+                    return {
+                        BSN: doc.BSN,
+                        beslag_object: doc.beslag_object,
+                        samenloop: doc.samenloop,
+                        beslaglegger: doc.beslaglegger,
+                        openstaande_vordering: doc.openstaande_vordering,
+                        beslagvrije_voet: doc.beslagvrije_voet,
+                        invordering: doc.invordering,
+                        request: {
+                            type: "GET_SPECIFIC_INVORDERING",
+                            url: "http://localhost:3000/invorderingen/" + doc._id
+                        }
+                    };
+                })
+            };
+            console.log(docs);
+            res.status(200).json(response);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+};
+
+
 exports.invordering_find_one = (req, res, next) => {
     const id = req.params.invorderingId;
     Invordering.find({ _id: { $eq: id } })
@@ -152,6 +186,7 @@ exports.invordering_delete_one = (req, res, next) => {
             });
         });
 };
+
 
 exports.invordering_delete_non_base_records = (req, res, next) => {
     Invordering.remove({ "_base_record": "false" })

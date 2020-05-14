@@ -5,8 +5,8 @@ import './app.css';
 
 import Home from './home';
 import ListCredentials from "./list_credentials";
-import ListFiltered from './list_invorderingen_filtered';
-import List from "./list_invorderingen";
+import ListInvorderingen from './list_outcome';
+import ListBaseline from "./list_baseline";
 import Simulation from "./components/simulation";
 import UseCase from "./use-case";
 
@@ -39,10 +39,10 @@ class AllRoutes extends Component {
         <div className="content">
           <Route exact path="/" component={Home} />
           <Route path="/usecase" component={UseCase} />
-          <Route path="/baseline" component={List} />
+          <Route path="/baseline" component={ListBaseline} />
           <Route path="/simulation" component={Simulation} />
           <Route path="/credentials" component={ListCredentials} />
-          <Route path="/outcome" component={ListFiltered} />
+          <Route path="/outcome" component={ListInvorderingen} />
         </div>
       </Switch>
     );

@@ -5,9 +5,7 @@
         "beslag_object": "Werkloos uitkering",
         "samenloop": "false",
         "beslaglegger": "Gemeentelijke sociale dienst Valkenswaard",
-        "openstaande_vordering": 750,
-        "beslagvrije_voet": 892.5,
-        "invordering": 94.5
+        "openstaande_vordering": 750
     },
     {
         "_base_record": "true",
@@ -15,9 +13,7 @@
         "beslag_object": "Werkloos uitkering",
         "samenloop": "false",
         "beslaglegger": "Waterschap Groot Salland",
-        "openstaande_vordering": 378,
-        "beslagvrije_voet": 892.5,
-        "invordering": 63
+        "openstaande_vordering": 378
     },
     {
         "_base_record": "true",

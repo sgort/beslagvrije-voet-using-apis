@@ -84,7 +84,7 @@ class Simulation extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    
+
     runSimulation(type) {
         switch (type) {
             case type = "rules":
@@ -111,18 +111,23 @@ class Simulation extends Component {
         }
     }
 
-    handleChange(event) {
-        this.setState({ value: event.target.value });
-    }
-
     handleSubmit(event) {
         // Advies Pim:
         // onSubmit, spinner op true zetten met setState, daarna (niet in callback) de runSimulation call doen.
-        this.setState({ showSpinner: !this.state.showSpinner });
+        // this.setState({ showSpinner: !this.state.showSpinner });
         // De setState triggert de render van de spinner, als het goed is.
         this.runSimulation(this.state.value);
         // aan het eind van runSimulation een call naar "retrieveData" die de GET calls doet
         // en setState aanroept met de te renderen data, samen met spinner op false.
+        event.preventDefault();
+    }
+
+    handleChange(event) {
+        this.setState({ value: event.target.value });
+    }
+
+    handleDelete(event) {
+        deleteRecords(defaultURL);
         event.preventDefault();
     }
 
@@ -132,14 +137,15 @@ class Simulation extends Component {
                 <label>
                     Select your simulation:
                     <select class="ui selection dropdown" value={this.state.value} onChange={this.handleChange}>
-                        <option value="default">Default - no changes</option>
-                        <option value="income">Income changes</option>
+                        <option value="default">Set initial baseline</option>
+                        <option value="nochange">Run with no changes</option>
+                        <option value="income">Show income change</option>
                         <option value="rules">New Rules Engine</option>
                     </select>
                 </label>
                 <p></p>
                 <input class="ui primary button" type="submit" value="Run it!" />
-                <input class="ui button" type="text" value="Reset" onClick={() => { deleteRecords(defaultURL) }} />
+                <input class="ui button" type="text" value="Reset" onClick={this.handleDelete} />
                 <p></p>
                 <div>
                     <Spinner show={this.state.showSpinner} />

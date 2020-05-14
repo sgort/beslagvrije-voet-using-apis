@@ -10,6 +10,12 @@ const InvorderingController = require('../controllers/invordering');
 router.get("/", /*checkAuth,*/ InvorderingController.invordering_list);
 
 /**
+ * GET (ie READ) all base records invorderingen in the collection
+ * Login via JSON Web Token authorization is required!
+ */
+router.get("/base-records", /*checkAuth,*/ InvorderingController.invordering_list_base_records);
+
+/**
  * GET (ie READ) a specific invordering in the collection by `_id`
  * Login via JSON Web Token authorization is required!
  */
