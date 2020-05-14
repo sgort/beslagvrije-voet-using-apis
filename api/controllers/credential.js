@@ -139,3 +139,26 @@ exports.credential_delete_one = (req, res, next) => {
             });
         });
 };
+
+exports.credential_delete_non_base_records = (req, res, next) => {
+    Credential.remove({ "_base_record": "false" })
+        .exec()
+        .then(result => {
+            if (result.deletedCount !== 0) {
+                console.log(result)
+                res.status(200).json({
+                    message: "Non base records succesfully deleted"
+                })
+            } else {
+                res.status(404).json({
+                    message: "No non base records found"
+                })
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+};

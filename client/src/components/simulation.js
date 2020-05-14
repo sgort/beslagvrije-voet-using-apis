@@ -4,7 +4,9 @@ import ClockLoader from 'react-spinners/ClockLoader';
 /**
  * External json files holding the records for simulation
  */
-const defaultSimulation = require('./../simulations/simulation-default.json');
+const intialBaselineInvorderingen = require('./../simulations/simulation-baseline-invorderingen.json');
+const intialBaselineCredentials = require('./../simulations/simulation-baseline-credentials.json');
+const nochangeSimulation = require('./../simulations/simulation-default.json');
 const rulesSimulation = require('./../simulations/simulation-rules-engine.json');
 const credentialsSimulation = [
     {
@@ -16,7 +18,7 @@ const credentialsSimulation = [
     },
 ];
 
-const defaultURL = 'http://localhost:9000/invorderingen';
+const invorderingenURL = 'http://localhost:9000/invorderingen';
 const credentialsURL = 'http://localhost:9000/credentials';
 
 
@@ -87,11 +89,19 @@ class Simulation extends Component {
 
     runSimulation(type) {
         switch (type) {
+            case type = "nochange":
+                for (var i = 0; i < nochangeSimulation.length; i++) {
+                    wait(100);
+                    var json = JSON.stringify(nochangeSimulation[i]);
+                    insertRecords(json, invorderingenURL);
+                }
+                break;
             case type = "rules":
                 for (var j = 0; j < rulesSimulation.length; j++) {
                     wait(100);
+                    // eslint-disable-next-line
                     var json = JSON.stringify(rulesSimulation[j]);
-                    insertRecords(json, defaultURL);
+                    insertRecords(json, invorderingenURL);
                 }
                 // eslint-disable-next-line
                 for (var j = 0; j < credentialsSimulation.length; j++) {
@@ -102,11 +112,18 @@ class Simulation extends Component {
                 }
                 break;
             default:
-                for (var i = 0; i < defaultSimulation.length; i++) {
+                for (var k = 0; k < intialBaselineInvorderingen.length; k++) {
                     wait(100);
                     // eslint-disable-next-line
-                    var json = JSON.stringify(defaultSimulation[i]);
-                    insertRecords(json, defaultURL);
+                    var json = JSON.stringify(intialBaselineInvorderingen[k]);
+                    insertRecords(json, invorderingenURL);
+                }
+                // eslint-disable-next-line
+                for (var k = 0; k < intialBaselineCredentials.length; k++) {
+                    wait(100);
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(intialBaselineCredentials[k]);
+                    insertRecords(json, credentialsURL);
                 }
         }
     }
@@ -114,7 +131,7 @@ class Simulation extends Component {
     handleSubmit(event) {
         // Advies Pim:
         // onSubmit, spinner op true zetten met setState, daarna (niet in callback) de runSimulation call doen.
-        // this.setState({ showSpinner: !this.state.showSpinner });
+        this.setState({ showSpinner: !this.state.showSpinner });
         // De setState triggert de render van de spinner, als het goed is.
         this.runSimulation(this.state.value);
         // aan het eind van runSimulation een call naar "retrieveData" die de GET calls doet
@@ -127,7 +144,8 @@ class Simulation extends Component {
     }
 
     handleDelete(event) {
-        deleteRecords(defaultURL);
+        deleteRecords(invorderingenURL);
+        deleteRecords(credentialsURL);
         event.preventDefault();
     }
 

@@ -8,11 +8,14 @@ class ListOutcome extends Component {
         sorters: this.props.sorters,
     };
 
-    
+
     static defaultProps = {
         filters: [{
             property: 'BSN',
             value: '999994669'
+        }, {
+            property: '_base_record',
+            value: 'false'
         }],
         sorters: [{
             property: 'beslaglegger'

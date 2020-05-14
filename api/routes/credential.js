@@ -34,4 +34,10 @@ router.patch("/:credentialId", /*checkAuth,*/ CredentialController.credential_up
  */
 router.delete("/:credentialId", checkAuth, CredentialController.credential_delete_one);
 
+/**
+ * DELETE all non base records from the collection
+ * Login via JSON Web Token authorization is required!
+ */
+router.delete("/", /*checkAuth,*/ CredentialController.credential_delete_non_base_records);
+
 module.exports = router;

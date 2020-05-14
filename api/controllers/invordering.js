@@ -10,6 +10,7 @@ exports.invordering_list = (req, res, next) => {
                 count: docs.length,
                 invorderingen: docs.map(doc => {
                     return {
+                        _base_record: doc._base_record,
                         BSN: doc.BSN,
                         beslag_object: doc.beslag_object,
                         samenloop: doc.samenloop,
@@ -37,13 +38,14 @@ exports.invordering_list = (req, res, next) => {
 
 
 exports.invordering_list_base_records = (req, res, next) => {
-    Invordering.find({ "_base_record": "true" })
+    Invordering.find({$or: [{ "_base_record": "true" }, { "_baseline": "true" }]})
         .exec()
         .then(docs => {
             const response = {
                 count: docs.length,
                 invorderingen: docs.map(doc => {
                     return {
+                        _base_record: doc._base_record,
                         BSN: doc.BSN,
                         beslag_object: doc.beslag_object,
                         samenloop: doc.samenloop,
