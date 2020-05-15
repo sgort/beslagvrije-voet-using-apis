@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/bvv/static/css/main.ba61d6ae.chunk.css",
+    "main.js": "/bvv/static/js/main.8568bf3f.chunk.js",
+    "main.js.map": "/bvv/static/js/main.8568bf3f.chunk.js.map",
+    "runtime-main.js": "/bvv/static/js/runtime-main.5a31e086.js",
+    "runtime-main.js.map": "/bvv/static/js/runtime-main.5a31e086.js.map",
+    "static/css/2.dc67f1aa.chunk.css": "/bvv/static/css/2.dc67f1aa.chunk.css",
+    "static/js/2.fc996d97.chunk.js": "/bvv/static/js/2.fc996d97.chunk.js",
+    "static/js/2.fc996d97.chunk.js.map": "/bvv/static/js/2.fc996d97.chunk.js.map",
+    "index.html": "/bvv/index.html",
+    "precache-manifest.132ed2880ecec28f5a5a641705a4d1e5.js": "/bvv/precache-manifest.132ed2880ecec28f5a5a641705a4d1e5.js",
+    "service-worker.js": "/bvv/service-worker.js",
+    "static/css/2.dc67f1aa.chunk.css.map": "/bvv/static/css/2.dc67f1aa.chunk.css.map",
+    "static/css/main.ba61d6ae.chunk.css.map": "/bvv/static/css/main.ba61d6ae.chunk.css.map",
+    "static/js/2.fc996d97.chunk.js.LICENSE.txt": "/bvv/static/js/2.fc996d97.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/bvv/static/media/outline-icons.ece54318.ttf",
+    "static/media/discipl-api-strategy.jpg": "/bvv/static/media/discipl-api-strategy.2eeb91e4.jpg",
+    "static/media/profile1.jpg": "/bvv/static/media/profile1.4ae319a4.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5a31e086.js",
+    "static/css/2.dc67f1aa.chunk.css",
+    "static/js/2.fc996d97.chunk.js",
+    "static/css/main.ba61d6ae.chunk.css",
+    "static/js/main.8568bf3f.chunk.js"
+  ]
+}
