@@ -35,5 +35,11 @@ router.patch("/:rulesId", RulesEngineController.rulesengine_update_one);
  */
 router.delete("/:rulesId", RulesEngineController.rulesengine_delete_one );
 
+/**
+ * DELETE all non base records from the collection
+ * Login via JSON Web Token authorization is required!
+ */
+router.delete("/", /*checkAuth,*/ RulesEngineController.rulesengine_delete_non_base_records);
+
 
 module.exports = router;

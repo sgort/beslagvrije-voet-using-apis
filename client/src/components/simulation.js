@@ -12,7 +12,7 @@ const rulesSimulationRules = require('./../simulations/rules-engine-rules.json')
 
 const invorderingenURL = 'http://localhost:9000/invorderingen';
 const credentialsURL = 'http://localhost:9000/credentials';
-const rulesengineURL = 'http://localhost:9000/rulesengine/insert'
+const rulesengineURL = 'http://localhost:9000/rulesengine'
 
 
 function insertRecords(raw, url) {
@@ -123,6 +123,7 @@ class Simulation extends Component {
     handleDelete(event) {
         deleteRecords(invorderingenURL);
         deleteRecords(credentialsURL);
+        deleteRecords(rulesengineURL);
         event.preventDefault();
     }
 
@@ -132,10 +133,11 @@ class Simulation extends Component {
                 <label>
                     Select your simulation:
                     <select class="ui selection dropdown" value={this.state.value} onChange={this.handleChange}>
-                        <option value="default">Set initial baseline</option>
-                        <option value="nochange">Run with no changes</option>
-                        <option value="income">Show income change</option>
-                        <option value="rules">New Rules Engine</option>
+                        <option value="default">set initial baseline</option>
+                        <option value="nochange">run with no changes</option>
+                        <option value="income">show income change</option>
+                        <option value="rules">introduce new rules</option>
+                        <option value="both">both rules + income change</option>
                     </select>
                 </label>
                 <p></p>
