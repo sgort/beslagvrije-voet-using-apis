@@ -1,0 +1,24 @@
+[
+    {
+        "_base_record": "false",
+        "_baseline": "true",
+        "BSN": 999994669,
+        "beslag_object": "Werkloos uitkering",
+        "samenloop": "false",
+        "beslaglegger": "Gemeentelijke sociale dienst Valkenswaard",
+        "openstaande_vordering": 750,
+        "beslagvrije_voet": 892.5,
+        "invordering": 94.5
+    },
+    {
+        "_base_record": "false",
+        "_baseline": "true",
+        "BSN": 999994669,
+        "beslag_object": "Werkloos uitkering",
+        "samenloop": "false",
+        "beslaglegger": "Waterschap Groot Salland",
+        "openstaande_vordering": 378,
+        "beslagvrije_voet": 892.5,
+        "invordering": 63
+    }
+]

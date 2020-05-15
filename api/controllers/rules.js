@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const RulesEngine = require('../models/rules');
 
 
-exports.rulesengine_list = (req, res, next) => {
-    RulesEngine.find().sort({date_start: -1}) // Sort desc by date_start to get active rules (ie first in array)
+exports.rulesengine_list_all = (req, res, next) => {
+    RulesEngine.find().sort({ date_start: -1 })
         .exec()
         .then(docs => {
             const response = {
@@ -15,7 +15,39 @@ exports.rulesengine_list = (req, res, next) => {
                         issuer: doc.issuer,
                         rules: doc.rules,
                         date_start: doc.date_start,
-                        date_end: doc.date_end
+                        date_end: doc.date_end,
+                        ruleoflaw: doc.ruleoflaw
+                    };
+                })
+            };
+            console.log(docs);
+            res.status(200).json(response);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+};
+
+
+exports.rulesengine_list = (req, res, next) => {
+    const domainRef = req.params.domainRef
+    RulesEngine.find({ domain: { $eq: domainRef } }).sort({ date_start: -1 }) // Sort desc by date_start to get active rules (ie first in array)
+        .exec()
+        .then(docs => {
+            const response = {
+                data: docs.map(doc => {
+                    return {
+                        _id: doc._id,
+                        domain: doc.domain,
+                        reference: doc.reference,
+                        issuer: doc.issuer,
+                        rules: doc.rules,
+                        date_start: doc.date_start,
+                        date_end: doc.date_end,
+                        ruleoflaw: doc.ruleoflaw
                     };
                 })
             };
@@ -46,7 +78,8 @@ exports.rulesengine_find_one = (req, res, next) => {
                             issuer: doc.issuer,
                             rules: doc.rules,
                             date_start: doc.date_start,
-                            date_end: doc.date_end
+                            date_end: doc.date_end,
+                            ruleoflaw: doc.ruleoflaw
                         };
                     })
                 };
@@ -81,8 +114,9 @@ exports.rulesengine_create_one = (req, res, next) => {
                         issuer: doc.issuer,
                         rules: doc.rules,
                         date_start: doc.date_start,
-                        date_end: doc.date_end
-                };
+                        date_end: doc.date_end,
+                        ruleoflaw: doc.ruleoflaw
+                    };
                 })
             });
         })
@@ -95,7 +129,7 @@ exports.rulesengine_create_one = (req, res, next) => {
 };
 
 
-exports.rulesengine_update_one =  (req, res, next) => {
+exports.rulesengine_update_one = (req, res, next) => {
     const id = req.params.rulesId;
     RulesEngine.updateMany({ _id: { $eq: id } }, { $set: req.body }, { upsert: true })
         .exec()
@@ -122,6 +156,29 @@ exports.rulesengine_delete_one = (req, res, next) => {
             res.status(200).json({
                 message: `Rules ${id} deleted`
             });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+};
+
+exports.rulesengine_delete_non_base_records = (req, res, next) => {
+    RulesEngine.remove({ "_base_record": "false" })
+        .exec()
+        .then(result => {
+            if (result.deletedCount !== 0) {
+                console.log(result)
+                res.status(200).json({
+                    message: "Non base records succesfully deleted"
+                })
+            } else {
+                res.status(404).json({
+                    message: "No non base records found"
+                })
+            }
         })
         .catch(err => {
             console.log(err);

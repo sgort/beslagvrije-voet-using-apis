@@ -5,7 +5,7 @@ import { UsersContext } from '../context/users-context';
 import FlashMessage, { flashErrorMessage } from '../components/flash-message';
 
 
-export default function UsersListPage() {
+function UsersListPage() {
   const [state, dispatch] = useContext(UsersContext);
 
   useEffect(() => {
@@ -32,4 +32,4 @@ export default function UsersListPage() {
   );
 }
 
-
+export default UsersListPage;

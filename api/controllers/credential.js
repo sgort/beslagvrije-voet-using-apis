@@ -7,13 +7,13 @@ exports.credential_list = (req, res, next) => {
         .exec()
         .then(docs => {
             const response = {
-                count: docs.length,
-                credentials: docs.map(doc => {
+                data: docs.map(doc => {
                     return {
                         _id: doc._id,
                         BSN: doc.BSN,
                         type: doc.type,
                         value: doc.value,
+                        timestamp: doc._id.getTimestamp(),
                         issuer: doc.issuer,
                         issued: doc.issued
                     };
@@ -45,6 +45,7 @@ exports.credential_find_one = (req, res, next) => {
                             BSN: doc.BSN,
                             type: doc.type,
                             value: doc.value,
+                            timestamp: doc._id.getTimestamp(),
                             issuer: doc.issuer,
                             issued: doc.issued
                         };
@@ -128,6 +129,29 @@ exports.credential_delete_one = (req, res, next) => {
             } else {
                 res.status(404).json({
                     message: "No valid Credential found for provided credentialId"
+                })
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
+        });
+};
+
+exports.credential_delete_non_base_records = (req, res, next) => {
+    Credential.remove({ "_base_record": "false" })
+        .exec()
+        .then(result => {
+            if (result.deletedCount !== 0) {
+                console.log(result)
+                res.status(200).json({
+                    message: "Non base records succesfully deleted"
+                })
+            } else {
+                res.status(404).json({
+                    message: "No non base records found"
                 })
             }
         })

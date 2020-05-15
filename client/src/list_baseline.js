@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { createSorter } from './components/sort';
 import { createFilter } from './components/filter';
 
-class List extends Component {
+class ListBaseline extends Component {
     state = {
         filters: this.props.filters,
-        sorters: this.props.sorters
+        sorters: this.props.sorters,
     };
 
+    
     static defaultProps = {
         filters: [{
             property: 'BSN',
@@ -16,12 +17,13 @@ class List extends Component {
         sorters: [{
             property: 'beslaglegger'
         }, {
-            property: 'beslag_object'
+            property: 'openstaande_vordering',
+            direction: 'DESC'
         }]
     };
 
     componentDidMount() {
-        fetch('http://localhost:9000/invorderingen')
+        fetch('http://localhost:9000/invorderingen/base-records')
             .then(res => res.json())
             .then(this.onLoad);
     }
@@ -77,4 +79,4 @@ class List extends Component {
     }
 }
 
-export default List;
+export default ListBaseline;

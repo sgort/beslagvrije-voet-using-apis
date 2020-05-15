@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Route, BrowserRouter } from 'react-router-dom';
+import { NavLink, Route, BrowserRouter as Router } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 import UsersListPage from './pages/users-list-page';
 import UsersFormPage from './pages/users-form-page';
@@ -11,7 +11,7 @@ class UserAdmin extends Component {
     render() {
         return (
             <UsersContextProvider>
-                <BrowserRouter>
+                <Router>
                     <Container>
                         <div className="ui three item menu">
                             <NavLink className="item" activeClassName="active" exact to="/">
@@ -39,7 +39,7 @@ class UserAdmin extends Component {
                         <Route path="/users/edit/:_id" component={UsersFormPage} />
                         <Route path="/rules" component={RulesListPage} />
                     </Container>
-                </BrowserRouter>
+                </Router>
             </UsersContextProvider>
         );
     }

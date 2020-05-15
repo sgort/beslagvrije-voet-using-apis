@@ -7,7 +7,7 @@ import { flashErrorMessage } from './flash-message';
 
 const { useContext } = React;
 
-export default function UsersCard({ user }) {
+function UsersCard({ user }) {
   // eslint-disable-next-line no-unused-vars
   const [state, dispatch] = useContext(UsersContext);
 
@@ -61,3 +61,5 @@ export default function UsersCard({ user }) {
     </Card>
   );
 }
+
+export default UsersCard;

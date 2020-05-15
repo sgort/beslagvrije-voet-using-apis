@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'semantic-ui-react';
-import UsersCard from './users-card';
+import UsersCard from './users-card-no-buttons';
 
 export default function UsersList({ users }) {
     const cards = () => {

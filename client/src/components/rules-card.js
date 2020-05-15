@@ -9,7 +9,7 @@ export default function RulesCard({ user }) {
     const [state, dispatch] = useContext(UsersContext);
 
     return (
-        <Card>
+        <Card color='blue'>
             <Card.Content>
                 <Card.Header>
                     <Icon name="address card outline" /> {user.reference} - {user.issuer}
@@ -20,6 +20,9 @@ export default function RulesCard({ user }) {
                     </p>
                     <p>
                         <Icon name="stop circle outline" /> {user.date_end}
+                    </p>
+                    <p>
+                        <Icon name="linkify" /><a href={user.ruleoflaw}>{user.ruleoflaw}</a>
                     </p>
                     <p>
                         <Icon name="code" /> {user.rules}

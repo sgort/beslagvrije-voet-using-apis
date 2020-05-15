@@ -3,10 +3,16 @@ const router = express.Router();
 const checkAuth = require('../middleware/check-auth');
 const RulesEngineController = require('../controllers/rules');
 
+
 /**
- * GET (ie READ) all rules in the collection
+ * GET (ie READ) all Rules Engine in the collection
  */
-router.get("/", RulesEngineController.rulesengine_list);
+router.get("/all", RulesEngineController.rulesengine_list_all);
+
+/**
+ * GET (ie READ) latest specific Rules Engine in the collection by 'reference'
+ */
+router.get("/domain/:domainRef", RulesEngineController.rulesengine_list);
 
 /**
  * GET (ie READ) a specific Rules Engine in the collection by `reference`
@@ -28,6 +34,12 @@ router.patch("/:rulesId", RulesEngineController.rulesengine_update_one);
  * DELETE a specific rules from the collection
  */
 router.delete("/:rulesId", RulesEngineController.rulesengine_delete_one );
+
+/**
+ * DELETE all non base records from the collection
+ * Login via JSON Web Token authorization is required!
+ */
+router.delete("/", /*checkAuth,*/ RulesEngineController.rulesengine_delete_non_base_records);
 
 
 module.exports = router;
