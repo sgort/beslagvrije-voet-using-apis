@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createSorter } from './components/sort';
 import { createFilter } from './components/filter';
+import TableDisplay from './components/tabledisplay';
 
 class ListBaseline extends Component {
     state = {
@@ -61,12 +62,7 @@ class ListBaseline extends Component {
             return (
                 <div className="Status">
                     <p className="Status invorderingen">Status invordering(en): </p>
-                    <p>BSN | beslaglegger | beslag oject | beslagvrije voet | openstaande vordering | invordering</p>
-                    {data.map(item => (
-                        <div key={item.id}>
-                            <p>{item.BSN} | {item.beslaglegger} | {item.beslag_object} | € {item.beslagvrije_voet} | € {item.openstaande_vordering} | € {item.invordering}</p>
-                        </div>
-                    ))}
+                    <TableDisplay data={data}/>
                 </div>
             );
         } else {

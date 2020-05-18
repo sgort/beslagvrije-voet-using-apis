@@ -1,5 +1,5 @@
-thead {color:green;}
-tbody {color:blue;}
+thead {color:rgba(0, 98, 128, 0.932);}
+tbody {color:black;}
 table, th, td {
  border: 1px solid black;
 }

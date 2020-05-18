@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './tabledisplay.css';
 
-export default class Table extends React.Component {
+class TableDisplay extends Component {
 
     constructor(props) {
         super(props);
@@ -45,8 +45,11 @@ export default class Table extends React.Component {
         );
     }
 }
+
 const RenderRow = (props) => {
     return props.keys.map((key, index) => {
         return <td key={props.data[key]}>{props.data[key]}</td>
     })
 }
+
+export default TableDisplay;
