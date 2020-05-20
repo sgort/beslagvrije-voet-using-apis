@@ -1,14 +1,7 @@
 [
   {
-    "BSN": 999993483,
-    "beslag_object": "Loon",
-    "beslaglegger": "SNS Bank",
-    "openstaande_vordering": 2716.86,
-    "beslagvrije_voet": 1562.86,
-    "afloscapaciteit": 283.14,
-    "invordering": 283.14
-  },
-  {
+    "_baseline": false,
+    "maand": "2018-02-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -18,6 +11,8 @@
     "invordering": 141.57
   },
   {
+    "_baseline": false,
+    "maand": "2018-03-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -27,6 +22,8 @@
     "invordering": 94.38
   },
   {
+    "_baseline": false,
+    "maand": "2018-04-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -36,6 +33,8 @@
     "invordering": 70.79
   },
   {
+    "_baseline": false,
+    "maand": "2018-05-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -45,6 +44,8 @@
     "invordering": 134.29
   },
   {
+    "_baseline": false,
+    "maand": "2018-06-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -54,6 +55,8 @@
     "invordering": 134.29
   },
   {
+    "_baseline": false,
+    "maand": "2018-07-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -63,6 +66,8 @@
     "invordering": 156.96
   },
   {
+    "_baseline": false,
+    "maand": "2018-08-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -72,6 +77,8 @@
     "invordering": 179.05
   },
   {
+    "_baseline": false,
+    "maand": "2018-09-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -81,6 +88,8 @@
     "invordering": 150.33
   },
   {
+    "_baseline": false,
+    "maand": "2018-10-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -90,6 +99,8 @@
     "invordering": 150.33
   },
   {
+    "_baseline": false,
+    "maand": "2018-11-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -99,6 +110,8 @@
     "invordering": 0
   },
   {
+    "_baseline": false,
+    "maand": "2018-12-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -108,6 +121,8 @@
     "invordering": 0
   },
   {
+    "_baseline": false,
+    "maand": "2019-01-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -117,6 +132,8 @@
     "invordering": 25.75
   },
   {
+    "_baseline": false,
+    "maand": "2019-02-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -126,6 +143,8 @@
     "invordering": 112.75
   },
   {
+    "_baseline": false,
+    "maand": "2019-03-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -135,6 +154,8 @@
     "invordering": 112.75
   },
   {
+    "_baseline": false,
+    "maand": "2019-04-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -144,6 +165,8 @@
     "invordering": 112.75
   },
   {
+    "_baseline": false,
+    "maand": "2019-05-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -153,6 +176,8 @@
     "invordering": 112.75
   },
   {
+    "_baseline": false,
+    "maand": "2019-06-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -162,6 +187,8 @@
     "invordering": 112.75
   },
   {
+    "_baseline": false,
+    "maand": "2019-07-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -171,6 +198,8 @@
     "invordering": 112.75
   },
   {
+    "_baseline": false,
+    "maand": "2019-08-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -180,6 +209,8 @@
     "invordering": 112.75
   },
   {
+    "_baseline": false,
+    "maand": "2019-09-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -189,6 +220,8 @@
     "invordering": 112.75
   },
   {
+    "_baseline": false,
+    "maand": "2019-10-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -198,6 +231,8 @@
     "invordering": 177.39
   },
   {
+    "_baseline": false,
+    "maand": "2019-11-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -207,6 +242,8 @@
     "invordering": 368.12
   },
   {
+    "_baseline": false,
+    "maand": "2019-12-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
     "beslaglegger": "SNS Bank",
@@ -214,5 +251,544 @@
     "beslagvrije_voet": 1649,
     "afloscapaciteit": 31.62,
     "invordering": 31.62
+  },
+  {
+    "_baseline": true,
+    "maand": "2018-02-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 2258.43,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 283.14,
+    "invordering": 141.57
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-03-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 2164.05,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 283.14,
+    "invordering": 94.38
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-04-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 2093.27,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 283.14,
+    "invordering": 70.79
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-05-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 1958.98,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 537.14,
+    "invordering": 134.29
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-06-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 1824.7,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 537.14,
+    "invordering": 134.29
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-07-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 1667.74,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 537.14,
+    "invordering": 156.96
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-08-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 1488.69,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 537.14,
+    "invordering": 179.05
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-09-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 1338.36,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 150.33
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-10-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 1188.02,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 150.33
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-11-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 1188.02,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 0
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-12-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 1188.02,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 0
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-01-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 1162.27,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 25.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-02-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 1049.52,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-03-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 936.77,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-04-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 824.02,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-05-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 711.27,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-06-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 598.52,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-07-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 485.77,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-08-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 373.02,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-09-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 260.27,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-10-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 82.88,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 177.39
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-11-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Hakrinkbank",
+    "openstaande_vordering": 0,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 82.88
+  },
+  {
+    "_baseline": true,
+    "maand": "2018-03-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Wehkamp",
+    "openstaande_vordering": 405.62,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 283.14,
+    "invordering": 94.38
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-04-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Wehkamp",
+    "openstaande_vordering": 334.84,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 283.14,
+    "invordering": 70.79
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-05-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Wehkamp",
+    "openstaande_vordering": 200.55,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 537.14,
+    "invordering": 134.29
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-06-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Wehkamp",
+    "openstaande_vordering": 66.26,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 537.14,
+    "invordering": 134.29
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-07-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Wehkamp",
+    "openstaande_vordering": 0,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 537.14,
+    "invordering": 66.26
+  },
+  {
+    "_baseline": true,
+    "maand": "2018-04-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 1929.22,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 283.14,
+    "invordering": 70.79
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-05-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 1794.93,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 537.14,
+    "invordering": 134.29
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-06-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 1660.65,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 537.14,
+    "invordering": 134.29
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-07-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 1503.69,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 537.14,
+    "invordering": 156.96
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-08-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 1324.64,
+    "beslagvrije_voet": 1562.86,
+    "afloscapaciteit": 537.14,
+    "invordering": 179.05
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-09-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 1174.31,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 150.33
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-10-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 1023.97,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 150.33
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-11-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 1023.97,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 0
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-12-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 1023.97,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 0
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-01-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 998.22,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 25.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-02-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 885.47,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-03-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 772.72,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-04-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 659.97,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-05-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 547.22,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-06-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 434.47,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-07-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 321.72,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-08-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 208.97,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-09-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 96.22,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 112.75
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-10-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "DUO",
+    "openstaande_vordering": 0,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 96.22
+  },
+  {
+    "_baseline": true,
+    "maand": "2018-11-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Belastingdienst",
+    "openstaande_vordering": 799,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 451
+  },
+  {
+    "_baseline": false,
+    "maand": "2018-12-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Belastingdienst",
+    "openstaande_vordering": 348,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 451
+  },
+  {
+    "_baseline": false,
+    "maand": "2019-01-01",
+    "BSN": 999993483,
+    "beslag_object": "Loon",
+    "beslaglegger": "Belastingdienst",
+    "openstaande_vordering": 0,
+    "beslagvrije_voet": 1649,
+    "afloscapaciteit": 451,
+    "invordering": 348
   }
  ]

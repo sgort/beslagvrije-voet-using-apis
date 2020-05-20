@@ -4,6 +4,7 @@ const invorderingSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     _base_record: {type: Boolean, default: false, required: true},
     _baseline: {type: Boolean, default: false, required: true},
+    maand: { type: Date, required: false, default: null},
     BSN: { type: Number, required: true },
     beslag_object: { type: String, required: false },
     samenloop: { type: Boolean, default: false, required: true },

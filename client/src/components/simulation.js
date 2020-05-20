@@ -67,28 +67,28 @@ class Simulation extends Component {
         switch (type) {
             case type = "nochange":
                 for (var i = 0; i < nochangeSimulation.length; i++) {
-                    wait(100);
+                    //wait(100);
                     var json = JSON.stringify(nochangeSimulation[i]);
                     insertRecords(json, invorderingenURL);
                 }
                 break;
             case type = "rules":
                 for (var j = 0; j < rulesSimulationInvorderingen.length; j++) {
-                    wait(100);
+                    //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(rulesSimulationInvorderingen[j]);
                     insertRecords(json, invorderingenURL);
                 }
                 // eslint-disable-next-line
                 for (var j = 0; j < rulesSimulationCredentials.length; j++) {
-                    wait(100);
+                    //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(rulesSimulationCredentials[j]);
                     insertRecords(json, credentialsURL);
                 }
                 // eslint-disable-next-line
                 for (var j = 0; j < rulesSimulationRules.length; j++) {
-                    wait(100);
+                    //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(rulesSimulationRules[j]);
                     insertRecords(json, rulesengineURL);
@@ -96,14 +96,14 @@ class Simulation extends Component {
                 break;
             default:
                 for (var k = 0; k < intialBaselineInvorderingen.length; k++) {
-                    wait(100);
+                    //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(intialBaselineInvorderingen[k]);
                     insertRecords(json, invorderingenURL);
                 }
                 // eslint-disable-next-line
                 for (var k = 0; k < intialBaselineCredentials.length; k++) {
-                    wait(100);
+                    //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(intialBaselineCredentials[k]);
                     insertRecords(json, credentialsURL);
@@ -133,7 +133,7 @@ class Simulation extends Component {
                 <label>
                     Uit te voeren simulatie:
                     <select class="ui selection dropdown" value={this.state.value} onChange={this.handleChange}>
-                        <option value="default">Uitgangssituatie 1e beslaglegger</option>
+                        <option value="default">Uitgangssituatie</option>
                         <option value="nochange">Geen wijzigingen</option>
                         <option value="income">show income change</option>
                         <option value="rules">introduce new rules</option>

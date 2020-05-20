@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Invordering = require('../models/invordering');
+const dateoptions = { year: 'numeric', month: 'short' };
 
 
 exports.invordering_list = (req, res, next) => {
@@ -10,6 +11,8 @@ exports.invordering_list = (req, res, next) => {
                 count: docs.length,
                 invorderingen: docs.map(doc => {
                     return {
+                        //maand: doc.maand.toLocaleDateString("nl-NL", dateoptions),
+                        maand: doc.maand,
                         BSN: doc.BSN,
                         beslag_object: doc.beslag_object,
                         beslaglegger: doc.beslaglegger,
@@ -40,6 +43,7 @@ exports.invordering_list_base_records = (req, res, next) => {
                 count: docs.length,
                 invorderingen: docs.map(doc => {
                     return {
+                        maand: doc.maand,
                         BSN: doc.BSN,
                         beslag_object: doc.beslag_object,
                         beslaglegger: doc.beslaglegger,
@@ -72,6 +76,7 @@ exports.invordering_find_one = (req, res, next) => {
                     count: docs.length,
                     invorderingen: docs.map(doc => {
                         return {
+                            maand: doc.maand,
                             BSN: doc.BSN,
                             beslag_object: doc.beslag_object,
                             samenloop: doc.samenloop,
@@ -113,6 +118,7 @@ exports.invordering_create_one = (req, res, next) => {
                 invorderingen: result.map(doc => {
                     return {
                         _id: doc._id,
+                        maand: doc.maand,
                         BSN: doc.BSN,
                         beslag_object: doc.beslag_object,
                         samenloop: doc.samenloop,

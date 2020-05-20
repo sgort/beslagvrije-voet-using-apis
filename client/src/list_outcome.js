@@ -16,9 +16,10 @@ class ListOutcome extends Component {
             value: '999993483'
         }],
         sorters: [{
-            property: 'beslaglegger'
+            property: 'maand',
+            direction: 'ASC'
         }, {
-            property: 'openstaande_vordering',
+            property: 'invordering',
             direction: 'DESC'
         }]
     };
