@@ -2,41 +2,56 @@
     {
         "_base_record": "true",
         "BSN": 999993483,
-        "beslag_object": "Werkloos uitkering",
+        "beslag_object": "Loon",
         "samenloop": "false",
-        "beslaglegger": "Gemeentelijke sociale dienst Valkenswaard",
-        "openstaande_vordering": 750,
+        "beslaglegger": "SNS Bank",
+        "openstaande_vordering": 3000,
         "beslagvrije_voet": null,
+        "afloscapaciteit": null,
         "invordering": null
     },
     {
         "_base_record": "true",
         "BSN": 999993483,
-        "beslag_object": "Werkloos uitkering",
+        "beslag_object": "Loon",
         "samenloop": "false",
-        "beslaglegger": "Waterschap Groot Salland",
-        "openstaande_vordering": 378,
+        "beslaglegger": "Hakrinkbank",
+        "openstaande_vordering": 2400,
         "beslagvrije_voet": null,
+        "afloscapaciteit": null,
         "invordering": null
     },
     {
         "_base_record": "true",
-        "BSN": 663678651,
-        "beslag_object": "Inkomen loondienst",
+        "BSN": 999993483,
+        "beslag_object": "Loon",
         "samenloop": "false",
-        "beslaglegger": "Waterschap Rijn en IJssel (WS)",
-        "openstaande_vordering": 423,
-        "beslagvrije_voet": 1245.5,
-        "invordering": 165
+        "beslaglegger": "Wehkamp",
+        "openstaande_vordering": 500,
+        "beslagvrije_voet": null,
+        "afloscapaciteit": null,
+        "invordering": null
     },
     {
         "_base_record": "true",
-        "BSN": 999994669,
-        "beslag_object": "ZZP",
+        "BSN": 999993483,
+        "beslag_object": "Loon",
+        "samenloop": "false",
+        "beslaglegger": "DUO",
+        "openstaande_vordering": 2000,
+        "beslagvrije_voet": null,
+        "afloscapaciteit": null,
+        "invordering": null
+    },
+    {
+        "_base_record": "true",
+        "BSN": 999993483,
+        "beslag_object": "Loon",
         "samenloop": "false",
         "beslaglegger": "Belastingdienst",
-        "openstaande_vordering": 1746,
-        "beslagvrije_voet": 1400.5,
-        "invordering": 264
+        "openstaande_vordering": 1250,
+        "beslagvrije_voet": null,
+        "afloscapaciteit": null,
+        "invordering": null
     }
 ]

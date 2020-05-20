@@ -16,10 +16,7 @@ class ListBaseline extends Component {
             value: '999993483'
         }],
         sorters: [{
-            property: 'beslaglegger'
-        }, {
-            property: 'openstaande_vordering',
-            direction: 'DESC'
+            property: '_id'
         }]
     };
 

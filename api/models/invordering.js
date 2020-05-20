@@ -10,6 +10,7 @@ const invorderingSchema = mongoose.Schema({
     beslaglegger: { type: String, required: true },
     openstaande_vordering: {type: Number, required: true},
     beslagvrije_voet: { type: Number, required: false },
+    afloscapaciteit: { type: Number, required: false},
     invordering: {type: Number, required: false}
 }, { collection: 'invorderingen' });
 

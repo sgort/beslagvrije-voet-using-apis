@@ -15,6 +15,7 @@ exports.invordering_list = (req, res, next) => {
                         beslaglegger: doc.beslaglegger,
                         openstaande_vordering: doc.openstaande_vordering,
                         beslagvrije_voet: doc.beslagvrije_voet,
+                        afloscapaciteit: doc.afloscapaciteit,
                         invordering: doc.invordering
                     };
                 })
@@ -44,6 +45,7 @@ exports.invordering_list_base_records = (req, res, next) => {
                         beslaglegger: doc.beslaglegger,
                         openstaande_vordering: doc.openstaande_vordering,
                         beslagvrije_voet: doc.beslagvrije_voet,
+                        afloscapaciteit: doc.afloscapaciteit,
                         invordering: doc.invordering
                     };
                 })
@@ -76,6 +78,7 @@ exports.invordering_find_one = (req, res, next) => {
                             beslaglegger: doc.beslaglegger,
                             openstaande_vordering: doc.openstaande_vordering,
                             beslagvrije_voet: doc.beslagvrije_voet,
+                            afloscapaciteit: doc.afloscapaciteit,
                             invordering: doc.invordering,
                             request: {
                                 type: "GET_ALL_INVORDERINGEN",
@@ -116,6 +119,7 @@ exports.invordering_create_one = (req, res, next) => {
                         beslaglegger: doc.beslaglegger,
                         openstaande_vordering: doc.openstaande_vordering,
                         beslagvrije_voet: doc.beslagvrije_voet,
+                        afloscapaciteit: doc.afloscapaciteit,
                         invordering: doc.invordering
                     };
                 })
