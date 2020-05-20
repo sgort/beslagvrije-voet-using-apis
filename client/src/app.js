@@ -13,7 +13,7 @@ import UseCase from "./use-case";
 
 const App = () => (
   <div className='app'>
-    <h1>Demo API strategy - Collection Limit</h1>
+    <h1>Demo keten derdenbeslag</h1>
     <Navigation />
     <AllRoutes />
   </div>
@@ -22,12 +22,12 @@ const App = () => (
 const Navigation = () => (
   <nav>
     <ul className="header">
-      <li><NavLink exact to="/">Home</NavLink></li>
-      <li><NavLink to="/usecase">Use Case</NavLink></li>
-      <li><NavLink to="/baseline">Baseline</NavLink></li>
+      <li><NavLink exact to="/">Start</NavLink></li>
+      <li><NavLink to="/usecase">Casus</NavLink></li>
+      <li><NavLink to="/baseline">Uitgangssituatie</NavLink></li>
       <li><NavLink to="/credentials">Credentials</NavLink></li>
-      <li><NavLink to="/outcome">Outcome</NavLink></li>
-      <li><NavLink to="/simulation">Simulation</NavLink></li>
+      <li><NavLink to="/outcome">Resultaat</NavLink></li>
+      <li><NavLink to="/simulation">Simulatie</NavLink></li>
     </ul>
   </nav>
 );

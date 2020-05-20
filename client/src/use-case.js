@@ -15,7 +15,7 @@ class UseCase extends Component {
                     <Container>
                         <div className="ui three item menu">
                             <NavLink className="item" activeClassName="active" exact to="/">
-                                Subject
+                                Betrokkene
                     </NavLink>
                             <NavLink
                                 className="item"
@@ -31,7 +31,7 @@ class UseCase extends Component {
                                 exact
                                 to="/rules"
                             >
-                                Rules Engine
+                                Regelbeheersing
                     </NavLink>
                         </div>
                         <Route exact path="/" component={Resident} />

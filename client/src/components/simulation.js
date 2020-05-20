@@ -131,10 +131,10 @@ class Simulation extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
-                    Select your simulation:
+                    Uit te voeren simulatie:
                     <select class="ui selection dropdown" value={this.state.value} onChange={this.handleChange}>
-                        <option value="default">set initial baseline</option>
-                        <option value="nochange">run with no changes</option>
+                        <option value="default">Uitgangssituatie 1e beslaglegger</option>
+                        <option value="nochange">Geen wijzigingen</option>
                         <option value="income">show income change</option>
                         <option value="rules">introduce new rules</option>
                         <option value="both">both rules + income change</option>
@@ -142,8 +142,8 @@ class Simulation extends Component {
                 </label>
                 <p></p>
                 <div>
-                    <button class="ui primary button">Run it!</button>
-                    <button class="ui secondary button" onClick={this.handleDelete}>Reset</button>
+                    <button class="ui primary button">Simuleren!</button>
+                    <button class="ui secondary button" onClick={this.handleDelete}>Herstart</button>
                 </div>
                 <p></p>
                 <p id="simulation"></p>
