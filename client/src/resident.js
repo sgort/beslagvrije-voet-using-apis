@@ -14,7 +14,7 @@ class Resident extends Component {
 
   componentDidMount() {
     this.setState({ ...this.state, isFetching: true });
-    fetch('http://localhost:9000/inschrijvingbrp/999999035')
+    fetch('http://localhost:9000/inschrijvingbrp/999999035') // 999999035 for Lostlemon & 999993483 for VNG
       .then(res => res.json())
       .then(
         (result) => {

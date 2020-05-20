@@ -61,7 +61,8 @@ function showSuccess(text) {
 
 class ObtainedCredentials extends Component {
   state = {
-    Issued: false
+    Issued: false,
+    value: "default"
   };
 
   componentDidMount() {
@@ -118,8 +119,10 @@ class ObtainedCredentials extends Component {
           <p></p>
           <label>
             Select your preferred SSI:
-            <select name="ssi-app" class="ui selection dropdown">
+            <select class="ui selection dropdown" value={this.state.value}>
+              <option value="waardepapieren">Waardepapieren</option>
               <option value="default">IRMA</option>
+              <option value="forus">MyApp Forus</option>
               <option value="rabobank">Rabobank</option>
               <option value="schluss">Schluss</option>
               <option value="trustchain">TrustChain</option>

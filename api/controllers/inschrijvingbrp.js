@@ -23,11 +23,11 @@ GET /inschrijvingbrp/999994669 - - ms - -
  */
 const haalCentraalAPIbaseURL = 'https://haalcentraal.lostlemon.nl/';
 
-/*
+
 // Constant URL & API key value for Haal Centraal BRP API
-const haalCentraalAPIbaseURL = 'https://www.haalcentraal.nl/haalcentraal/api/brp';
+//const haalCentraalAPIbaseURL = 'https://www.haalcentraal.nl/haalcentraal/api/brp';
 const haalCentraalAPIKey = 'drsgPGjarGGRl2pKQTnLqfj3NfsTPBhR';
-*/
+
 
 exports.inschrijvingbrp_find_one = (req, res, next) => {
     const BSN = req.params.BSN
@@ -55,7 +55,7 @@ exports.inschrijvingbrp_find_one = (req, res, next) => {
                 postcode: json.verblijfplaats.postcode,
                 huisnummer: json.verblijfplaats.huisnummer,
                 gemeente: json.verblijfplaats.gemeenteVanInschrijving.omschrijving,
-                href: json._links.self.href
+                href: json._links.self.href // json._links.verblijfplaatshistorie.href for VNG & json._links.self.href for Lostlemon
             })
         })
         .catch(err => {

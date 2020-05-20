@@ -1,7 +1,7 @@
 [
     {
         "_base_record": "true",
-        "BSN": 999994669,
+        "BSN": 999993483,
         "beslag_object": "Werkloos uitkering",
         "samenloop": "false",
         "beslaglegger": "Gemeentelijke sociale dienst Valkenswaard",
@@ -11,7 +11,7 @@
     },
     {
         "_base_record": "true",
-        "BSN": 999994669,
+        "BSN": 999993483,
         "beslag_object": "Werkloos uitkering",
         "samenloop": "false",
         "beslaglegger": "Waterschap Groot Salland",
@@ -31,7 +31,7 @@
     },
     {
         "_base_record": "true",
-        "BSN": 999993483,
+        "BSN": 999994669,
         "beslag_object": "ZZP",
         "samenloop": "false",
         "beslaglegger": "Belastingdienst",

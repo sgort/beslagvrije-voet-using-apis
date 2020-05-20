@@ -24,6 +24,7 @@ function ResidentsCard({ resident }) {
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
+            <p>Situatie: geëmigreerd, verblijf buitenland, geheimhouding, uitgebreide verblijfplaatshistorie</p>
                 <a href={resident.href}>
                     <Icon name='tag' />
                     {resident.BSN}
