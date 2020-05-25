@@ -3,28 +3,27 @@ import { createSorter } from './components/sort';
 import { createFilter } from './components/filter';
 import TableDisplay from './components/tabledisplay';
 
+
 class ListOutcome extends Component {
-    state = {
-        filters: this.props.filters,
-        sorters: this.props.sorters,
-    };
-
-
-    static defaultProps = {
-        filters: [{
-            property: 'BSN',
-            value: '999993483'
-        }],
-        sorters: [{
-            property: 'maand',
-            direction: 'ASC'
-        }, {
-            property: 'invordering',
-            direction: 'DESC'
-        }]
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            sorters: [{
+                property: 'maand',
+                direction: 'ASC'
+            }, {
+                property: 'invordering',
+                direction: 'DESC'
+            }]
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
 
     componentDidMount() {
+        this.getData();
+    }
+
+    getData = () => {
         fetch('http://localhost:9000/invorderingen')
             .then(res => res.json())
             .then(this.onLoad);
@@ -52,6 +51,17 @@ class ListOutcome extends Component {
         });
     };
 
+    handleChange(event) {
+        this.setState({
+            //data: null,
+            filters: [{
+                property: 'beslaglegger',
+                value: event.target.value
+            }]
+        });
+        this.getData();
+    };
+
     render() {
         const { data } = this.state;
         return data ? this.renderData(data) : this.renderLoading();
@@ -60,9 +70,18 @@ class ListOutcome extends Component {
     renderData(data) {
         if (data && data.length > 0) {
             return (
-                <div className="Status">
-                    <p className="Status invorderingen">Status invordering(en): </p>
-                    <TableDisplay data={data}/>
+                <div className="Filter">
+                    <p className="Filter">Status invordering(en):
+                    <select class="ui selection dropdown" onChange={this.handleChange}>
+                            <option value="">Geen</option>
+                            <option value="SNS Bank">SNS Bank</option>
+                            <option value="Hakrinkbank">Hakrinkbank</option>
+                            <option value="Wehkamp">Wehkamp</option>
+                            <option value="DUO">DUO</option>
+                            <option value="Belastingdienst">Belastingdienst</option>
+                        </select>
+                    </p>
+                    <TableDisplay data={data} />
                 </div>
             );
         } else {
