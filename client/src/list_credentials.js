@@ -92,7 +92,7 @@ class ObtainedCredentials extends Component {
     if (data && data.length > 0) {
       return (
         <div>
-          <h1>Obtained credentials</h1>
+          <h1>Verkregen credentials</h1>
           <Card.Group>
             {data.map(item => (
               <Card color='blue' >
@@ -122,7 +122,7 @@ class ObtainedCredentials extends Component {
           </Card.Group>
           <p></p>
           <label>
-            Select your preferred SSI:
+            Selecteer jouw voorkeur SSI:
             <select class="ui selection dropdown" value={this.state.value}>
               <option value="waardepapieren">Waardepapieren</option>
               <option value="default">IRMA</option>
