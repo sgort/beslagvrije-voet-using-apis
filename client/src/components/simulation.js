@@ -5,7 +5,8 @@ import React, { Component } from "react";
  */
 const intialBaselineInvorderingen = require('./../simulations/baseline-invorderingen.json');
 const intialBaselineCredentials = require('./../simulations/baseline-credentials.json');
-const nochangeSimulation = require('./../simulations/no-changes.json');
+const nochangesSimulation = require('./../simulations/no-changes.json');
+const nochangesSimulationCredentials = require('./../simulations/no-changes-credentials.json');
 const rulesSimulationInvorderingen = require('./../simulations/rules-engine-invorderingen.json');
 const rulesSimulationCredentials = require('./../simulations/rules-engine-credentials.json');
 const rulesSimulationRules = require('./../simulations/rules-engine-rules.json');
@@ -66,10 +67,17 @@ class Simulation extends Component {
     runSimulation(type) {
         switch (type) {
             case type = "nochange":
-                for (var i = 0; i < nochangeSimulation.length; i++) {
+                for (var i = 0; i < nochangesSimulation.length; i++) {
                     //wait(100);
-                    var json = JSON.stringify(nochangeSimulation[i]);
+                    var json = JSON.stringify(nochangesSimulation[i]);
                     insertRecords(json, invorderingenURL);
+                }
+                // eslint-disable-next-line
+                for (var i = 0; i < nochangesSimulationCredentials.length; i++) {
+                    //wait(100);
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(nochangesSimulationCredentials[i]);
+                    insertRecords(json, credentialsURL);
                 }
                 break;
             case type = "rules":
