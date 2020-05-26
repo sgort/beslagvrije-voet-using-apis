@@ -16,7 +16,7 @@ class ListBaseline extends Component {
             value: '999993483'
         }],
         sorters: [{
-            property: '_id'
+            property: 'maand'
         }]
     };
 

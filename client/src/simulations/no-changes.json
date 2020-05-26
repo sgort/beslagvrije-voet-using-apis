@@ -77,7 +77,7 @@
     "invordering": 179.05
   },
   {
-    "_baseline": false,
+    "_baseline": true,
     "maand": "2018-09-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
@@ -330,7 +330,7 @@
     "invordering": 179.05
   },
   {
-    "_baseline": false,
+    "_baseline": true,
     "maand": "2018-09-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
@@ -605,7 +605,7 @@
     "invordering": 179.05
   },
   {
-    "_baseline": false,
+    "_baseline": true,
     "maand": "2018-09-01",
     "BSN": 999993483,
     "beslag_object": "Loon",
