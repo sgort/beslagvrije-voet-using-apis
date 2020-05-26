@@ -5,7 +5,8 @@ import React, { Component } from "react";
  */
 const intialBaselineInvorderingen = require('./../simulations/baseline-invorderingen.json');
 const intialBaselineCredentials = require('./../simulations/baseline-credentials.json');
-const nochangeSimulation = require('./../simulations/no-changes.json');
+const nochangesSimulation = require('./../simulations/no-changes.json');
+const nochangesSimulationCredentials = require('./../simulations/no-changes-credentials.json');
 const rulesSimulationInvorderingen = require('./../simulations/rules-engine-invorderingen.json');
 const rulesSimulationCredentials = require('./../simulations/rules-engine-credentials.json');
 const rulesSimulationRules = require('./../simulations/rules-engine-rules.json');
@@ -66,29 +67,36 @@ class Simulation extends Component {
     runSimulation(type) {
         switch (type) {
             case type = "nochange":
-                for (var i = 0; i < nochangeSimulation.length; i++) {
-                    wait(100);
-                    var json = JSON.stringify(nochangeSimulation[i]);
+                for (var i = 0; i < nochangesSimulation.length; i++) {
+                    //wait(100);
+                    var json = JSON.stringify(nochangesSimulation[i]);
                     insertRecords(json, invorderingenURL);
+                }
+                // eslint-disable-next-line
+                for (var i = 0; i < nochangesSimulationCredentials.length; i++) {
+                    //wait(100);
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(nochangesSimulationCredentials[i]);
+                    insertRecords(json, credentialsURL);
                 }
                 break;
             case type = "rules":
                 for (var j = 0; j < rulesSimulationInvorderingen.length; j++) {
-                    wait(100);
+                    //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(rulesSimulationInvorderingen[j]);
                     insertRecords(json, invorderingenURL);
                 }
                 // eslint-disable-next-line
                 for (var j = 0; j < rulesSimulationCredentials.length; j++) {
-                    wait(100);
+                    //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(rulesSimulationCredentials[j]);
                     insertRecords(json, credentialsURL);
                 }
                 // eslint-disable-next-line
                 for (var j = 0; j < rulesSimulationRules.length; j++) {
-                    wait(100);
+                    //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(rulesSimulationRules[j]);
                     insertRecords(json, rulesengineURL);
@@ -96,14 +104,14 @@ class Simulation extends Component {
                 break;
             default:
                 for (var k = 0; k < intialBaselineInvorderingen.length; k++) {
-                    wait(100);
+                    //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(intialBaselineInvorderingen[k]);
                     insertRecords(json, invorderingenURL);
                 }
                 // eslint-disable-next-line
                 for (var k = 0; k < intialBaselineCredentials.length; k++) {
-                    wait(100);
+                    //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(intialBaselineCredentials[k]);
                     insertRecords(json, credentialsURL);
@@ -131,19 +139,16 @@ class Simulation extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
-                    Select your simulation:
+                    Uit te voeren simulatie:
                     <select class="ui selection dropdown" value={this.state.value} onChange={this.handleChange}>
-                        <option value="default">set initial baseline</option>
-                        <option value="nochange">run with no changes</option>
-                        <option value="income">show income change</option>
-                        <option value="rules">introduce new rules</option>
-                        <option value="both">both rules + income change</option>
+                        <option value="default">Uitgangssituatie</option>
+                        <option value="nochange">Geen wijzigingen</option>
                     </select>
                 </label>
                 <p></p>
                 <div>
-                    <button class="ui primary button">Run it!</button>
-                    <button class="ui secondary button" onClick={this.handleDelete}>Reset</button>
+                    <button class="ui primary button">Simuleren!</button>
+                    <button class="ui secondary button" onClick={this.handleDelete}>Herstart</button>
                 </div>
                 <p></p>
                 <p id="simulation"></p>

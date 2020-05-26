@@ -48,7 +48,11 @@ class TableDisplay extends Component {
 
 const RenderRow = (props) => {
     return props.keys.map((key, index) => {
-        return <td key={props.data[key]}>{props.data[key]}</td>
+        if (key === "maand") {
+            return <td key={props.data[key]}>{props.data[key].substring(0,7)}</td>
+        } else {
+            return <td key={props.data[key]}>{props.data[key]}</td>
+        }
     })
 }
 

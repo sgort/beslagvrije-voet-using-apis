@@ -22,7 +22,7 @@ export default function RulesCard({ user }) {
                         <Icon name="stop circle outline" /> {user.date_end}
                     </p>
                     <p>
-                        <Icon name="linkify" /><a href={user.ruleoflaw}>{user.ruleoflaw}</a>
+                        <Icon name="linkify" /><a target="_blank" rel="noopener noreferrer" href={user.ruleoflaw}>{user.ruleoflaw}</a>
                     </p>
                     <p>
                         <Icon name="code" /> {user.rules}

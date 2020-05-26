@@ -26,7 +26,7 @@ export default function RulesListPage() {
 
     return (
         <div>
-            <h1>Active Rules</h1>
+            <h1>Te hanteren regel(s)</h1>
             {state.message.content && <FlashMessage message={state.message} />}
             <RulesList users={state.users} />
         </div>

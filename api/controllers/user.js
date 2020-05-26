@@ -17,6 +17,7 @@ exports.user_list = (req, res, next) => {
                         organisation: doc.organisation,
                         email: doc.email,
                         password: doc.password,
+                        vordering: doc.vordering,
                         request: {
                             type: "GET_SPECIFIC_USER",
                             url: "http://localhost:9000/users/" + doc._id
@@ -91,11 +92,14 @@ exports.user_signup = (req, res, next) => {
                     } else {
                         const user = new User({
                             _id: new mongoose.Types.ObjectId(),
+                            _base_record: req.body._base_record,
+                            _baseline: req.body._baseline,
                             name: req.body.name,
                             phone: req.body.phone,
                             organisation: req.body.organisation,
                             email: req.body.email,
-                            password: hash
+                            password: hash,
+                            vordering: req.body.vordering
                         });
                         user
                             .save()

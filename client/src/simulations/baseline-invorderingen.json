@@ -2,23 +2,14 @@
     {
         "_base_record": "false",
         "_baseline": "true",
-        "BSN": 999994669,
-        "beslag_object": "Werkloos uitkering",
+        "maand": "2018-01",
+        "BSN": 999993483,
+        "beslag_object": "Loon",
         "samenloop": "false",
-        "beslaglegger": "Gemeentelijke sociale dienst Valkenswaard",
-        "openstaande_vordering": 750,
-        "beslagvrije_voet": 892.5,
-        "invordering": 94.5
-    },
-    {
-        "_base_record": "false",
-        "_baseline": "true",
-        "BSN": 999994669,
-        "beslag_object": "Werkloos uitkering",
-        "samenloop": "false",
-        "beslaglegger": "Waterschap Groot Salland",
-        "openstaande_vordering": 378,
-        "beslagvrije_voet": 892.5,
-        "invordering": 63
+        "beslaglegger": "SNS Bank",
+        "openstaande_vordering": 2716.86,
+        "beslagvrije_voet": 1562.86,
+        "afloscapaciteit": 283.14,
+        "invordering": 283.14
     }
 ]

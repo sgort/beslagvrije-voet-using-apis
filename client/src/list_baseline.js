@@ -13,13 +13,10 @@ class ListBaseline extends Component {
     static defaultProps = {
         filters: [{
             property: 'BSN',
-            value: '999994669'
+            value: '999993483'
         }],
         sorters: [{
-            property: 'beslaglegger'
-        }, {
-            property: 'openstaande_vordering',
-            direction: 'DESC'
+            property: '_id'
         }]
     };
 

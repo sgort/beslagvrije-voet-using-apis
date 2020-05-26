@@ -24,7 +24,8 @@ function ResidentsCard({ resident }) {
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
-                <a href={resident.href}>
+            <p>Situatie: Alleenstaand, 2 kinderen onder 12 jaar, werkt bij politie, eigen woning. Door omstandigheden schulden en loopt achter met betalen.</p>
+                <a target="_blank" rel="noopener noreferrer" href={resident.href}>
                     <Icon name='tag' />
                     {resident.BSN}
                 </a>

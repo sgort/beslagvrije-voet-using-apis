@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Invordering = require('../models/invordering');
+const dateoptions = { year: 'numeric', month: 'short' };
 
 
 exports.invordering_list = (req, res, next) => {
@@ -10,11 +11,14 @@ exports.invordering_list = (req, res, next) => {
                 count: docs.length,
                 invorderingen: docs.map(doc => {
                     return {
+                        //maand: doc.maand.toLocaleDateString("nl-NL", dateoptions),
+                        maand: doc.maand,
                         BSN: doc.BSN,
                         beslag_object: doc.beslag_object,
                         beslaglegger: doc.beslaglegger,
                         openstaande_vordering: doc.openstaande_vordering,
                         beslagvrije_voet: doc.beslagvrije_voet,
+                        afloscapaciteit: doc.afloscapaciteit,
                         invordering: doc.invordering
                     };
                 })
@@ -39,11 +43,13 @@ exports.invordering_list_base_records = (req, res, next) => {
                 count: docs.length,
                 invorderingen: docs.map(doc => {
                     return {
+                        maand: doc.maand,
                         BSN: doc.BSN,
                         beslag_object: doc.beslag_object,
                         beslaglegger: doc.beslaglegger,
                         openstaande_vordering: doc.openstaande_vordering,
                         beslagvrije_voet: doc.beslagvrije_voet,
+                        afloscapaciteit: doc.afloscapaciteit,
                         invordering: doc.invordering
                     };
                 })
@@ -70,12 +76,14 @@ exports.invordering_find_one = (req, res, next) => {
                     count: docs.length,
                     invorderingen: docs.map(doc => {
                         return {
+                            maand: doc.maand,
                             BSN: doc.BSN,
                             beslag_object: doc.beslag_object,
                             samenloop: doc.samenloop,
                             beslaglegger: doc.beslaglegger,
                             openstaande_vordering: doc.openstaande_vordering,
                             beslagvrije_voet: doc.beslagvrije_voet,
+                            afloscapaciteit: doc.afloscapaciteit,
                             invordering: doc.invordering,
                             request: {
                                 type: "GET_ALL_INVORDERINGEN",
@@ -110,12 +118,14 @@ exports.invordering_create_one = (req, res, next) => {
                 invorderingen: result.map(doc => {
                     return {
                         _id: doc._id,
+                        maand: doc.maand,
                         BSN: doc.BSN,
                         beslag_object: doc.beslag_object,
                         samenloop: doc.samenloop,
                         beslaglegger: doc.beslaglegger,
                         openstaande_vordering: doc.openstaande_vordering,
                         beslagvrije_voet: doc.beslagvrije_voet,
+                        afloscapaciteit: doc.afloscapaciteit,
                         invordering: doc.invordering
                     };
                 })

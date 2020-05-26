@@ -25,7 +25,7 @@ function UsersListPage() {
 
   return (
     <div>
-      <h1>List of Users</h1>
+      <h1>Lijst beslagleggers</h1>
       {state.message.content && <FlashMessage message={state.message} />}
       <UsersList users={state.users} />
     </div>

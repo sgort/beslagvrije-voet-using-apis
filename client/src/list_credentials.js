@@ -3,12 +3,13 @@ import { Card, Icon } from 'semantic-ui-react';
 const irma = require('@privacybydesign/irmajs');
 
 function doIssuanceSession(attrs) {
-  //  const attrs = ["892.5", "Sanne Voorspoed", "1050"];
   doSession({
     '@context': 'https://irma.app/ld/request/issuance/v2',
     'credentials': [{
       'credential': 'irma-demo.discipl.demoBVV',
       'attributes': { 'calculatedBVV': attrs[0], 'debtCollector': attrs[1], 'incomeUsedForBVV': attrs[2] }
+      //  'credential': 'irma-demo.discipl.demoBRI',
+      //  'attributes': { 'registeredIncome': attrs[0] }
     }]
   }).then(function (result) { showSuccess('Success'); });
 }
@@ -61,7 +62,8 @@ function showSuccess(text) {
 
 class ObtainedCredentials extends Component {
   state = {
-    Issued: false
+    Issued: false,
+    value: "default"
   };
 
   componentDidMount() {
@@ -90,7 +92,7 @@ class ObtainedCredentials extends Component {
     if (data && data.length > 0) {
       return (
         <div>
-          <h1>Obtained credentials</h1>
+          <h1>Verkregen credentials</h1>
           <Card.Group>
             {data.map(item => (
               <Card color='blue' >
@@ -100,9 +102,12 @@ class ObtainedCredentials extends Component {
                   </Card.Header>
                   <Card.Description>
                     <p>
+                      <Icon name="building outline" /> {item.issuer}
+                      <img class="right floated mini ui image" src={require(`./images/certificate${Math.floor((Math.random() * 4) + 1)}.png`)} alt=""></img>
+                    </p>
+                    <p>
                       {item.type !== "Gerechtsdeurwaarder" && <Icon name="euro sign" />}
                       {item.type === "Gerechtsdeurwaarder" && <Icon name="handshake outline" />} {item.value}
-                      <img class="right floated mini ui image" src={require(`./images/certificate${Math.floor((Math.random() * 4) + 1)}.png`)} alt=""></img>
                     </p>
                     <p>
                       <Icon name="user outline" /> {item.BSN}
@@ -117,9 +122,11 @@ class ObtainedCredentials extends Component {
           </Card.Group>
           <p></p>
           <label>
-            Select your preferred SSI:
-            <select name="ssi-app" class="ui selection dropdown">
+            Selecteer jouw voorkeur SSI:
+            <select class="ui selection dropdown" value={this.state.value}>
+              <option value="waardepapieren">Waardepapieren</option>
               <option value="default">IRMA</option>
+              <option value="forus">MyApp Forus</option>
               <option value="rabobank">Rabobank</option>
               <option value="schluss">Schluss</option>
               <option value="trustchain">TrustChain</option>
@@ -128,7 +135,7 @@ class ObtainedCredentials extends Component {
           <p></p>
           <div id="result" class="status" hidden></div>
           <p></p>
-          <button class="ui primary button" onClick={() => { doIssuanceSession(["892.5", "Sanne Voorspoed", "1050"]) }}>Issue this!</button>
+          <button class="ui primary button" onClick={() => { doIssuanceSession(["1563", "Sanne Voorspoed", "1846"]) }}>Issue this!</button>
         </div>
       )
     } else {

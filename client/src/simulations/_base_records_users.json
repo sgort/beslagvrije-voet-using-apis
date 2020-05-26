@@ -1,0 +1,52 @@
+[
+    {
+        "_base_record": true,
+        "_baseline": false,
+        "name": "Henk Janssen",
+        "phone": "+31 6 123456",
+        "organisation": "SNS Bank",
+        "email": "henk@test.com",
+        "password": "tester",
+        "vordering": "Doorlopend Krediet"
+    },
+    {
+        "_base_record": true,
+        "_baseline": false,
+        "name": "Pieter Schoof",
+        "phone": "+31 6 123456",
+        "organisation": "Hakrinkbank",
+        "email": "pieter@test.com",
+        "password": "tester",
+        "vordering": "Credit Card schuld"
+    },
+    {
+        "_base_record": true,
+        "_baseline": false,
+        "name": "Natasja Wend",
+        "phone": "+31 6 123456",
+        "organisation": "Wehkamp",
+        "email": "natasja@test.com",
+        "password": "tester",
+        "vordering": "Gespreid betalen - achterstand termijnen"
+    },
+    {
+        "_base_record": true,
+        "_baseline": false,
+        "name": "Gerard Bomhof",
+        "phone": "+31 6 123456",
+        "organisation": "DUO",
+        "email": "gerard@test.com",
+        "password": "tester",
+        "vordering": "Restant studieschuld"
+    },
+    {
+        "_base_record": true,
+        "_baseline": false,
+        "name": "Hans van den Brink",
+        "phone": "+31 6 123456",
+        "organisation": "Belastingdienst",
+        "email": "hans@test.com",
+        "password": "tester",
+        "vordering": "Aanslagbelasting"
+    }
+]
