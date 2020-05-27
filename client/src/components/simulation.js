@@ -175,8 +175,8 @@ class Simulation extends Component {
                     Uit te voeren simulatie:
                     <select class="ui selection dropdown" value={this.state.value} onChange={this.handleChange}>
                         <option value="default">0: Uitgangssituatie</option>
-                        <option value="incomechange">1: Wijziging inkomen</option>
-                        <option value="bvvchange">2: Verandering bvv</option>
+                        <option value="incomechange">1: Tot wijziging inkomen</option>
+                        <option value="bvvchange">2: Tot verandering bvv</option>
                         <option value="rest">3: Afronding</option>
                         <option value="nochange">0..3: Volledige looptijd</option>
                     </select>
