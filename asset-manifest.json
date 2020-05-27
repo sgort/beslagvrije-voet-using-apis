@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/beslagvrije-voet-using-apis/static/css/main.ba61d6ae.chunk.css",
-    "main.js": "/beslagvrije-voet-using-apis/static/js/main.8568bf3f.chunk.js",
-    "main.js.map": "/beslagvrije-voet-using-apis/static/js/main.8568bf3f.chunk.js.map",
+    "main.css": "/beslagvrije-voet-using-apis/static/css/main.e051b2cc.chunk.css",
+    "main.js": "/beslagvrije-voet-using-apis/static/js/main.21cb40bb.chunk.js",
+    "main.js.map": "/beslagvrije-voet-using-apis/static/js/main.21cb40bb.chunk.js.map",
     "runtime-main.js": "/beslagvrije-voet-using-apis/static/js/runtime-main.03390a75.js",
     "runtime-main.js.map": "/beslagvrije-voet-using-apis/static/js/runtime-main.03390a75.js.map",
     "static/css/2.9681be4c.chunk.css": "/beslagvrije-voet-using-apis/static/css/2.9681be4c.chunk.css",
-    "static/js/2.fc6b7b52.chunk.js": "/beslagvrije-voet-using-apis/static/js/2.fc6b7b52.chunk.js",
-    "static/js/2.fc6b7b52.chunk.js.map": "/beslagvrije-voet-using-apis/static/js/2.fc6b7b52.chunk.js.map",
+    "static/js/2.edf08a0f.chunk.js": "/beslagvrije-voet-using-apis/static/js/2.edf08a0f.chunk.js",
+    "static/js/2.edf08a0f.chunk.js.map": "/beslagvrije-voet-using-apis/static/js/2.edf08a0f.chunk.js.map",
     "index.html": "/beslagvrije-voet-using-apis/index.html",
-    "precache-manifest.282cae411982922afab3b7dfdfae2c77.js": "/beslagvrije-voet-using-apis/precache-manifest.282cae411982922afab3b7dfdfae2c77.js",
+    "precache-manifest.6bd17637f0b783d4ace5311471169f15.js": "/beslagvrije-voet-using-apis/precache-manifest.6bd17637f0b783d4ace5311471169f15.js",
     "service-worker.js": "/beslagvrije-voet-using-apis/service-worker.js",
     "static/css/2.9681be4c.chunk.css.map": "/beslagvrije-voet-using-apis/static/css/2.9681be4c.chunk.css.map",
-    "static/css/main.ba61d6ae.chunk.css.map": "/beslagvrije-voet-using-apis/static/css/main.ba61d6ae.chunk.css.map",
-    "static/js/2.fc6b7b52.chunk.js.LICENSE.txt": "/beslagvrije-voet-using-apis/static/js/2.fc6b7b52.chunk.js.LICENSE.txt",
+    "static/css/main.e051b2cc.chunk.css.map": "/beslagvrije-voet-using-apis/static/css/main.e051b2cc.chunk.css.map",
+    "static/js/2.edf08a0f.chunk.js.LICENSE.txt": "/beslagvrije-voet-using-apis/static/js/2.edf08a0f.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/beslagvrije-voet-using-apis/static/media/outline-icons.ece54318.ttf",
     "static/media/discipl-api-strategy.jpg": "/beslagvrije-voet-using-apis/static/media/discipl-api-strategy.2eeb91e4.jpg",
     "static/media/profile1.jpg": "/beslagvrije-voet-using-apis/static/media/profile1.4ae319a4.jpg"
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.03390a75.js",
     "static/css/2.9681be4c.chunk.css",
-    "static/js/2.fc6b7b52.chunk.js",
-    "static/css/main.ba61d6ae.chunk.css",
-    "static/js/main.8568bf3f.chunk.js"
+    "static/js/2.edf08a0f.chunk.js",
+    "static/css/main.e051b2cc.chunk.css",
+    "static/js/main.21cb40bb.chunk.js"
   ]
 }

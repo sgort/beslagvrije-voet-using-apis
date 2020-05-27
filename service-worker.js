@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/beslagvrije-voet-using-apis/precache-manifest.282cae411982922afab3b7dfdfae2c77.js"
+  "/beslagvrije-voet-using-apis/precache-manifest.6bd17637f0b783d4ace5311471169f15.js"
 );
 
 self.addEventListener('message', (event) => {
