@@ -3,3 +3,6 @@ client/node_modules
 api/node_modules
 client/.pnp
 client/.pnp.js
+
+# build dir
+client/build
