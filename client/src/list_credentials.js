@@ -2,6 +2,32 @@ import React, { Component } from 'react';
 import { Card, Icon } from 'semantic-ui-react';
 const irma = require('@privacybydesign/irmajs');
 
+function doVerificationSession() {
+  const attr = 'irma-demo.discipl.demoBRI.registeredIncome';
+  const label = 'Verzoek ivm vaststellen afloscapaciteit';
+  const message = '';
+  const labelRequest = !label ? {} : {'labels': {'0': {'en': label, 'nl': label}}};
+  const request = !message ? {
+    '@context': 'https://irma.app/ld/request/disclosure/v2',
+    'disclose': [
+      [
+        [ attr ]
+      ]
+    ],
+    ...labelRequest
+  } : {
+    '@context': 'https://irma.app/ld/request/signature/v2',
+    'message': message,
+    'disclose': [
+      [
+        [ attr ]
+      ]
+    ],
+    ...labelRequest
+  };
+  doSession(request).then(function(result) { showSuccess('Success, attribute value: <strong>' + result.disclosed[0][0].rawvalue + '</strong>'); });
+}
+
 function doIssuanceSession(attrs) {
   doSession({
     '@context': 'https://irma.app/ld/request/issuance/v2',
@@ -135,7 +161,8 @@ class ObtainedCredentials extends Component {
           <p></p>
           <div id="result" class="status" hidden></div>
           <p></p>
-          <button class="ui primary button" onClick={() => { doIssuanceSession(["1563", "Sanne Voorspoed", "1846"]) }}>Issue this!</button>
+          <button class="ui primary button" onClick={() => { doIssuanceSession(["1563", "Sanne Voorspoed", "1846"]) }}>Issue credentials</button>
+          <button class="ui primary button" onClick={() => { doVerificationSession() }}>Verifieer inkomen</button>
         </div>
       )
     } else {

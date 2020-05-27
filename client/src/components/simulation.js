@@ -5,11 +5,13 @@ import React, { Component } from "react";
  */
 const intialBaselineInvorderingen = require('./../simulations/baseline-invorderingen.json');
 const intialBaselineCredentials = require('./../simulations/baseline-credentials.json');
+const incomechangeSimulation = require('./../simulations/income-change-invorderingen.json');
+const bvvchangeSimulation = require('./../simulations/bvv-change-invorderingen.json');
+const bvvchangeSimulationCredentials = require('./../simulations/bvv-change-credentials.json');
+const restSimulation = require('./../simulations/rest-invorderingen.json');
+const restSimulationCredentials = require('./../simulations/rest-credentials.json');
 const nochangesSimulation = require('./../simulations/no-changes.json');
 const nochangesSimulationCredentials = require('./../simulations/no-changes-credentials.json');
-const rulesSimulationInvorderingen = require('./../simulations/rules-engine-invorderingen.json');
-const rulesSimulationCredentials = require('./../simulations/rules-engine-credentials.json');
-const rulesSimulationRules = require('./../simulations/rules-engine-rules.json');
 
 const invorderingenURL = 'http://localhost:9000/invorderingen';
 const credentialsURL = 'http://localhost:9000/credentials';
@@ -66,6 +68,9 @@ class Simulation extends Component {
 
     runSimulation(type) {
         switch (type) {
+            /**
+             * 0..3: Volledige looptijd
+             */
             case type = "nochange":
                 for (var i = 0; i < nochangesSimulation.length; i++) {
                     //wait(100);
@@ -80,28 +85,56 @@ class Simulation extends Component {
                     insertRecords(json, credentialsURL);
                 }
                 break;
-            case type = "rules":
-                for (var j = 0; j < rulesSimulationInvorderingen.length; j++) {
+                /**
+                 * 1: Wijziging inkomen
+                 */
+            case type = "incomechange":
+                for (var j = 0; j < incomechangeSimulation.length; j++) {
                     //wait(100);
                     // eslint-disable-next-line
-                    var json = JSON.stringify(rulesSimulationInvorderingen[j]);
+                    var json = JSON.stringify(incomechangeSimulation[j]);
+                    insertRecords(json, invorderingenURL);
+                }
+                break;
+                /**
+                 * 2: Verandering bvv
+                 */
+            case type = "bvvchange":
+                for (var l = 0; l < bvvchangeSimulation.length; l++) {
+                    //wait(100);
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(bvvchangeSimulation[l]);
                     insertRecords(json, invorderingenURL);
                 }
                 // eslint-disable-next-line
-                for (var j = 0; j < rulesSimulationCredentials.length; j++) {
+                for (var l = 0; l < bvvchangeSimulationCredentials.length; l++) {
                     //wait(100);
                     // eslint-disable-next-line
-                    var json = JSON.stringify(rulesSimulationCredentials[j]);
+                    var json = JSON.stringify(bvvchangeSimulationCredentials[l]);
                     insertRecords(json, credentialsURL);
                 }
-                // eslint-disable-next-line
-                for (var j = 0; j < rulesSimulationRules.length; j++) {
+                break;
+                /**
+                 * 3: Afronding
+                 */
+            case type = "rest":
+                for (var n = 0; n < restSimulation.length; n++) {
                     //wait(100);
                     // eslint-disable-next-line
-                    var json = JSON.stringify(rulesSimulationRules[j]);
-                    insertRecords(json, rulesengineURL);
+                    var json = JSON.stringify(restSimulation[n]);
+                    insertRecords(json, invorderingenURL);
+                }
+                // eslint-disable-next-line
+                for (var n = 0; n < restSimulationCredentials.length; n++) {
+                    //wait(100);
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(restSimulationCredentials[n]);
+                    insertRecords(json, credentialsURL);
                 }
                 break;
+                /**
+                 * 0: Uitgangssituatie
+                 */
             default:
                 for (var k = 0; k < intialBaselineInvorderingen.length; k++) {
                     //wait(100);
@@ -141,8 +174,11 @@ class Simulation extends Component {
                 <label>
                     Uit te voeren simulatie:
                     <select class="ui selection dropdown" value={this.state.value} onChange={this.handleChange}>
-                        <option value="default">Uitgangssituatie</option>
-                        <option value="nochange">Geen wijzigingen</option>
+                        <option value="default">0: Uitgangssituatie</option>
+                        <option value="incomechange">1: Wijziging inkomen</option>
+                        <option value="bvvchange">2: Verandering bvv</option>
+                        <option value="rest">3: Afronding</option>
+                        <option value="nochange">0..3: Volledige looptijd</option>
                     </select>
                 </label>
                 <p></p>
