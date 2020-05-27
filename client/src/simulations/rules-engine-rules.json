@@ -1,9 +1,0 @@
-[
-    {
-        "domain": "BVV",
-        "rules": "MAX of\nCASE 1\nEUR 850\nCASE 2\n80% of income",
-        "ruleoflaw": "https://www.kbvg.nl/beslagvrijevoet",
-        "reference": "BVV_v3",
-        "issuer": "SZW"
-    }
-]

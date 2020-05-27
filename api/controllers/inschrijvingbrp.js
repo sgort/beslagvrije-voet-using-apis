@@ -38,7 +38,7 @@ exports.inschrijvingbrp_find_one = (req, res, next) => {
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
-            //    'x-api-key': haalCentraalAPIKey,
+        //    'x-api-key': haalCentraalAPIKey,
             'Content-Type': 'application/json'
         },
         redirect: 'follow', // manual, *follow, error
