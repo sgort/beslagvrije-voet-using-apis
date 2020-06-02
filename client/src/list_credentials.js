@@ -34,8 +34,8 @@ function doIssuanceSession(attrs) {
     'credentials': [{
       'credential': 'irma-demo.discipl.demoBVV',
       'attributes': { 'calculatedBVV': attrs[0], 'debtCollector': attrs[1], 'incomeUsedForBVV': attrs[2] }
-      //  'credential': 'irma-demo.discipl.demoBRI',
-      //  'attributes': { 'registeredIncome': attrs[0] }
+    //    'credential': 'irma-demo.discipl.demoBRI',
+    //    'attributes': { 'registeredIncome': attrs[0] }
     }]
   }).then(function (result) { showSuccess('Success'); });
 }
