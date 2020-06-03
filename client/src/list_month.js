@@ -9,8 +9,8 @@ class ListMonth extends Component {
         super(props);
         this.state = {
             filters: [{
-                property: 'beslaglegger',
-                value: 'SNS Bank'
+                property: 'maand',
+                value: '2018-01'
             }],
             sorters: [{
                 property: 'maand',
@@ -19,7 +19,7 @@ class ListMonth extends Component {
                 property: 'invordering',
                 direction: 'DESC'
             }],
-            dropdownvalue: 'SNS Bank'
+            dropdownvalue: '2018-01'
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -56,7 +56,7 @@ class ListMonth extends Component {
         this.setState({
             data: null, // can't fix persistent problem with filtering, this bad solution then
             filters: [{
-                property: 'beslaglegger',
+                property: 'maand',
                 value: event.target.value
             }],
             dropdownvalue: event.target.value
@@ -75,11 +75,18 @@ class ListMonth extends Component {
                 <div className="Filter">
                     <p className="Filter">Status invordering(en):
                     <select class="ui selection dropdown" value={this.state.dropdownvalue} onChange={this.handleChange}>
-                            <option value="SNS Bank">SNS Bank</option>
-                            <option value="Hakrinkbank">Hakrinkbank</option>
-                            <option value="Wehkamp">Wehkamp</option>
-                            <option value="DUO">DUO</option>
-                            <option value="Belastingdienst">Belastingdienst</option>
+                            <option value="2018-01">jan</option>
+                            <option value="2018-02">feb</option>
+                            <option value="2018-03">mar</option>
+                            <option value="2018-04">apr</option>
+                            <option value="2018-05">mei</option>
+                            <option value="2018-06">jun</option>
+                            <option value="2018-07">jul</option>
+                            <option value="2018-08">aug</option>
+                            <option value="2018-09">sep</option>
+                            <option value="2018-10">okt</option>
+                            <option value="2018-11">nov</option>
+                            <option value="2018-12">dec</option>
                             <option value="">Geen</option>
                         </select>
                     </p>
