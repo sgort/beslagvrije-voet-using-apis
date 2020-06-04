@@ -3,7 +3,7 @@ import Invordering from "../../../models/invordering";
 export default {
   Query: {
     invordering: async (parent, { _id }, context, info) => {
-      return await Invordering.find({ _id });
+      return await Invordering.findOne({ _id }).exec();
     },
     invorderingen: async (parent, args, context, info) => {
       const res = await Invordering.find({})
