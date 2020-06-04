@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const User = require('../models/user');
+const User = require('../models/user-original');
 
 exports.user_list = (req, res, next) => {
     User.find()
