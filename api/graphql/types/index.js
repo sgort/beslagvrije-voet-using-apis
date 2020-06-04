@@ -1,10 +1,8 @@
 import { mergeTypes } from "merge-graphql-schemas";
 
-import User from "./User/";
-import Post from "./Post/";
-import Comment from "./Comment/";
+import Invordering from "./Invordering/";
 
-const typeDefs = [User, Post, Comment];
+const typeDefs = [Invordering];
 
 // NOTE: 2nd param is optional, and defaults to false
 // Only use if you have defined the same type multiple times in
