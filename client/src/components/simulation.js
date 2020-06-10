@@ -85,9 +85,9 @@ class Simulation extends Component {
                     insertRecords(json, credentialsURL);
                 }
                 break;
-                /**
-                 * 1: Wijziging inkomen
-                 */
+            /**
+             * 1: Wijziging inkomen
+             */
             case type = "incomechange":
                 for (var j = 0; j < incomechangeSimulation.length; j++) {
                     //wait(100);
@@ -96,9 +96,9 @@ class Simulation extends Component {
                     insertRecords(json, invorderingenURL);
                 }
                 break;
-                /**
-                 * 2: Verandering bvv
-                 */
+            /**
+             * 2: Verandering bvv
+             */
             case type = "bvvchange":
                 for (var l = 0; l < bvvchangeSimulation.length; l++) {
                     //wait(100);
@@ -114,9 +114,9 @@ class Simulation extends Component {
                     insertRecords(json, credentialsURL);
                 }
                 break;
-                /**
-                 * 3: Afronding
-                 */
+            /**
+             * 3: Afronding
+             */
             case type = "rest":
                 for (var n = 0; n < restSimulation.length; n++) {
                     //wait(100);
@@ -132,9 +132,9 @@ class Simulation extends Component {
                     insertRecords(json, credentialsURL);
                 }
                 break;
-                /**
-                 * 0: Uitgangssituatie
-                 */
+            /**
+             * 0: Uitgangssituatie
+             */
             default:
                 for (var k = 0; k < intialBaselineInvorderingen.length; k++) {
                     //wait(100);
@@ -169,6 +169,17 @@ class Simulation extends Component {
     }
 
     render() {
+        const runSim = this.state.value;
+        let image;
+        if (runSim === "default") {
+            image = <img src={require('./../images/PIEChartBVV1.jpg')} alt="" />;
+        } else if (runSim === "incomechange") {
+            image = <img src={require('./../images/PIEChartBVV2.jpg')} alt="" />;
+        } else if (runSim === "bvvchange") {
+            image = <img src={require('./../images/PIEChartBVV3.jpg')} alt="" />;
+        } else {
+            image = <img src={require('./../images/PIEChartBVV4.jpg')} alt="" />;
+        }
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
@@ -187,7 +198,9 @@ class Simulation extends Component {
                     <button class="ui secondary button" onClick={this.handleDelete}>Herstart</button>
                 </div>
                 <p></p>
-                <p id="simulation"></p>
+                <p>
+                    {image}
+                </p>
             </form>
         );
     }
