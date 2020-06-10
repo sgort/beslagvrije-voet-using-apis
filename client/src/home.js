@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+var simStep = "default";
+localStorage.setItem("simStepLocalStorage", simStep);
 
 class Home extends Component {
   render() {

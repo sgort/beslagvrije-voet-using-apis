@@ -59,7 +59,7 @@ class Simulation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: "default",
+            value: localStorage.getItem("simStepLocalStorage"),
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -82,6 +82,24 @@ class Simulation extends Component {
                     //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(nochangesSimulationCredentials[i]);
+                    insertRecords(json, credentialsURL);
+                }
+                break;
+            /**
+             * 0: Uitgangssituatie
+             */
+            case type = "baseline":
+                for (var k = 0; k < intialBaselineInvorderingen.length; k++) {
+                    //wait(100);
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(intialBaselineInvorderingen[k]);
+                    insertRecords(json, invorderingenURL);
+                }
+                // eslint-disable-next-line
+                for (var k = 0; k < intialBaselineCredentials.length; k++) {
+                    //wait(100);
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(intialBaselineCredentials[k]);
                     insertRecords(json, credentialsURL);
                 }
                 break;
@@ -133,26 +151,14 @@ class Simulation extends Component {
                 }
                 break;
             /**
-             * 0: Uitgangssituatie
+             * Kies
              */
             default:
-                for (var k = 0; k < intialBaselineInvorderingen.length; k++) {
-                    //wait(100);
-                    // eslint-disable-next-line
-                    var json = JSON.stringify(intialBaselineInvorderingen[k]);
-                    insertRecords(json, invorderingenURL);
-                }
-                // eslint-disable-next-line
-                for (var k = 0; k < intialBaselineCredentials.length; k++) {
-                    //wait(100);
-                    // eslint-disable-next-line
-                    var json = JSON.stringify(intialBaselineCredentials[k]);
-                    insertRecords(json, credentialsURL);
-                }
         }
     }
 
     handleSubmit(event) {
+        localStorage.setItem("simStepLocalStorage", this.state.value);
         this.runSimulation(this.state.value);
         event.preventDefault();
     }
@@ -165,6 +171,8 @@ class Simulation extends Component {
         deleteRecords(invorderingenURL);
         deleteRecords(credentialsURL);
         deleteRecords(rulesengineURL);
+        localStorage.setItem("simStepLocalStorage", "default");
+        window.location.assign('/baseline');
         event.preventDefault();
     }
 
@@ -172,6 +180,8 @@ class Simulation extends Component {
         const runSim = this.state.value;
         let image;
         if (runSim === "default") {
+            image = <img src={require('./../images/PIEChartBVV0.jpg')} alt="" />;
+        } else if (runSim === "baseline") {
             image = <img src={require('./../images/PIEChartBVV1.jpg')} alt="" />;
         } else if (runSim === "incomechange") {
             image = <img src={require('./../images/PIEChartBVV2.jpg')} alt="" />;
@@ -185,7 +195,8 @@ class Simulation extends Component {
                 <label>
                     Uit te voeren simulatie:
                     <select class="ui selection dropdown" value={this.state.value} onChange={this.handleChange}>
-                        <option value="default">0: Uitgangssituatie</option>
+                        <option value="default">Kies</option>
+                        <option value="baseline">0: Uitgangssituatie</option>
                         <option value="incomechange">1: Tot wijziging inkomen</option>
                         <option value="bvvchange">2: Tot verandering bvv</option>
                         <option value="rest">3: Afronding</option>
