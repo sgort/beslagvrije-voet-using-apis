@@ -58,7 +58,8 @@ class ListMonth extends Component {
         this.setState({
             startDate: date
         });
-        this.filterList(date.toISOString().split('T')[0])
+        const localDate = date.toLocaleDateString("nl", { year: 'numeric', month: '2-digit' })
+        this.filterList(localDate.substring(3, 7) + '-' + localDate.substring(0, 2))
     };
 
     filterList(selectedMonth) {
