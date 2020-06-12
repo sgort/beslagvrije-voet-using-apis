@@ -89,6 +89,7 @@ class ListMonth extends Component {
                             onChange={this.handleChange}
                             dateFormat="yyyy-MM"
                             showMonthYearPicker
+                            inline
                         />
                     </p>
                     <TableDisplay data={data} />
