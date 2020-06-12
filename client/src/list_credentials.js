@@ -2,30 +2,72 @@ import React, { Component } from 'react';
 import { Card, Icon } from 'semantic-ui-react';
 const irma = require('@privacybydesign/irmajs');
 
+/**
+ * Required for inserting new credential
+ */
+const bvvchangeSimulationCredentials = [
+  {
+    "BSN": "999993483",
+    "type": "Inkomensverhouding (via Polis)",
+    "value": "2100",
+    "issuer": "UWV",
+    "issued": "false"
+  }
+];
+const credentialsURL = 'http://localhost:9000/credentials';
+
+function insertRecords(raw, url) {
+  // POST simulated records set in the collection
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+
+  fetch(`${url}/insert`, requestOptions)
+    .then(response => response.text())
+    .catch(error => console.log('error', error));
+
+}
+
 function doVerificationSession() {
   const attr = 'irma-demo.discipl.demoBRI.registeredIncome';
   const label = 'Verzoek ivm vaststellen afloscapaciteit';
   const message = '';
-  const labelRequest = !label ? {} : {'labels': {'0': {'en': label, 'nl': label}}};
+  const labelRequest = !label ? {} : { 'labels': { '0': { 'en': label, 'nl': label } } };
   const request = !message ? {
     '@context': 'https://irma.app/ld/request/disclosure/v2',
     'disclose': [
       [
-        [ attr ]
+        [attr]
       ]
     ],
     ...labelRequest
   } : {
-    '@context': 'https://irma.app/ld/request/signature/v2',
-    'message': message,
-    'disclose': [
-      [
-        [ attr ]
-      ]
-    ],
-    ...labelRequest
-  };
-  doSession(request).then(function(result) { showSuccess('Success, attribute value: <strong>' + result.disclosed[0][0].rawvalue + '</strong>'); });
+      '@context': 'https://irma.app/ld/request/signature/v2',
+      'message': message,
+      'disclose': [
+        [
+          [attr]
+        ]
+      ],
+      ...labelRequest
+    };
+  doSession(request).then(function (result) {
+    showSuccess('Success, attribute value: <strong>' + result.disclosed[0][0].rawvalue + '</strong>');
+    /**
+     *  Insert new credential
+     */
+    for (var l = 0; l < bvvchangeSimulationCredentials.length; l++) {
+      var json = JSON.stringify(bvvchangeSimulationCredentials[l]);
+      insertRecords(json, credentialsURL);
+    }
+    //window.location.assign('/credentials');
+  });
 }
 
 function doIssuanceSession(attrs) {
@@ -34,8 +76,8 @@ function doIssuanceSession(attrs) {
     'credentials': [{
       'credential': 'irma-demo.discipl.demoBVV',
       'attributes': { 'calculatedBVV': attrs[0], 'debtCollector': attrs[1], 'incomeUsedForBVV': attrs[2] }
-    //    'credential': 'irma-demo.discipl.demoBRI',
-    //    'attributes': { 'registeredIncome': attrs[0], 'taxYear': attrs[1] }
+      //    'credential': 'irma-demo.discipl.demoBRI',
+      //    'attributes': { 'registeredIncome': attrs[0], 'taxYear': attrs[1] }
     }]
   }).then(function (result) { showSuccess('Success'); });
 }

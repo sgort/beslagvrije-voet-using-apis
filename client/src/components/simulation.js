@@ -7,7 +7,6 @@ const intialBaselineInvorderingen = require('./../simulations/baseline-invorderi
 const intialBaselineCredentials = require('./../simulations/baseline-credentials.json');
 const incomechangeSimulation = require('./../simulations/income-change-invorderingen.json');
 const bvvchangeSimulation = require('./../simulations/bvv-change-invorderingen.json');
-const bvvchangeSimulationCredentials = require('./../simulations/bvv-change-credentials.json');
 const restSimulation = require('./../simulations/rest-invorderingen.json');
 const restSimulationCredentials = require('./../simulations/rest-credentials.json');
 const nochangesSimulation = require('./../simulations/no-changes.json');
@@ -123,13 +122,6 @@ class Simulation extends Component {
                     // eslint-disable-next-line
                     var json = JSON.stringify(bvvchangeSimulation[l]);
                     insertRecords(json, invorderingenURL);
-                }
-                // eslint-disable-next-line
-                for (var l = 0; l < bvvchangeSimulationCredentials.length; l++) {
-                    //wait(100);
-                    // eslint-disable-next-line
-                    var json = JSON.stringify(bvvchangeSimulationCredentials[l]);
-                    insertRecords(json, credentialsURL);
                 }
                 break;
             /**

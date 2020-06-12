@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { createSorter } from './components/sort';
 import { createFilter } from './components/filter';
 import TableDisplay from './components/tabledisplay';
+import DatePicker from 'react-datepicker';
 
+import "react-datepicker/dist/react-datepicker.css";
 
 class ListMonth extends Component {
     constructor(props) {
@@ -19,7 +21,7 @@ class ListMonth extends Component {
                 property: 'invordering',
                 direction: 'DESC'
             }],
-            dropdownvalue: '2018-01'
+            startDate: new Date('2018-01')
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -52,17 +54,23 @@ class ListMonth extends Component {
         });
     };
 
-    handleChange(event) {
+    handleChange = date => {
+        this.setState({
+            startDate: date
+        });
+        this.filterList(date.toISOString().split('T')[0])
+    };
+
+    filterList(selectedMonth) {
         this.setState({
             data: null, // can't fix persistent problem with filtering, this bad solution then
             filters: [{
                 property: 'maand',
-                value: event.target.value
+                value: selectedMonth
             }],
-            dropdownvalue: event.target.value
         });
         this.componentDidMount();
-    };
+    }
 
     render() {
         const { data } = this.state;
@@ -70,25 +78,17 @@ class ListMonth extends Component {
     }
 
     renderData(data) {
+        const { startDate } = this.state;
         if (data && data.length > 0) {
             return (
                 <div className="Filter">
                     <p className="Filter">Status invordering(en):
-                    <select class="ui selection dropdown" value={this.state.dropdownvalue} onChange={this.handleChange}>
-                            <option value="2018-01">jan</option>
-                            <option value="2018-02">feb</option>
-                            <option value="2018-03">mar</option>
-                            <option value="2018-04">apr</option>
-                            <option value="2018-05">mei</option>
-                            <option value="2018-06">jun</option>
-                            <option value="2018-07">jul</option>
-                            <option value="2018-08">aug</option>
-                            <option value="2018-09">sep</option>
-                            <option value="2018-10">okt</option>
-                            <option value="2018-11">nov</option>
-                            <option value="2018-12">dec</option>
-                            <option value="">Geen</option>
-                        </select>
+                    <DatePicker
+                            selected={this.state.startDate}
+                            onChange={this.handleChange}
+                            dateFormat="yyyy-MM"
+                            showMonthYearPicker
+                        />
                     </p>
                     <TableDisplay data={data} />
                 </div>
