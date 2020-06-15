@@ -1,0 +1,90 @@
+[
+    {
+      "_baseline": false,
+      "maand": "2018-05-01",
+      "BSN": 999993483,
+      "beslag_object": "Loon",
+      "beslaglegger": "SNS Bank",
+      "openstaande_vordering": 2275.84,
+      "beslagvrije_voet": 1562.86,
+      "afloscapaciteit": 537.14,
+      "invordering": 134.29
+    },
+    {
+      "_baseline": false,
+      "maand": "2018-06-01",
+      "BSN": 999993483,
+      "beslag_object": "Loon",
+      "beslaglegger": "SNS Bank",
+      "openstaande_vordering": 2141.56,
+      "beslagvrije_voet": 1562.86,
+      "afloscapaciteit": 537.14,
+      "invordering": 134.29
+    },
+    {
+      "_baseline": false,
+      "maand": "2018-07-01",
+      "BSN": 999993483,
+      "beslag_object": "Loon",
+      "beslaglegger": "SNS Bank",
+      "openstaande_vordering": 1984.6,
+      "beslagvrije_voet": 1562.86,
+      "afloscapaciteit": 537.14,
+      "invordering": 156.96
+    },
+    {
+      "_baseline": false,
+      "maand": "2018-08-01",
+      "BSN": 999993483,
+      "beslag_object": "Loon",
+      "beslaglegger": "SNS Bank",
+      "openstaande_vordering": 1805.55,
+      "beslagvrije_voet": 1562.86,
+      "afloscapaciteit": 537.14,
+      "invordering": 179.05
+    },
+    {
+      "_baseline": false,
+      "maand": "2018-05-01",
+      "BSN": 999993483,
+      "beslag_object": "Loon",
+      "beslaglegger": "Hakrinkbank",
+      "openstaande_vordering": 1958.98,
+      "beslagvrije_voet": 1562.86,
+      "afloscapaciteit": 537.14,
+      "invordering": 134.29
+    },
+    {
+      "_baseline": false,
+      "maand": "2018-06-01",
+      "BSN": 999993483,
+      "beslag_object": "Loon",
+      "beslaglegger": "Hakrinkbank",
+      "openstaande_vordering": 1824.7,
+      "beslagvrije_voet": 1562.86,
+      "afloscapaciteit": 537.14,
+      "invordering": 134.29
+    },
+    {
+      "_baseline": false,
+      "maand": "2018-07-01",
+      "BSN": 999993483,
+      "beslag_object": "Loon",
+      "beslaglegger": "Hakrinkbank",
+      "openstaande_vordering": 1667.74,
+      "beslagvrije_voet": 1562.86,
+      "afloscapaciteit": 537.14,
+      "invordering": 156.96
+    },
+    {
+      "_baseline": false,
+      "maand": "2018-08-01",
+      "BSN": 999993483,
+      "beslag_object": "Loon",
+      "beslaglegger": "Hakrinkbank",
+      "openstaande_vordering": 1488.69,
+      "beslagvrije_voet": 1562.86,
+      "afloscapaciteit": 537.14,
+      "invordering": 179.05
+    }
+]

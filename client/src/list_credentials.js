@@ -66,7 +66,11 @@ function doVerificationSession() {
       var json = JSON.stringify(bvvchangeSimulationCredentials[l]);
       insertRecords(json, credentialsURL);
     }
-    //window.location.assign('/credentials');
+    setTimeout(function () {
+      /**
+       * reload page without loosing simsteps
+       */
+    }, 3000);
   });
 }
 

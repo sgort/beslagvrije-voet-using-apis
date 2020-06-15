@@ -1,0 +1,35 @@
+[
+    {
+      "_baseline": false,
+      "maand": "2018-05-01",
+      "BSN": 999993483,
+      "beslag_object": "Loon",
+      "beslaglegger": "Wehkamp",
+      "openstaande_vordering": 200.55,
+      "beslagvrije_voet": 1562.86,
+      "afloscapaciteit": 537.14,
+      "invordering": 134.29
+    },
+    {
+      "_baseline": false,
+      "maand": "2018-06-01",
+      "BSN": 999993483,
+      "beslag_object": "Loon",
+      "beslaglegger": "Wehkamp",
+      "openstaande_vordering": 66.26,
+      "beslagvrije_voet": 1562.86,
+      "afloscapaciteit": 537.14,
+      "invordering": 134.29
+    },
+    {
+      "_baseline": false,
+      "maand": "2018-07-01",
+      "BSN": 999993483,
+      "beslag_object": "Loon",
+      "beslaglegger": "Wehkamp",
+      "openstaande_vordering": 0,
+      "beslagvrije_voet": 1562.86,
+      "afloscapaciteit": 537.14,
+      "invordering": 66.26
+    }
+]

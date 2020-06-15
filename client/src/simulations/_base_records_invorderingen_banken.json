@@ -1,0 +1,26 @@
+[
+    {
+        "_base_record": "true",
+        "maand": "2018-01-01",
+        "BSN": 999993483,
+        "beslag_object": "Loon",
+        "samenloop": "false",
+        "beslaglegger": "SNS Bank",
+        "openstaande_vordering": 3000,
+        "beslagvrije_voet": null,
+        "afloscapaciteit": null,
+        "invordering": null
+    },
+    {
+        "_base_record": "true",
+        "maand": "2018-01-01",
+        "BSN": 999993483,
+        "beslag_object": "Loon",
+        "samenloop": "false",
+        "beslaglegger": "Hakrinkbank",
+        "openstaande_vordering": 2400,
+        "beslagvrije_voet": null,
+        "afloscapaciteit": null,
+        "invordering": null
+    }
+]

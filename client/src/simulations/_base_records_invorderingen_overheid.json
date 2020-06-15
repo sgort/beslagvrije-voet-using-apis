@@ -1,0 +1,26 @@
+[
+    {
+        "_base_record": "true",
+        "maand": "2018-01-01",
+        "BSN": 999993483,
+        "beslag_object": "Loon",
+        "samenloop": "false",
+        "beslaglegger": "DUO",
+        "openstaande_vordering": 2000,
+        "beslagvrije_voet": null,
+        "afloscapaciteit": null,
+        "invordering": null
+    },
+    {
+        "_base_record": "true",
+        "maand": "2018-01-01",
+        "BSN": 999993483,
+        "beslag_object": "Loon",
+        "samenloop": "false",
+        "beslaglegger": "Belastingdienst",
+        "openstaande_vordering": 1250,
+        "beslagvrije_voet": null,
+        "afloscapaciteit": null,
+        "invordering": null
+    }
+]

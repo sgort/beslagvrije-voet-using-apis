@@ -1,0 +1,13 @@
+[
+    {
+      "_baseline": true,
+      "maand": "2018-04-01",
+      "BSN": 999993483,
+      "beslag_object": "Loon",
+      "beslaglegger": "DUO",
+      "openstaande_vordering": 1929.22,
+      "beslagvrije_voet": 1562.86,
+      "afloscapaciteit": 283.14,
+      "invordering": 70.79
+    }
+]
