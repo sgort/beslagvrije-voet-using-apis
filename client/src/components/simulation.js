@@ -68,23 +68,6 @@ class Simulation extends Component {
     runSimulation(type) {
         switch (type) {
             /**
-             * 0..3: Volledige looptijd
-             */
-            case type = "nochange":
-                for (var i = 0; i < nochangesSimulation.length; i++) {
-                    //wait(100);
-                    var json = JSON.stringify(nochangesSimulation[i]);
-                    insertRecords(json, invorderingenURL);
-                }
-                // eslint-disable-next-line
-                for (var i = 0; i < nochangesSimulationCredentials.length; i++) {
-                    //wait(100);
-                    // eslint-disable-next-line
-                    var json = JSON.stringify(nochangesSimulationCredentials[i]);
-                    insertRecords(json, credentialsURL);
-                }
-                break;
-            /**
              * 0: Uitgangssituatie
              */
             case type = "baseline":
@@ -192,7 +175,6 @@ class Simulation extends Component {
                         <option value="incomechange">1: Tot wijziging inkomen</option>
                         <option value="bvvchange">2: Tot verandering bvv</option>
                         <option value="rest">3: Afronding</option>
-                        <option value="nochange">0..3: Volledige looptijd</option>
                     </select>
                 </label>
                 <p></p>
