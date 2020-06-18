@@ -1,5 +1,5 @@
 export default `
-  type Invordering {
+  type Invordering_banken {
     _id: String!
     _base_record: Boolean!
     _baseline: Boolean!
@@ -15,8 +15,8 @@ export default `
   }
 
   type Query {
-    invordering(_id: ID!): Invordering!
-    invorderingen: [Invordering!]!
+    invordering_banken(_id: ID!): Invordering_banken!
+    invorderingen_banken: [Invordering_banken!]!
   }
 
 `;

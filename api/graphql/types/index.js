@@ -1,8 +1,9 @@
 import { mergeTypes } from "merge-graphql-schemas";
 
-import Invordering from "./Invordering/";
+import Invordering_banken from "./Invordering_banken/";
+import Invordering_wehkamp from "./Invordering_wehkamp/";
 
-const typeDefs = [Invordering];
+const typeDefs = [Invordering_banken, Invordering_wehkamp];
 
 // NOTE: 2nd param is optional, and defaults to false
 // Only use if you have defined the same type multiple times in

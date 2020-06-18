@@ -1,12 +1,12 @@
-import Invordering from "../../../models/invordering";
+import Invordering_wehkamp from "../../../models/invordering_wehkamp";
 
 export default {
   Query: {
-    invordering: async (parent, { _id }, context, info) => {
-      return await Invordering.findOne({ _id }).exec();
+    invordering_wehkamp: async (parent, { _id }, context, info) => {
+      return await Invordering_wehkamp.findOne({ _id }).exec();
     },
-    invorderingen: async (parent, args, context, info) => {
-      const res = await Invordering.find({})
+    invorderingen_wehkamp: async (parent, args, context, info) => {
+      const res = await Invordering_wehkamp.find({})
         .populate()
         .exec();
 
