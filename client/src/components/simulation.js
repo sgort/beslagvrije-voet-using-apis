@@ -3,16 +3,19 @@ import React, { Component } from "react";
 /**
  * External json files holding the records for simulation
  */
-const intialBaselineInvorderingen = require('./../simulations/baseline-invorderingen.json');
+const intialBaselineInvorderingenBanken = require('./../simulations/baseline_invorderingen_banken.json');
 const intialBaselineCredentials = require('./../simulations/baseline-credentials.json');
-const incomechangeSimulation = require('./../simulations/income-change-invorderingen.json');
+const incomechangeSimulationInvorderingenbanken = require('./../simulations/income_change_invorderingen_banken.json');
+const incomechangeSimulationInvorderingenwehkamp = require('./../simulations/income_change_invorderingen_wehkamp.json');
+const incomechangeSimulationInvorderingenoverheid = require('./../simulations/income_change_invorderingen_overheid.json');
 const bvvchangeSimulation = require('./../simulations/bvv-change-invorderingen.json');
 const restSimulation = require('./../simulations/rest-invorderingen.json');
 const restSimulationCredentials = require('./../simulations/rest-credentials.json');
-const nochangesSimulation = require('./../simulations/no-changes.json');
-const nochangesSimulationCredentials = require('./../simulations/no-changes-credentials.json');
 
 const invorderingenURL = 'http://localhost:9000/invorderingen';
+const invorderingenbankenURL = 'http://localhost:9000/invorderingenbanken';
+const invorderingenoverheidURL = 'http://localhost:9000/invorderingenoverheid';
+const invorderingenwehkampURL = 'http://localhost:9000/invorderingenwehkamp';
 const credentialsURL = 'http://localhost:9000/credentials';
 const rulesengineURL = 'http://localhost:9000/rulesengine'
 
@@ -47,13 +50,6 @@ function deleteRecords(url) {
         .catch(error => console.log('error', error));
 }
 
-function wait(ms) {
-    var d = new Date();
-    var d2 = null;
-    do { d2 = new Date(); }
-    while (d2 - d < ms);
-}
-
 class Simulation extends Component {
     constructor(props) {
         super(props);
@@ -71,29 +67,39 @@ class Simulation extends Component {
              * 0: Uitgangssituatie
              */
             case type = "baseline":
-                for (var k = 0; k < intialBaselineInvorderingen.length; k++) {
-                    //wait(100);
+                for (var k = 0; k < intialBaselineInvorderingenBanken.length; k++) {
                     // eslint-disable-next-line
-                    var json = JSON.stringify(intialBaselineInvorderingen[k]);
-                    insertRecords(json, invorderingenURL);
+                    var json = JSON.stringify(intialBaselineInvorderingenBanken[k]);
+                    insertRecords(json, invorderingenbankenURL);
                 }
                 // eslint-disable-next-line
                 for (var k = 0; k < intialBaselineCredentials.length; k++) {
-                    //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(intialBaselineCredentials[k]);
                     insertRecords(json, credentialsURL);
                 }
                 break;
             /**
-             * 1: Wijziging inkomen
+             * 1: Tot wijziging inkomen
+             * Just the invorderingen; income credential is inserted via IRMA app verification (see: list_credentials.js)
              */
             case type = "incomechange":
-                for (var j = 0; j < incomechangeSimulation.length; j++) {
-                    //wait(100);
+                for (var j = 0; j < incomechangeSimulationInvorderingenbanken.length; j++) {
                     // eslint-disable-next-line
-                    var json = JSON.stringify(incomechangeSimulation[j]);
-                    insertRecords(json, invorderingenURL);
+                    var json = JSON.stringify(incomechangeSimulationInvorderingenbanken[j]);
+                    insertRecords(json, invorderingenbankenURL);
+                }
+                // eslint-disable-next-line
+                for (var j = 0; j < incomechangeSimulationInvorderingenwehkamp.length; j++) {
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(incomechangeSimulationInvorderingenwehkamp[j]);
+                    insertRecords(json, invorderingenwehkampURL);
+                }
+                // eslint-disable-next-line
+                for (var j = 0; j < incomechangeSimulationInvorderingenoverheid.length; j++) {
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(incomechangeSimulationInvorderingenoverheid[j]);
+                    insertRecords(json, invorderingenoverheidURL);
                 }
                 break;
             /**
@@ -101,7 +107,6 @@ class Simulation extends Component {
              */
             case type = "bvvchange":
                 for (var l = 0; l < bvvchangeSimulation.length; l++) {
-                    //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(bvvchangeSimulation[l]);
                     insertRecords(json, invorderingenURL);
@@ -112,14 +117,12 @@ class Simulation extends Component {
              */
             case type = "rest":
                 for (var n = 0; n < restSimulation.length; n++) {
-                    //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(restSimulation[n]);
                     insertRecords(json, invorderingenURL);
                 }
                 // eslint-disable-next-line
                 for (var n = 0; n < restSimulationCredentials.length; n++) {
-                    //wait(100);
                     // eslint-disable-next-line
                     var json = JSON.stringify(restSimulationCredentials[n]);
                     insertRecords(json, credentialsURL);
@@ -144,6 +147,9 @@ class Simulation extends Component {
 
     handleDelete(event) {
         deleteRecords(invorderingenURL);
+        deleteRecords(invorderingenbankenURL);
+        deleteRecords(invorderingenwehkampURL);
+        deleteRecords(invorderingenoverheidURL);
         deleteRecords(credentialsURL);
         deleteRecords(rulesengineURL);
         localStorage.setItem("simStepLocalStorage", "default");

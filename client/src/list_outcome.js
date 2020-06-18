@@ -19,13 +19,15 @@ class ListOutcome extends Component {
                 property: 'invordering',
                 direction: 'DESC'
             }],
-            dropdownvalue: 'SNS Bank'
+            dropdownvalue: "SNS Bank",
+            fetchURL: 'http://localhost:9000/invorderingenbanken' // default value to start with
+
         };
         this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {
-        fetch('http://localhost:9000/invorderingen')
+        fetch(this.state.fetchURL)
             .then(res => res.json())
             .then(this.onLoad);
     }
@@ -61,6 +63,45 @@ class ListOutcome extends Component {
             }],
             dropdownvalue: event.target.value
         });
+        switch (event.target.value) { // Using callback here because setState needs some time to mutate, ie is asynchronous
+            case "SNS Bank":
+                this.setState({
+                    fetchURL: 'http://localhost:9000/invorderingenbanken'
+                }, function () {
+                    this.componentDidMount();
+                });
+                break;
+            case "Hakrinkbank":
+                this.setState({
+                    fetchURL: 'http://localhost:9000/invorderingenbanken'
+                }, function () {
+                    this.componentDidMount();
+                });
+                break;
+            case "Wehkamp":
+                this.setState({
+                    fetchURL: 'http://localhost:9000/invorderingenwehkamp'
+                }, function () {
+                    this.componentDidMount();
+                });
+                break;
+            case "DUO":
+                this.setState({
+                    fetchURL: 'http://localhost:9000/invorderingenoverheid'
+                }, function () {
+                    this.componentDidMount();
+                });
+                break;
+            case "Belastingdienst":
+                this.setState({
+                    fetchURL: 'http://localhost:9000/invorderingenoverheid'
+                }, function () {
+                    this.componentDidMount();
+                });
+                break;
+            default:
+            // Just here to prevent compile warning
+        }
         this.componentDidMount();
     };
 
@@ -80,7 +121,6 @@ class ListOutcome extends Component {
                             <option value="Wehkamp">Wehkamp</option>
                             <option value="DUO">DUO</option>
                             <option value="Belastingdienst">Belastingdienst</option>
-                            <option value="">Geen</option>
                         </select>
                     </p>
                     <TableDisplay data={data} />

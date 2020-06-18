@@ -27,7 +27,7 @@ class ListMonth extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:9000/invorderingen')
+        fetch('http://localhost:9000/invorderingenbanken')
             .then(res => res.json())
             .then(this.onLoad);
     }
@@ -79,7 +79,6 @@ class ListMonth extends Component {
     }
 
     renderData(data) {
-        const { startDate } = this.state;
         if (data && data.length > 0) {
             return (
                 <div className="Filter">
