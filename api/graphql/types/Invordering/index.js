@@ -13,10 +13,7 @@ export default `
     afloscapaciteit: Float
     invordering: Float
   }
-
   type Query {
-    invordering(_id: ID!): Invordering!
     invorderingen: [Invordering!]!
   }
-
 `;
