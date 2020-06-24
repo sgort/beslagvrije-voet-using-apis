@@ -28,7 +28,29 @@ class ListMonth extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:9000/invorderingenbanken')
+        const query = `
+        query {
+            invorderingen {
+              maand BSN
+              beslag_object
+              beslaglegger
+              openstaande_vordering
+              beslagvrije_voet
+              afloscapaciteit
+              invordering
+            }
+          }
+          `;
+
+        const url = "http://localhost:4000/graphql";
+
+        const opts = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query })
+        };
+
+        fetch(url, opts)
             .then(res => res.json())
             .then(this.onLoad);
     }
@@ -51,7 +73,7 @@ class ListMonth extends Component {
 
     onLoad = data => {
         this.setState({
-            data: this.parseData(data.invorderingen)
+            data: this.parseData(data.data.invorderingen)
         });
     };
 

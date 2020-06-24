@@ -2,22 +2,21 @@ import Invordering_banken from "../../../models/invordering_banken";
 import Invordering_wehkamp from "../../../models/invordering_wehkamp";
 import Invordering_overheid from "../../../models/invordering_overheid";
 
-
 export default {
     Query: {
         invorderingen: async (parent, args, context, info) => {
             let result = [];
-            const banken = await Invordering_banken.find({})
+            const banken = await Invordering_banken.find({$or: [{ "_base_record": "false" }, { "_baseline": "true" }]})
                 .populate()
                 .exec();
             result = result.concat(banken);
 
-            const wehkamp = await Invordering_wehkamp.find({})
+            const wehkamp = await Invordering_wehkamp.find({$or: [{ "_base_record": "false" }, { "_baseline": "true" }]})
                 .populate()
                 .exec();
             result = result.concat(wehkamp);
 
-            const overheid = await Invordering_overheid.find({})
+            const overheid = await Invordering_overheid.find({$or: [{ "_base_record": "false" }, { "_baseline": "true" }]})
                 .populate()
                 .exec();
             result = result.concat(overheid);
@@ -26,7 +25,7 @@ export default {
                 _id: u._id.toString(),
                 _base_record: u._base_record,
                 _baseline: u._baseline,
-                maand: u.maand,
+                maand: u.maand.toISOString(),
                 BSN: u.BSN,
                 beslag_object: u.beslag_object,
                 samenloop: u.samenloop,
