@@ -1,8 +1,50 @@
 import Invordering_banken from "../../../models/invordering_banken";
 import Invordering_wehkamp from "../../../models/invordering_wehkamp";
 import Invordering_overheid from "../../../models/invordering_overheid";
-import fetch from 'node-fetch';
 
+
+export default {
+    Query: {
+        invorderingen: async (parent, args, context, info) => {
+            let result = [];
+            const banken = await Invordering_banken.find({})
+                .populate()
+                .exec();
+            result = result.concat(banken);
+
+            const wehkamp = await Invordering_wehkamp.find({})
+                .populate()
+                .exec();
+            result = result.concat(wehkamp);
+
+            const overheid = await Invordering_overheid.find({})
+                .populate()
+                .exec();
+            result = result.concat(overheid);
+
+            return result.map(u => ({
+                _id: u._id.toString(),
+                _base_record: u._base_record,
+                _baseline: u._baseline,
+                maand: u.maand,
+                BSN: u.BSN,
+                beslag_object: u.beslag_object,
+                samenloop: u.samenloop,
+                beslaglegger: u.beslaglegger,
+                openstaande_vordering: u.openstaande_vordering,
+                beslagvrije_voet: u.beslagvrije_voet,
+                afloscapaciteit: u.afloscapaciteit,
+                invordering: u.invordering
+            }));
+        }
+    }
+
+}
+
+
+/**
+ * Doesn't work: "Cannot return null for non-nullable field Invordering._id."
+ *
 export default {
     Query: {
         invorderingen: () => {
@@ -44,6 +86,7 @@ export default {
         }
     }
 }
+*/
 
 
 /**
