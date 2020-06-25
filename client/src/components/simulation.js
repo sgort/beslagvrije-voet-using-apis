@@ -8,8 +8,11 @@ const intialBaselineCredentials = require('./../simulations/baseline-credentials
 const incomechangeSimulationInvorderingenbanken = require('./../simulations/income_change_invorderingen_banken.json');
 const incomechangeSimulationInvorderingenwehkamp = require('./../simulations/income_change_invorderingen_wehkamp.json');
 const incomechangeSimulationInvorderingenoverheid = require('./../simulations/income_change_invorderingen_overheid.json');
-const bvvchangeSimulation = require('./../simulations/bvv-change-invorderingen.json');
-const restSimulation = require('./../simulations/rest-invorderingen.json');
+const bvvchangeSimulationInvorderingenbanken = require('./../simulations/bvv_change_invorderingen_banken.json');
+const bvvchangeSimulationInvorderingenwehkamp = require('./../simulations/bvv_change_invorderingen_wehkamp.json');
+const bvvchangeSimulationInvorderingenoverheid = require('./../simulations/bvv_change_invorderingen_overheid.json');
+const restSimulationInvorderingenbanken = require('./../simulations/rest_invorderingen_banken.json');
+const restSimulationInvorderingenoverheid = require('./../simulations/rest_invorderingen_overheid.json');
 const restSimulationCredentials = require('./../simulations/rest-credentials.json');
 
 const invorderingenURL = 'http://localhost:9000/invorderingen';
@@ -106,20 +109,38 @@ class Simulation extends Component {
              * 2: Verandering bvv
              */
             case type = "bvvchange":
-                for (var l = 0; l < bvvchangeSimulation.length; l++) {
+                for (var l = 0; l < bvvchangeSimulationInvorderingenbanken.length; l++) {
                     // eslint-disable-next-line
-                    var json = JSON.stringify(bvvchangeSimulation[l]);
-                    insertRecords(json, invorderingenURL);
+                    var json = JSON.stringify(bvvchangeSimulationInvorderingenbanken[l]);
+                    insertRecords(json, invorderingenbankenURL);
+                }
+                // eslint-disable-next-line
+                for (var l = 0; l < bvvchangeSimulationInvorderingenwehkamp.length; l++) {
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(bvvchangeSimulationInvorderingenwehkamp[l]);
+                    insertRecords(json, invorderingenwehkampURL);
+                }
+                // eslint-disable-next-line
+                for (var l = 0; l < bvvchangeSimulationInvorderingenoverheid.length; l++) {
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(bvvchangeSimulationInvorderingenoverheid[l]);
+                    insertRecords(json, invorderingenoverheidURL);
                 }
                 break;
             /**
              * 3: Afronding
              */
             case type = "rest":
-                for (var n = 0; n < restSimulation.length; n++) {
+                for (var n = 0; n < restSimulationInvorderingenbanken.length; n++) {
                     // eslint-disable-next-line
-                    var json = JSON.stringify(restSimulation[n]);
-                    insertRecords(json, invorderingenURL);
+                    var json = JSON.stringify(restSimulationInvorderingenbanken[n]);
+                    insertRecords(json, invorderingenbankenURL);
+                }
+                // eslint-disable-next-line
+                for (var n = 0; n < restSimulationInvorderingenoverheid.length; n++) {
+                    // eslint-disable-next-line
+                    var json = JSON.stringify(restSimulationInvorderingenoverheid[n]);
+                    insertRecords(json, invorderingenoverheidURL);
                 }
                 // eslint-disable-next-line
                 for (var n = 0; n < restSimulationCredentials.length; n++) {
