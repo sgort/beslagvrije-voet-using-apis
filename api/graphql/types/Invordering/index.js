@@ -14,6 +14,6 @@ export default `
     invordering: Float
   }
   type Query {
-    invorderingen: [Invordering!]!
+    invorderingen: [Invordering]
   }
 `;

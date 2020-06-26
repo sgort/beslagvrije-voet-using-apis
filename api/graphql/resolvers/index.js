@@ -1,9 +1,8 @@
 import { mergeResolvers } from "merge-graphql-schemas";
 
-import Invordering_banken from "./Invordering_banken";
-import Invordering_wehkamp from "./Invordering_wehkamp";
 import Invordering from "./Invordering";
+import User from "./User";
 
-const resolvers = [Invordering_banken, Invordering_wehkamp, Invordering];
+const resolvers = [Invordering, User];
 
 export default mergeResolvers(resolvers);
