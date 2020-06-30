@@ -35,7 +35,41 @@ export default {
                 afloscapaciteit: u.afloscapaciteit,
                 invordering: u.invordering
             }));
+        },
+        invorderingen_base_records: async (parent, args, context, info) => {
+            let result = [];
+            const banken = await Invordering_banken.find({$or: [{ "_base_record": "true" }, { "_baseline": "true" }]})
+                .populate()
+                .exec();
+            result = result.concat(banken);
+
+            const wehkamp = await Invordering_wehkamp.find({$or: [{ "_base_record": "true" }, { "_baseline": "true" }]})
+                .populate()
+                .exec();
+            result = result.concat(wehkamp);
+
+            const overheid = await Invordering_overheid.find({$or: [{ "_base_record": "true" }, { "_baseline": "true" }]})
+                .populate()
+                .exec();
+            result = result.concat(overheid);
+
+            return result.map(u => ({
+                _id: u._id.toString(),
+                _base_record: u._base_record,
+                _baseline: u._baseline,
+                maand: u.maand.toISOString(),
+                BSN: u.BSN,
+                beslag_object: u.beslag_object,
+                samenloop: u.samenloop,
+                beslaglegger: u.beslaglegger,
+                openstaande_vordering: u.openstaande_vordering,
+                beslagvrije_voet: u.beslagvrije_voet,
+                afloscapaciteit: u.afloscapaciteit,
+                invordering: u.invordering
+            }));
         }
+
+
     }
 
 }

@@ -9,22 +9,55 @@ class ListBaseline extends Component {
         sorters: this.props.sorters,
     };
 
-    
+
     static defaultProps = {
         filters: [{
             property: 'BSN',
             value: '999993483'
         }],
         sorters: [{
-            property: 'maand'
+            property: 'beslaglegger'
         }]
     };
 
+
     componentDidMount() {
-        fetch('http://localhost:9000/invorderingen/base-records')
+        const query = `
+        query {
+            invorderingen_base_records {
+              maand BSN
+              beslag_object
+              beslaglegger
+              openstaande_vordering
+              beslagvrije_voet
+              afloscapaciteit
+              invordering
+            }
+          }
+          `;
+
+        const url = "http://localhost:4000/graphql";
+
+        const opts = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query })
+        };
+
+        fetch(url, opts)
             .then(res => res.json())
             .then(this.onLoad);
     }
+
+    /**
+     * Original REST API 
+     *
+   componentDidMount() {
+    fetch('http://localhost:9000/invorderingen/base-records')
+        .then(res => res.json())
+        .then(this.onLoad);
+    }
+    */
 
     parseData(data) {
         const { sorters } = this.state;
@@ -38,9 +71,12 @@ class ListBaseline extends Component {
         return data;
     }
 
+    /**
+     * Notice: data.data.invorderingen_base_records, ie the GraphQL API JSON array
+     */
     onLoad = data => {
         this.setState({
-            data: this.parseData(data.invorderingen)
+            data: this.parseData(data.data.invorderingen_base_records)
         });
     };
 
@@ -59,7 +95,7 @@ class ListBaseline extends Component {
             return (
                 <div className="Status">
                     <p className="Status invorderingen">Status invordering(en): </p>
-                    <TableDisplay data={data}/>
+                    <TableDisplay data={data} />
                 </div>
             );
         } else {

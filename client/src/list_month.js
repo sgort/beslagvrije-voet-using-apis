@@ -71,6 +71,9 @@ class ListMonth extends Component {
         return data;
     }
 
+    /**
+    * Notice: data.data.invorderingen, ie the GraphQL API JSON array
+    */
     onLoad = data => {
         this.setState({
             data: this.parseData(data.data.invorderingen)
