@@ -14,4 +14,7 @@ export default `
     editUser(id: String, name: String, email: String, age: Int): User
     deleteUser(id: String, name: String, email: String, age: Int): User
   }
+  type Subscription {
+    userAdded: User
+  }
 `;
