@@ -1,4 +1,5 @@
 import User from "../../../models/user"
+const USER_ADDED = 'user_added';
 
 export default {
   Query: {
@@ -44,6 +45,11 @@ export default {
           err ? reject(err) : resolve(res);
         });
       });
+    }
+  },
+  Subscription: {
+    userAdded: {
+      subscribe: () => pubsub.asyncIterator(USER_ADDED)
     }
   }
 };
