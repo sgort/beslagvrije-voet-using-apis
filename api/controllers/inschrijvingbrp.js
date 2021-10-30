@@ -21,11 +21,11 @@ GET /inschrijvingbrp/999994669 - - ms - -
  * See: https://github.com/lostlemon/haal-centraal-brp-bevragen
  * 
  */
-const haalCentraalAPIbaseURL = 'https://haalcentraal.lostlemon.nl/';
+// const haalCentraalAPIbaseURL = 'https://haalcentraal.lostlemon.nl/';
 
 
 // Constant URL & API key value for Haal Centraal BRP API
-//const haalCentraalAPIbaseURL = 'https://www.haalcentraal.nl/haalcentraal/api/brp';
+const haalCentraalAPIbaseURL = 'https://www.haalcentraal.nl/haalcentraal/api/brp';
 const haalCentraalAPIKey = 'drsgPGjarGGRl2pKQTnLqfj3NfsTPBhR';
 
 
@@ -38,7 +38,7 @@ exports.inschrijvingbrp_find_one = (req, res, next) => {
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
-        //    'x-api-key': haalCentraalAPIKey,
+            'x-api-key': haalCentraalAPIKey,
             'Content-Type': 'application/json'
         },
         redirect: 'follow', // manual, *follow, error
