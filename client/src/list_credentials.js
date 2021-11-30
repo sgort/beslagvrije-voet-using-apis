@@ -199,8 +199,8 @@ class ObtainedCredentials extends Component {
               <option value="waardepapieren">Waardepapieren</option>
               <option value="default">IRMA</option>
               <option value="forus">MyApp Forus</option>
-              <option value="rabobank">Rabobank</option>
-              <option value="schluss">Schluss</option>
+              <option value="rabobank">Jolocom</option>
+              <option value="schluss">eSatus</option>
               <option value="trustchain">TrustChain</option>
             </select>
           </label>
